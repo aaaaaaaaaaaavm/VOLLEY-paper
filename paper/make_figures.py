@@ -23,6 +23,7 @@ Run:  python3 paper/make_figures.py
 import math
 import os
 import sys
+import json
 
 import numpy as np
 import matplotlib
@@ -232,17 +233,27 @@ def f07_family(Kt, F_cmd):
 
 
 # ------------------------------------------------------------------------------- F08
-def f08_brake(v0):
-    """First-order plate drag, taper-limited to the 200 g cap sizing.py assumes.
+def f08_brake(Kt, v0, Vc0):
+    """Arrest in two stages: regenerative section, then first-order plate drag.
 
-    E20 records that no force-time profile for the arrest exists anywhere in the
-    scripts; this figure is that first-order law and nothing more.
+    The regenerative leg comes from mm.regen_brake() rather than being redrawn here, so
+    the figure cannot disagree with A11. The eddy leg is taper-limited to the 200 g cap
+    sizing.py assumes. E20 records that no force-time profile for the arrest exists
+    anywhere in the scripts; the second half of this figure is that first-order law and
+    nothing more.
     """
+    m_s = mm.M_SLED
+    rg = mm.regen_brake(Kt, v0, Vc0)
+    F_rg = rg['F_brake']
+    v, x, hist = v0, 0.0, []
+    while x < rg['s_m']:                      # stage 1: regenerative, constant force
+        v -= F_rg / m_s * 1e-4
+        x += v * 1e-4
+        hist.append((x, v, F_rg))
+    x_split = x
     sig, tf, B, A = 5.8e7, 0.004, 0.85, 0.004
     c = sig * tf * B ** 2 * A
-    m_s = mm.M_SLED
-    v, x, hist = v0, 0.0, []
-    while v > 1.0 and x < 0.5:
+    while v > 1.0 and x < 0.5 + x_split:      # stage 2: eddy fin
         Fb = min(c * v, m_s * sizing.BRAKE_CAP_G * sizing.G)
         v -= Fb / m_s * 1e-4
         x += v * 1e-4
@@ -250,7 +261,12 @@ def f08_brake(v0):
     h = np.array(hist)
     fig, ax = plt.subplots(figsize=(4.8, 2.9))
     ax.plot(h[:, 0] * 100, h[:, 1], 'k-')
-    ax.set_xlabel('Distance into brake (cm)')
+    ax.axvline(x_split * 100, color='k', lw=0.6, ls='--')
+    ax.annotate(f"regen, {rg['E_recovered']:.0f} J recovered", (x_split * 100 - 2.2, v0 * 0.30),
+                fontsize=7, rotation=90, ha='right')
+    ax.annotate(f"eddy brake, {rg['KE_to_brake']:.0f} J", (x_split * 100 + 1.2, v0 * 0.30),
+                fontsize=7, rotation=90)
+    ax.set_xlabel('Distance past release (cm)')
     ax.set_ylabel('Sled velocity (m/s)')
     ax2 = ax.twinx()
     ax2.plot(h[:, 0] * 100, h[:, 2] / (m_s * sizing.G), 'k:')
@@ -293,8 +309,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     print("regenerating figures from analysis/ ...")
     Kt, ripple, xs, Fs = mm.thrust_constant(profile=True)
-    s = mm.shot(Kt)
-    dv = s['v_exit']
+    s_ = mm.shot(Kt)
+    dv = s_['v_exit']
     print(f"  operating point: Kt = {Kt*1e3:.2f} N per kA/m, "
           f"v_exit = {dv:.3f} m/s, sled {mm.M_SLED} kg")
 
@@ -304,10 +320,24 @@ def main():
     f04_life(dv)
     f05_dragvs()
     f06_conj(dv)
-    f07_family(Kt, s['F_cmd'])
-    f08_brake(dv)
+    f07_family(Kt, s_['F_cmd'])
+    f08_brake(Kt, dv, mm.V0 * (1 - s_['sag_pct'] / 100))
     f09_tipoff()
     f11_uq(dv)
+
+    # A rebuild that produces byte-identical PNGs leaves no trace in git, and
+    # tools/check_artifacts.py compares commit times, so it cannot tell "not rebuilt"
+    # from "rebuilt, unchanged". This stamp is what it checks instead: it records the
+    # operating point the figures were actually drawn from, so a stale figure set is
+    # visible as a stale stamp even when the images happen not to move.
+    stamp = dict(v_exit=round(float(dv), 3), Kt_N_per_kA=round(float(Kt) * 1e3, 2),
+                 sled_kg=float(mm.M_SLED), E_drawn_J=round(float(s_['E_drawn']), 1),
+                 E_recovered_J=round(float(mm.regen_brake(
+                     Kt, dv, mm.V0 * (1 - s_['sag_pct'] / 100))['E_recovered']), 1))
+    with open(os.path.join(OUT, 'BUILD.json'), 'w') as fh:
+        json.dump(stamp, fh, indent=2)
+        fh.write("\n")
+    print("  BUILD.json", stamp)
     print("done.")
 
 
