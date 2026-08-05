@@ -4,7 +4,7 @@
 > `tools/export_companion.py`. Nothing here is authored, and any edit made here will be
 > destroyed the next time it is regenerated.
 >
-> **Source:** [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit `d82877a`
+> **Source:** [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit `871abe6`
 > **Found a mistake?** Fix it in the flagship. This repository will pick it up.
 >
 > The flagship is the authoritative engineering record. Where this repository and the
@@ -39,16 +39,16 @@ cd analysis && python3 verify_field.py && python3 mass_properties.py \
 Roughly two minutes. Results land in `analysis/results/*.json`.
 
 This has been checked from a clean clone rather than assumed: run that way, `motor_results.json`
-returns `shot.v_exit = 16.537`, which is the figure the paper's abstract quotes.
+returns `shot.v_exit = 16.388`, which is the figure the paper's abstract quotes.
 
 ## What reproduces, and how well
 
 | Quantity | Value | Cross-checked against |
 |---|---|---|
-| Thrust constant | 11.22 N per kA/m | A meshed magnetostatic FEM, agreeing to 0.07 % |
+| Thrust constant | 11.03 N per kA/m | A meshed magnetostatic FEM, agreeing to 0.03 % |
 | Airgap field | 0.694 T midgap peak | magpylib, agreeing to three digits |
 | Orbital decay | x1.62 lifetime | Cowell RK4, agreeing to 99.4 % |
-| Exit velocity | 16.537 m/s at 10.7 g | Single-sourced |
+| Exit velocity | 16.388 m/s at 10.53 g | Single-sourced |
 | Dispersion | 0.027 m/s, 3 sigma | Single-sourced, and resting on assumed sensor noise |
 
 The last two have no independent check. `PROVENANCE.md` says which of these carry weight.
