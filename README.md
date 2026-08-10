@@ -4,7 +4,7 @@
 > `tools/export_companion.py`. Nothing here is authored, and any edit made here will be
 > destroyed the next time it is regenerated.
 >
-> **Source:** [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit `0ca5cd4`
+> **Source:** [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit `74ba1a1`
 > **Found a mistake?** Fix it in the flagship. This repository will pick it up.
 >
 > The flagship is the authoritative engineering record. Where this repository and the
@@ -26,7 +26,7 @@
 Everything needed to reproduce the conference paper. Manuscript source, figures, the analysis
 scripts behind every number in it, the validation run sheets, and the literature record.
 
-**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (11 pages)
+**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (13 pages)
 
 ## Reproduce it in one command
 
