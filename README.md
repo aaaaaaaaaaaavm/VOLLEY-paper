@@ -1,22 +1,26 @@
-> ## Generated repository, do not edit here
+> ## What is generated here, and what is not
 >
-> Every file in this repository is generated from the **VOLLEY flagship** by
-> `tools/export_companion.py`. Nothing here is authored, and any edit made here will be
-> destroyed the next time it is regenerated.
+> **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
+> `20027fc` by `tools/export_companion.py`: the analysis scripts and their results, the
+> validation run sheets, the figures, and the reference records. Any edit to those is
+> destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
-> **Source:** [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit `121cf64`
-> **Found a mistake?** Fix it in the flagship. This repository will pick it up.
+> **Authored here, and never overwritten:** the manuscript, its class file, the built PDF, the CV and the submission archive, all under `paper/`. VOLLEY is an engineering
+> record and holds no manuscript source.
 >
-> The flagship is the authoritative engineering record. Where this repository and the
-> flagship disagree, the flagship is right and this copy is stale.
+> Where a generated file disagrees with VOLLEY, VOLLEY is right and this copy is stale.
+>
+> **This repository may be improved until the work is published, and freezes at that
+> moment.** What enters it has to be stable, effective and reliable against the problem
+> statement -- not merely newer.
 
 <!-- PROGRAMME-HEADER-START -->
 | Repository | Role | You are here |
 |---|---|---|
-| [VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) | Flagship: the authoritative engineering record, and the portfolio |  |
-| **[VOLLEY-paper](https://github.com/aaaaaaaaaaaavm/VOLLEY-paper)** | IEEE companion: manuscript and reproducibility package *(generated)* | ← |
-| [VOLLEY-thesis](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis) | Thesis companion: university submission *(generated)* |  |
-| [VOLLEY-lab](https://github.com/aaaaaaaaaaaavm/VOLLEY-lab) | Phase II: research, redesign, deliberately unstable |  |
+| [VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) | Main: the authoritative engineering record. Improved continuously |  |
+| **[VOLLEY-paper](https://github.com/aaaaaaaaaaaavm/VOLLEY-paper)** | The concept at its most reliable, as a conference contribution. **Frozen when published** | ← |
+| [VOLLEY-thesis](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis) | The same concept as a full submission. **Frozen when presented** |  |
+| [VOLLEY-lab](https://github.com/aaaaaaaaaaaavm/VOLLEY-lab) | The vault: ideas that never became a complete thing, and why each stopped |  |
 <!-- PROGRAMME-HEADER-END -->
 
 ---
@@ -26,32 +30,35 @@
 Everything needed to reproduce the conference paper. Manuscript source, figures, the analysis
 scripts behind every number in it, the validation run sheets, and the literature record.
 
-**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (13 pages)
+**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (15 pages)
 
 ## Reproduce it in one command
 
 ```bash
 pip install -r requirements.txt
 cd analysis && python3 verify_field.py && python3 mass_properties.py \
-  && python3 motor_model.py && python3 sizing.py && python3 astro.py && python3 cost.py
+  && python3 motor_model.py && python3 sizing.py && python3 payload_family.py \
+  && python3 astro.py && python3 comparators.py && python3 cost.py
 ```
 
-Roughly two minutes. Results land in `analysis/results/*.json`.
+Roughly two minutes, and the order matters: everything downstream reads the rated shot from
+`motor_results.json` rather than restating it. Results land in `analysis/results/*.json`.
 
 This has been checked from a clean clone rather than assumed: run that way, `motor_results.json`
-returns `shot.v_exit = 16.388`, which is the figure the paper's abstract quotes.
+returns `shot.v_exit = 16.029`, which is the figure the paper's abstract quotes.
 
 ## What reproduces, and how well
 
 | Quantity | Value | Cross-checked against |
 |---|---|---|
-| Thrust constant | 11.03 N per kA/m | A meshed magnetostatic FEM, agreeing to 0.03 % |
+| Thrust constant, depth-resolved | 10.54 N per kA/m | Nothing independent. The FEM check below is of the centre-plane value it derives from |
+| Thrust constant, centre-plane | 11.03 N per kA/m | A meshed 2-D magnetostatic FEM, agreeing to 0.03 % |
 | Airgap field | 0.694 T midgap peak | magpylib, agreeing to three digits |
-| Orbital decay | x1.62 lifetime | Cowell RK4, agreeing to 99.4 % |
-| Exit velocity | 16.388 m/s at 10.53 g | Single-sourced |
-| Dispersion | 0.027 m/s, 3 sigma | Single-sourced, and resting on assumed sensor noise |
+| Orbital decay | x1.60 lifetime | Cowell RK4, agreeing to 99.4 % |
+| Exit velocity | 16.029 m/s at 10.07 g | Single-sourced |
+| Dispersion | 0.0274 m/s, 3 sigma | Single-sourced, and resting on assumed sensor noise |
 
-The last two have no independent check. `PROVENANCE.md` says which of these carry weight.
+Only two rows carry an independent check. `PROVENANCE.md` says which of these carry weight.
 
 ## Figures
 

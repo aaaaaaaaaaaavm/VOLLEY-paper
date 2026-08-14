@@ -1,4 +1,4 @@
-"""Regenerate every figure in paper/figures/ from analysis/.
+"""Regenerate every figure in figures/ from analysis/.
 
 Why this exists: until 2026-07-29 the committed PNGs had no generator in the
 repository. `legacy/make_figs.py` sits at a superseded operating point (4.0 kg sled,
@@ -17,9 +17,10 @@ than copied into this file.
 D01_block.png and D02_layout.png are schematics, not plots, and are not regenerated
 here -- see `legacy/make_diagrams.py`.
 
-Run:  python3 paper/make_figures.py
+Run:  python3 tools/make_figures.py
 """
 
+import hashlib
 import math
 import os
 import sys
@@ -31,19 +32,27 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'analysis'))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, 'analysis'))
 
 import astro
+import control_design as cd
 import motor_model as mm
 import sizing
 
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'figures')
+OUT = os.path.join(ROOT, 'figures')
 
 plt.rcParams.update({
     'font.family': 'serif', 'font.size': 10, 'axes.grid': True, 'grid.alpha': 0.3,
     'figure.dpi': 300, 'savefig.bbox': 'tight',
     'axes.spines.top': False, 'axes.spines.right': False,
 })
+
+
+def _cfd():
+    """A29's result, which F14 is drawn from and the stamp therefore has to carry."""
+    return json.load(open(os.path.join(ROOT, 'analysis', 'results',
+                                       'cfd_air_drag.json')))
 
 
 def save(fig, name):
@@ -305,6 +314,131 @@ def f09_tipoff():
     save(fig, 'F09_tipoff.png')
 
 
+# --------------------------------------------------------------------------- F12/F13
+def f12_bode():
+    """Open-loop Bode of the velocity loop at the published and the designed gain.
+
+    A28. The loop is feedback-linearised, so L(s) = Kp/s * exp(-s*tau) and the numeric
+    value of Kp IS the crossover in rad/s. The shaded band is where the track's two
+    modes live: a controller with authority there does not merely fail to help, it
+    drives them. Everything is imported from analysis/control_design.py.
+    """
+    w = np.logspace(0, 4.2, 3000)
+    f = w / (2 * np.pi)
+    fig, (a1, a2) = plt.subplots(2, 1, figsize=(5.2, 4.6), sharex=True,
+                                 gridspec_kw=dict(height_ratios=[1, 1], hspace=0.12))
+
+    for kp, style, lab in ((cd.KP_PUBLISHED, dict(color='k', ls='--', lw=1.2),
+                            f'$K_p$ = {cd.KP_PUBLISHED:.0f} s$^{{-1}}$ (as published)'),
+                           (mm.KP_VELOCITY, dict(color='k', ls='-', lw=1.6),
+                            f'$K_p$ = {mm.KP_VELOCITY:.0f} s$^{{-1}}$ (designed)')):
+        L = cd.open_loop(w, kp, latency=cd.LATENCY_S)
+        a1.semilogx(f, 20 * np.log10(np.abs(L)), label=lab, **style)
+        a2.semilogx(f, np.degrees(np.unwrap(np.angle(L))), **style)
+        m = cd.margins(kp)
+        a1.plot(m['f_c_Hz'], 0, 'o', ms=5, mfc='white', mec='k', zorder=5)
+        a2.plot(m['f_c_Hz'], m['phase_margin_deg'] - 180, 'o', ms=5, mfc='white',
+                mec='k', zorder=5)
+
+    for ax in (a1, a2):
+        ax.axvspan(cd.F_MODE2_HZ, cd.F_MODE_HZ, color='0.85', zorder=0)
+        ax.set_xlim(f[0], f[-1])
+    a1.axhline(0, color='0.4', lw=0.7)
+    a2.axhline(-180, color='0.4', lw=0.7)
+    a1.text(np.sqrt(cd.F_MODE2_HZ * cd.F_MODE_HZ), a1.get_ylim()[1] - 8,
+            'track modes\n48-109 Hz', ha='center', va='top', fontsize=7)
+    a1.set_ylabel('$|L|$, dB')
+    a2.set_ylabel('$\\angle L$, deg')
+    a2.set_xlabel('Frequency, Hz')
+    a1.legend(fontsize=7, loc='lower left', frameon=False)
+    a1.set_title(f'Velocity loop, {cd.LATENCY_S*1e3:.1f} ms transport delay + '
+                 f'{0.5/cd.F_SAMPLE_HZ*1e3:.2f} ms hold', fontsize=9)
+    a2.set_ylim(-360, -60)
+    a2.text(0.98, 0.06,
+            'phase is independent of $K_p$: one curve, two crossovers',
+            transform=a2.transAxes, ha='right', fontsize=7)
+    for kp, dy in ((cd.KP_PUBLISHED, 14), (mm.KP_VELOCITY, -26)):
+        m = cd.margins(kp)
+        a2.annotate(f"PM {m['phase_margin_deg']:.0f}$\\degree$",
+                    (m['f_c_Hz'], m['phase_margin_deg'] - 180),
+                    textcoords='offset points', xytext=(6, dy), fontsize=7)
+    save(fig, 'F12_bode.png')
+
+
+def f13_latency():
+    """Phase margin against measurement delay, both gains, with the stability floor.
+
+    The published gain crosses zero phase margin at a total lag of a third of a
+    millisecond. The designed gain does not reach the 45 deg line anywhere inside the
+    swept range.
+    """
+    lat = np.linspace(0, 3e-3, 400)
+    fig, ax = plt.subplots(figsize=(5.0, 2.9))
+    for kp, style, lab in ((cd.KP_PUBLISHED, dict(color='k', ls='--', lw=1.2),
+                            f'$K_p$ = {cd.KP_PUBLISHED:.0f} s$^{{-1}}$'),
+                           (mm.KP_VELOCITY, dict(color='k', ls='-', lw=1.6),
+                            f'$K_p$ = {mm.KP_VELOCITY:.0f} s$^{{-1}}$')):
+        pm = [cd.margins(kp, latency=l)['phase_margin_deg'] for l in lat]
+        ax.plot(lat * 1e3, pm, label=lab, **style)
+    ax.axhspan(-200, 0, color='0.88', zorder=0)
+    ax.axhline(45, color='0.4', lw=0.8, ls=':')
+    ax.text(2.9, 47, 'band: 45 deg', ha='right', fontsize=7)
+    ax.text(2.9, -35, 'unstable', ha='right', fontsize=7)
+    ax.axvline(cd.LATENCY_S * 1e3, color='0.4', lw=0.8)
+    ax.text(cd.LATENCY_S * 1e3 + 0.05, 100, 'stated assumption\n0.6 ms', fontsize=7)
+    ax.set_xlim(0, 3)
+    ax.set_ylim(-180, 120)
+    ax.set_xlabel('Transport delay, ms  (E7: no sensor selected)')
+    ax.set_ylabel('Phase margin, deg')
+    ax.legend(fontsize=7, loc='lower left', frameon=False)
+    save(fig, 'F13_latency.png')
+
+
+# --------------------------------------------------------------------------- F14
+def f14_airdrag():
+    """A29: what air costs a ground test, against the two things it must be compared to.
+
+    Left: the drag force along the stroke, which rises linearly because the profile is
+    position-scheduled and v^2 is therefore linear in x. Right: the resulting exit-velocity
+    deficit set beside the design point and beside the dispersion the test exists to
+    resolve -- the comparison that decides whether the correction can be ignored.
+    """
+    d = json.load(open(os.path.join(ROOT, 'analysis', 'results',
+                                    'cfd_air_drag.json')))
+    L = d['accel_zone_m']
+    F = d['free']['drag_N']
+    x = np.linspace(0, L, 200)
+
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(6.6, 2.9),
+                                 gridspec_kw=dict(width_ratios=[1.15, 1], wspace=0.35))
+    a1.plot(x, F * x / L, color='k', lw=1.6)
+    a1.fill_between(x, F * x / L, color='0.85')
+    a1.set_xlabel('Position along the acceleration zone, m')
+    a1.set_ylabel('Air drag, N')
+    a1.set_xlim(0, L)
+    a1.set_ylim(0, F * 1.15)
+    a1.text(0.04 * L, F * 0.9, f"$C_d$ = {d['free']['Cd']:.2f}\n"
+            f"{d['free']['work_J']:.2f} J over the stroke", fontsize=7.5, va='top')
+
+    dfc = d['free']['deficit_m_s']
+    labels = ['Air deficit', 'Dispersion\n(3$\\sigma$)', 'Design point']
+    vals = [dfc, d['dispersion_3sigma'], d['v_exit']]
+    tags = ['', f'deficit is {100*dfc/d["dispersion_3sigma"]:.0f} % of it',
+            f'deficit is {100*dfc/d["v_exit"]:.3f} % of it']
+    a2.barh(range(3), vals, color=['0.25', '0.55', '0.85'], edgecolor='k', height=0.6)
+    a2.set_yticks(range(3))
+    a2.set_yticklabels(labels, fontsize=8)
+    a2.set_xscale('log')
+    a2.set_xlabel('m/s (log scale)')
+    a2.invert_yaxis()
+    for i, (v, tg) in enumerate(zip(vals, tags)):
+        a2.text(v * 1.3, i + 0.02, f'{v:.4g}', va='bottom', fontsize=7.5)
+        if tg:
+            a2.text(v * 1.3, i + 0.06, tg, va='top', fontsize=6.5, color='0.35')
+    a2.set_xlim(min(vals) * 0.35, max(vals) * 40)
+    save(fig, 'F14_airdrag.png')
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     print("regenerating figures from analysis/ ...")
@@ -324,16 +458,30 @@ def main():
     f08_brake(Kt, dv, mm.V0 * (1 - s_['sag_pct'] / 100))
     f09_tipoff()
     f11_uq(dv)
+    f12_bode()
+    f13_latency()
+    f14_airdrag()
 
     # A rebuild that produces byte-identical PNGs leaves no trace in git, and
     # tools/check_artifacts.py compares commit times, so it cannot tell "not rebuilt"
     # from "rebuilt, unchanged". This stamp is what it checks instead: it records the
     # operating point the figures were actually drawn from, so a stale figure set is
     # visible as a stale stamp even when the images happen not to move.
+    # The hand-picked subset below cannot move for a change it does not happen to quote,
+    # which is the same blind spot the stamp exists to close: on 2026-08-13 the velocity-loop
+    # gain changed, F03 was redrawn, and every field here stayed identical. The digest is of
+    # the whole results file, so ANY change to the operating point moves the stamp.
+    with open(os.path.join(ROOT, 'analysis', 'results',
+                           'motor_results.json'), 'rb') as fh:
+        digest = hashlib.sha256(fh.read()).hexdigest()[:16]
     stamp = dict(v_exit=round(float(dv), 3), Kt_N_per_kA=round(float(Kt) * 1e3, 2),
                  sled_kg=float(mm.M_SLED), E_drawn_J=round(float(s_['E_drawn']), 1),
                  E_recovered_J=round(float(mm.regen_brake(
-                     Kt, dv, mm.V0 * (1 - s_['sag_pct'] / 100))['E_recovered']), 1))
+                     Kt, dv, mm.V0 * (1 - s_['sag_pct'] / 100))['E_recovered']), 1),
+                 closed_loop_3sigma=float(mm.closed_loop_mc(Kt)['sigma3']),
+                 motor_results_sha256_16=digest,
+                 air_drag_N=_cfd()['free']['drag_N'],
+                 air_deficit_m_s=_cfd()['free']['deficit_m_s'])
     with open(os.path.join(OUT, 'BUILD.json'), 'w') as fh:
         json.dump(stamp, fh, indent=2)
         fh.write("\n")
