@@ -6,13 +6,38 @@
 > ADR-028: the flagship is an engineering record and holds no LaTeX. See [`BUILD.md`](BUILD.md)
 > for what is authored here and what is generated.
 
-**Rebuilt 2026-08-13 (fifth pass)** from the current source with pdfTeX (TeX Live 2023):
+**Rebuilt 2026-08-13 (sixth pass)** from the current source with pdfTeX (TeX Live 2023):
 **15 pages, zero undefined references, zero missing figures, zero errors.** Source and PDF agree. The one-page CV was
 regenerated from `analysis/results/*.json` and rebuilt in the same environment on 2026-08-06
 and is unchanged by this build.
 
 To rebuild: run `pdflatex paper.tex` from this directory until the cross-references settle
 (three passes from a clean build), or upload `paper.tex`, `IEEEtran.cls` and `figures/` to Overleaf.
+
+## What changed in the sixth pass, 2026-08-13
+
+**The baseline moved, and the manuscript follows it.** ADR-030 in the flagship applied the
+depth-resolved thrust constant (**P46**) and three decisions beside it. Every headline in this
+paper changed and **every one of them moved the wrong way**:
+
+| | Was | Is |
+|---|---:|---:|
+| K_t, N per kA/m | 11.03 | **10.54** |
+| Exit velocity, 3U | 16.4 m/s | **16.0 m/s** |
+| Fleet setpoint | 16.2 m/s | **15.8 m/s** |
+| Electrical-to-payload | 21.0 % | **18.8 %** |
+| Energy recovered per shot | 0.29 kJ | **0.05 kJ** |
+| Dry / loaded mass | 76.5 / 124.5 kg | **84.5 / 132.5 kg** |
+
+**§IV-B now states the depth assumption where the thrust constant is derived**, because the
+centre-plane value this work used until an independent depth-resolved integral was run is 4.4 %
+higher, and saying so is the difference between a corrected paper and a quietly re-baselined one.
+
+**The regenerative section is 39 mm, not 240** — it and the 300 mm eddy fin could not both fit a
+339 mm arrest section, and shortening regen was chosen over dropping it because dropping it
+raises brake duty 24 % against a structure holding eleven stowed satellites.
+
+15 pages, zero undefined references. Figures re-exported from the flagship at the new point.
 
 ## What changed in the fifth pass, 2026-08-13
 
