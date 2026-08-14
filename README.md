@@ -1,7 +1,7 @@
 > ## What is generated here, and what is not
 >
 > **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `243c96d` by `tools/export_companion.py`: the analysis scripts and their results, the
+> `823e894` by `tools/export_companion.py`: the analysis scripts and their results, the
 > validation run sheets, the figures, and the reference records. Any edit to those is
 > destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
@@ -73,6 +73,22 @@ built, fired or measured, and the paper says so.
 [`PRIOR_ART.md`](PRIOR_ART.md) records the published work nearest to this one, including two
 claims the paper had to retract after reading it. [`LITERATURE.md`](LITERATURE.md) maps the wider
 field.
+
+
+## The manuscript describes Gen5, and the design target has moved
+
+**This is deliberate and worth stating plainly.** Everything reproduced here is **Gen5** — the
+measured baseline, and the record of what a self-contained deployer costs. On 2026-08-14 five
+analyses in the main repository replaced the design target: **Gen6 is the payload accelerated
+directly, by cold gas, along a rail a spent upper stage provides** (ADR-032). No mover, no
+pulse-power chain, no brake, no return stroke.
+
+**Nothing in Gen6 is measured**, its fluid system is unsized, its cradle mechanism does not exist,
+and no launch provider has agreed to lend a stage — which is exactly why the manuscript still
+carries Gen5. A paper reports what has been analysed to a declared standard, not what looks best
+this week.
+
+**The main repository carries both**, and the failures at the same standard as the results.
 
 ## What is deliberately absent
 
