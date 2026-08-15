@@ -1,7 +1,7 @@
 > ## What is generated here, and what is not
 >
 > **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `39a4699` by `tools/export_companion.py`: the analysis scripts and their results, the
+> `d52b2c3` by `tools/export_companion.py`: the analysis scripts and their results, the
 > validation run sheets, the figures, and the reference records. Any edit to those is
 > destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
@@ -25,12 +25,18 @@
 
 ---
 
-# VOLLEY: IEEE companion
+# VOLLEY: the conference paper
 
-Everything needed to reproduce the conference paper. Manuscript source, figures, the analysis
-scripts behind every number in it, the validation run sheets, and the literature record.
+**The manuscript, and everything needed to check it.**
+
+Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper describes a
+deployer that gives each of twelve satellites an orbit chosen for it, without modifying any of
+them — and reports, in the same voice, the three thresholds the design currently fails.
 
 **[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (15 pages)
+
+Every number in it comes from a script in this repository, and every analysis behind it declared
+what would count as failure **before** it ran. Nothing has been built, fired or measured.
 
 ## Reproduce it in one command
 
