@@ -6,8 +6,10 @@ Three documents, prepared 2026-08-21, built from this repository and from the en
 |---|---|
 | `volley_brief.tex` → `volley_brief.pdf` | **one A4 sheet, printed double-sided.** What the project is, what Gen5 measures against, what the analysis changed, and the two comparisons it loses |
 | `selected_work.tex` → `selected_work.pdf` | **one A4 side.** Five projects, one method |
-| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | the manuscript, A4, to carry |
-| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same manuscript, US Letter, the submission format |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | **IEEEtran-formatted technical manuscript**, A4 — the physical handover version |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same manuscript, US Letter — the canonical format |
+
+**Both are IEEE-*formatted*. Neither is claimed to be submission-compliant for any particular venue**: page and abstract limits are set by the conference or journal, and none has been selected.
 
 **[`CLAIM_LEDGER.md`](CLAIM_LEDGER.md) is not printed.** It lists every headline figure in all
 three documents with its source file, its evidence class and its register status. Read it before

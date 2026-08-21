@@ -6,7 +6,10 @@
 \usepackage[a4paper,top=10mm,bottom=9mm,left=13mm,right=13mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}          % Type 1 typewriter; without it \texttt falls back to a bitmap PK font
+% roboto[condensed] makes `c' the default series at load time; the Computer Modern roman it
+% probes has no condensed shape and logs a substitution. Declare it before roboto is loaded.
+\DeclareFontShape{T1}{cmr}{c}{n}{<->ssub * cmr/m/n}{}
+\usepackage[scaled=0.82]{beramono}   % Type 1 typewriter; the default tt is a bitmap PK font
 \usepackage[sfdefault,condensed]{roboto}
 \usepackage{microtype}
 \usepackage{graphicx}
@@ -58,7 +61,8 @@ adityavardhanmishr@gmail.com\par}
 
 {\footnotesize
 A CubeSat flown as a rideshare secondary inherits the primary customer's orbit. The spring that
-ejects it adds 1--2\,m/s --- enough to drift clear of the stage, not enough to change an orbit ---
+ejects it adds 1--2\,m/s: enough for separation, and a real but very small change in orbital
+energy --- far too little for commanded orbit shaping ---
 and of the more than \textbf{4\,800 nanosatellites and CubeSats catalogued} as of January 2026,
 on the order of \textbf{222 carry a propulsion system}, so the rest stay where they were dropped
 for life. VOLLEY asks what it costs to give each of them a
@@ -66,7 +70,7 @@ for life. VOLLEY asks what it costs to give each of them a
 
 \vspace{1.6mm}
 \begin{center}
-\includegraphics[width=0.90\linewidth,trim=125 195 25 35,clip]{img/hero.png}
+\includegraphics[width=0.84\linewidth,trim=125 205 25 45,clip]{img/hero.png}
 \end{center}
 \vspace{-1.0mm}
 {\scriptsize\textcolor{soft}{\textbf{Gen5 analysed architecture --- CAD model, not flight hardware.}
@@ -88,7 +92,7 @@ a rail a spent upper stage already provides. \textbf{It has not inherited Gen5's
 nothing here is claimed for it.\\
 \end{tabular}\par}
 
-\vspace{1.8mm}
+\vspace{1.4mm}
 \shead{The concept of operations}
 \begin{center}
 \begin{tikzpicture}[
@@ -111,12 +115,12 @@ host budget reaches four shells and a fleet spanning 269\,km of altitude; plane 
 at 133\,m/s per degree. The altitude half of any multi-orbit claim is bought with host propellant,
 not with this machine.}\par}
 
-\vspace{1.8mm}
+\vspace{1.4mm}
 \shead{Gen5, at the rated point}
 {\scriptsize
 \begin{tabular}{@{}L{38mm}@{\hspace{2mm}}L{26mm}@{\hspace{7mm}}L{38mm}@{\hspace{2mm}}L{\dimexpr\linewidth-113mm\relax}@{}}
 Thrust constant       & \num{10.54} N per kA/m        & Exit velocity, 3U      & \num{16.029} m/s\\
-\quad ripple          & $\pm$1.01\,\%                 & \quad acceleration     & \num{10.07}\,$g$ of a 25\,$g$ cap\\
+\quad ripple          & $\pm$1.01\,\%                 & \quad acceleration     & \num{10.07}\,$g$ for 162 ms\\
 \quad 2-D FEM agrees  & to \num{0.03\,\%}             & Dispersion, closed loop& \num{0.0274} m/s (3$\sigma$)\\
 \quad 3-D FEM agrees  & to \num{0.059\,\%}            & \quad as apogee        & $\pm$0.10 km\\[1.2mm]
 Energy per shot       & \num{2782} J gross            & Semi-major axis change & \num{+28.8} km\\
@@ -136,10 +140,12 @@ and no vendor has quoted any line of the cost.}}\par}
 {\footnotesize\textbf{The contribution is the combination, not any one part of it.} Electromagnetic
 launch of CubeSats has been studied before, at velocities twenty times higher --- but at
 accelerations of order $10^3\,g$ and with a conductive armature bonded to the payload. What is
-claimed here is \textbf{a commanded per-satellite velocity, on a satellite that is never modified,
-at an acceleration inside its existing qualification envelope, from a stage that was going to be
-discarded.} Each of those alone is ordinary. Together they describe a service tier with no
-demonstrated occupant.\par}
+claimed here is \textbf{a commanded per-satellite velocity, on a satellite that is never modified, at
+two orders of magnitude less acceleration, from a stage that was going to be discarded.} Together
+they describe a service tier with no demonstrated occupant. \textbf{Whether a given satellite
+tolerates 10.07\,$g$ is not claimed}: 25\,$g$ is a ceiling this design sets on itself, no standard
+fixes a universal quasi-static limit for CubeSats, and compatibility is a payload-specific
+structural question needing an integration review that has not been done.\par}
 
 \newpage
 %% ======================================================================
@@ -191,7 +197,7 @@ made the thrust constant 4.42\,\% smaller. Both are model outputs.}\par}
 \midrule
 $\Delta v$ per satellite & 1--2.5 m/s, one value for all & \textcolor{ox}{16.03 m/s, commanded} & $\sim$16 m/s\\
 Designed differential & \textbf{exactly 0} & \textcolor{ox}{\textbf{16.03 m/s, to 0.027 (3$\sigma$)}} & per satellite\\
-Orbital energy & negligible & \textcolor{ox}{+28.8 km, $\times$1.60 life} & comparable\\
+Orbital energy & +8.2 \% life at 2.5 m/s & \textcolor{ox}{+28.8 km, $\times$1.60 life} & comparable\\
 \textbf{Mass per 3U sat.} & \textbf{$\sim$6.0 kg} & \textbf{10.55 kg --- \emph{loses}, 1.758$\times$} & \textbf{0.5--1.2 kg --- \emph{loses}, 12.4$\times$}\\
 Satellite carries & nothing & nothing & pressure vessel, qualification, range safety\\
 Host provides & one deploy signal & 150--300 W, serial link, firing window & nothing\\
@@ -204,8 +210,10 @@ they are printed because they are the result.} Mass parity with a canister of sp
 by this project and is \textbf{withdrawn}: an acceptance band asked for parity within 15\,\% and
 the measured ratio is 1.758. So is the constellation-phasing claim --- 30$^\circ$ of in-track phase
 costs \textbf{468 seconds of waiting} at zero $\Delta v$, so a spring and a clock reach it and this
-machine is not needed for it. \textbf{What survives is the third row: only $\Delta v$ changes an
-orbit, and a clock cannot.} No cost comparison is offered in either direction; there is no
+machine is not needed for it. \textbf{What survives is the third row: a clock changes phase; a commanded
+deployment impulse changes orbital energy.} Drag, $J_2$ and solar pressure change orbits too --- a
+clock is not the only thing that cannot. What a clock cannot produce is the \textbf{+28.8\,km of
+semi-major axis} a commanded shot does, and no spring at any preload produces it either. No cost comparison is offered in either direction; there is no
 quotation for any of it.}\par}
 
 \vspace{2.4mm}
@@ -241,7 +249,7 @@ having zero members.\par}
 {\scriptsize\textcolor{soft}{\textbf{Status.} Phase I design study, TRL 2--3. Nothing has been
 built, fired, measured, qualified or flown, and no result here has been reviewed by a third party.
 Model-to-model agreement between two solvers is a consistency check, not experimental validation.
-The defect register carries \textbf{132 numbered entries, 53 of them still open}, including every
+The defect register carries \textbf{133 numbered entries, 53 of them still open}, including every
 one that damages the claims above. \textbf{No institutional, agency or commercial affiliation is
 claimed or implied by this document.}}\par}
 \end{document}

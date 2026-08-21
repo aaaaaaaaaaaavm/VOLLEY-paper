@@ -3,7 +3,10 @@
 \usepackage[a4paper,top=11mm,bottom=10mm,left=13mm,right=13mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}          % Type 1 typewriter; without it \texttt falls back to a bitmap PK font
+% roboto[condensed] makes `c' the default series at load time; the Computer Modern roman it
+% probes has no condensed shape and logs a substitution. Declare it before roboto is loaded.
+\DeclareFontShape{T1}{cmr}{c}{n}{<->ssub * cmr/m/n}{}
+\usepackage[scaled=0.82]{beramono}   % Type 1 typewriter; the default tt is a bitmap PK font
 \usepackage[sfdefault,condensed]{roboto}
 \usepackage{microtype}
 \usepackage{array}
@@ -56,8 +59,10 @@ that produces the number exists.} A magnetostatic 2-D FEM written from the weak 
 (scikit-fem, 141\,k elements) and an independent 3-D solve (getdp, 274\,105 DoF) check the thrust
 constant to 0.03\,\% and 0.059\,\%; CalculiX takes the structure, OpenFOAM the external aero at
 581\,779 cells, ngspice the pulse chain, GMAT R2022a the astrodynamics. \textbf{Two of the
-project's own competitive claims were withdrawn by its own analyses}, and the defect register
-carries 132 numbered entries with 53 still open.}
+project's own competitive claims were withdrawn by its own analyses}, and a third --- that the
+deployment acceleration sits inside a CubeSat's existing qualification envelope --- was withdrawn
+because no published standard supports it. The defect register carries 133 numbered entries with
+53 still open.}
 {Python, parametric CAD, FEM, CFD, circuit simulation, astrodynamics, control, configuration
 management\\\textbf{github.com/aaaaaaaaaaaavm/VOLLEY}}
 
