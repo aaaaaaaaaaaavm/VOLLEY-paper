@@ -1,0 +1,118 @@
+% Selected engineering work -- one A4 side. Same visual system as volley_brief.tex.
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,top=11mm,bottom=10mm,left=13mm,right=13mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}          % Type 1 typewriter; without it \texttt falls back to a bitmap PK font
+\usepackage[sfdefault,condensed]{roboto}
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{xcolor}
+
+\definecolor{ox}{HTML}{B4451F}
+\definecolor{ink}{HTML}{111111}
+\definecolor{rule}{HTML}{9A9A9A}
+\definecolor{soft}{HTML}{555555}
+
+\setlength{\parindent}{0pt}\setlength{\parskip}{0pt}\setlength{\tabcolsep}{0pt}
+\pagestyle{empty}\color{ink}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\hrulethin}{\textcolor{rule}{\rule{\linewidth}{0.4pt}}}
+\newcommand{\hrulefat}{\textcolor{ox}{\rule{\linewidth}{1.6pt}}}
+
+% one entry: title / role line / body / evidence line
+\newcommand{\entry}[4]{%
+  \vspace{2.4mm}\hrulethin\\[1.6mm]
+  \begin{minipage}[t]{0.235\linewidth}\raggedright
+    {\bfseries\small #1}\\[0.6mm]{\scriptsize\textcolor{ox}{#2}}
+  \end{minipage}\hspace{4mm}%
+  \begin{minipage}[t]{\dimexpr0.765\linewidth-4mm\relax}\raggedright
+    {\footnotesize #3\par}\vspace{0.9mm}{\scriptsize\textcolor{soft}{#4}\par}
+  \end{minipage}\\[0.4mm]}
+
+\begin{document}
+\hrulefat\\[2.0mm]
+\begin{minipage}[b]{0.66\linewidth}
+{\fontsize{22}{22}\selectfont\bfseries Selected engineering work}\\[1.6mm]
+{\footnotesize Five projects, one method: \textbf{state the claim, name the evidence, and say
+where the evidence stops.} Every project below is public and every number in it is reproducible
+from a committed script.}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.32\linewidth}\raggedleft
+{\scriptsize
+\textbf{Adityavardhan Mishra}\\
+B.Tech Mechanical Engineering, 2023--2027\\
+Symbiosis Institute of Technology\\
+Symbiosis International (Deemed University), Pune\\
+adityavardhanmishr@gmail.com\par}
+\end{minipage}\\[2.0mm]
+
+\entry{VOLLEY}{primary project · systems engineering}
+{An electromagnetic CubeSat deployer, analysed end to end and published with its own failures.
+\textbf{Sixty-five run sheets, each with its acceptance bands committed \emph{before} the script
+that produces the number exists.} A magnetostatic 2-D FEM written from the weak form
+(scikit-fem, 141\,k elements) and an independent 3-D solve (getdp, 274\,105 DoF) check the thrust
+constant to 0.03\,\% and 0.059\,\%; CalculiX takes the structure, OpenFOAM the external aero at
+581\,779 cells, ngspice the pulse chain, GMAT R2022a the astrodynamics. \textbf{Two of the
+project's own competitive claims were withdrawn by its own analyses}, and the defect register
+carries 132 numbered entries with 53 still open.}
+{Python, parametric CAD, FEM, CFD, circuit simulation, astrodynamics, control, configuration
+management\\\textbf{github.com/aaaaaaaaaaaavm/VOLLEY}}
+
+\entry{BOLLEY}{sibling study · the opposite premise}
+{VOLLEY refuses to touch the satellite. \textbf{BOLLEY tests what that refusal costs} by letting a
+compatible CubeSat carry a few hundred grams of \emph{passive} interface --- no power, no
+electronics, nothing to command --- so the launcher can delete the sled, the brake and the return
+stroke. Developed to the same standard, and it records the branches that failed: a buried return, a
+three-fin comb, a shared-pole quad-comb, and a first-generation design that passed a thin-sheet
+circuit model and then lost to a 66.7:1 copper-window deficit when exact CAD was drawn. Of 2\,856
+declared candidates, 77 clear every hard band.}
+{Design-of-experiments over a declared candidate space, nonlinear magnetostatics, thermal and
+duty-cycle screening\\\textbf{github.com/aaaaaaaaaaaavm/BOLLEY}}
+
+\entry{Orbital Deployment\\Trade Study}{installable tool}
+{A preliminary calculator for tangential deployment impulses, phase drift, host recoil and the
+rigid-body disturbance from a closed internal mass move --- separated out because VOLLEY's
+astrodynamics record was mixing four questions that do not carry the same evidence.
+\textbf{It carries the boundary that embarrassed its own parent}: phase drift is not the cheapest
+route to phase, because release timing reaches 30$^\circ$ in 468 seconds at zero $\Delta v$ while
+a commanded differential takes 1.38 days and then never stops drifting.}
+{Two-body and rigid-body mechanics, packaging, CI \;\textcolor{rule}{|}\; \emph{does not do conjunction
+assessment or establish flight safety}\\\textbf{github.com/aaaaaaaaaaaavm/orbital-deployment-trade-study}}
+
+\entry{Pulsed Linear Motor\\Design Lab}{installable tool}
+{A screening calculator for pulsed linear-motor stages: given moving mass, stroke, thrust
+constant, sheet current, force limit, source voltage and ESR, what constant-force velocity is
+reachable and can the source deliver the peak power? Reproduces the detailed VOLLEY reference to
+\textbf{0.005\,m/s}, inside a declared 0.01\,m/s regression band. \textbf{Its most useful output
+is a failure}: the source check closes at the 12\,m$\Omega$ modelled assumption and \emph{fails}
+at the 116\,m$\Omega$ of a representative purchasable capacitor string.}
+{Numerical modelling, regression banding, source-impedance analysis \;\textcolor{rule}{|}\; \emph{model-to-model
+agreement, not a measurement}\\\textbf{github.com/aaaaaaaaaaaavm/pulsed-linear-motor-design-lab}}
+
+\entry{Engineering\\Evidence Toolkit}{installable tool}
+{A dependency-free command-line check for whether computational results, Markdown links and
+declared artifacts still agree with their recorded sources: \texttt{source files
+$\rightarrow$ numerical JSON $\rightarrow$ report links $\rightarrow$ declared artifact hashes}.
+Built after a long numerical project accumulated the ordinary failures --- a PDF older than its
+source, copied JSON no script regenerates, figures from a superseded operating point. A declared
+pattern matching nothing is itself a failure, so a misspelt pattern cannot pass by checking
+nothing.}
+{\textbf{Consistency checking, not physics validation.} A green result says the declared chain
+still holds; it says nothing about whether the first equation in it was right.\\\textbf{github.com/aaaaaaaaaaaavm/engineering-evidence-toolkit}}
+
+\vspace{2.4mm}\hrulethin\\[1.8mm]
+\begin{minipage}[t]{0.72\linewidth}
+{\footnotesize\textbf{What I would want a reader to check first.} Not the headline numbers --- the
+places where the work argues against itself. VOLLEY's register, and the three claims its own manuscript
+withdraws, are a better sample of how I work than any result on the front of it. Nothing in
+any of these projects has been built, fired, measured or flown, and every repository says so on its
+own front page rather than in a footnote.\par}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.24\linewidth}\raggedleft
+\qrcode[height=20mm]{https://github.com/aaaaaaaaaaaavm}\\[1.2mm]
+{\scriptsize\textbf{All of it, and the rest}\\\textcolor{soft}{github.com/aaaaaaaaaaaavm}\par}
+\end{minipage}
+\end{document}
