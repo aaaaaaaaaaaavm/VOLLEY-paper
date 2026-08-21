@@ -1,7 +1,7 @@
 > ## What is generated here, and what is not
 >
 > **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `34ebdcd` by `tools/export_companion.py`: the analysis scripts and their results, the
+> `a9fc2a3` by `tools/export_companion.py`: the analysis scripts and their results, the
 > validation run sheets, the figures, and the reference records. Any edit to those is
 > destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
@@ -27,24 +27,13 @@
 
 # VOLLEY: the conference paper
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/aaaaaaaaaaaavm/VOLLEY/main/cad/renders/gen5/hero_open.png" alt="VOLLEY Gen5, enclosure removed" width="100%">
-</p>
-
-<p align="center">
-  <img src="paper/figures/A02_field_map.png" alt="Halbach airgap field and its depth profile" width="49%">
-  <img src="paper/figures/A29_wake.png" alt="OpenFOAM mid-plane pressure and speed" width="49%">
-</p>
-
-<p align="center"><sub><b>Left:</b> the airgap field, resolved through the array's 90 mm depth rather than sampled at the centre plane &mdash; the assumption that cost K<sub>t</sub> <b>4.42&nbsp;%</b>. <b>Right:</b> the converged OpenFOAM solution around the sled, <b>581&nbsp;779 cells</b>; the pressure term is solved, <b>the viscous term is bounded rather than solved</b>.</sub></p>
-
 **The manuscript, and everything needed to check it.**
 
 Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper describes a
 deployer that gives each of twelve satellites an orbit chosen for it, without modifying any of
 them — and reports, in the same voice, the three thresholds the design currently fails.
 
-**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (17 pages)
+**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (15 pages)
 
 Every number in it comes from a script in this repository, and every analysis behind it declared
 what would count as failure **before** it ran. Nothing has been built, fired or measured.
@@ -100,15 +89,10 @@ analyses in the main repository replaced the design target: **Gen6 is the payloa
 directly, by cold gas, along a rail a spent upper stage provides** (ADR-032). No mover, no
 pulse-power chain, no brake, no return stroke.
 
-**Nothing in Gen6 is measured.** Its cradle mechanism does not exist, no launch provider has agreed
-to lend a stage, and the seal that owns **98.7 %** of its dispersion has never been on a bench —
-which is exactly why the manuscript still carries Gen5. A paper reports what has been analysed to a
-declared standard, not what looks best this week.
-
-*Its fluid system is no longer unsized: A56 sized the store at 3.4573 L and 3.1216 kg, ADR-035 chose
-the tube material, and A61 specified the seal at 17.8 N. **ADR-036 then suspended the trim stage
-rather than building it**, because a seal meeting its own thermal requirement makes the stage
-unnecessary — and that decision, like the rest of Gen6, rests on a friction nobody has measured.*
+**Nothing in Gen6 is measured**, its fluid system is unsized, its cradle mechanism does not exist,
+and no launch provider has agreed to lend a stage — which is exactly why the manuscript still
+carries Gen5. A paper reports what has been analysed to a declared standard, not what looks best
+this week.
 
 **The main repository carries both**, and the failures at the same standard as the results.
 
