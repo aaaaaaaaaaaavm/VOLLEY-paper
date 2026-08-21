@@ -27,6 +27,17 @@
 
 # VOLLEY: the conference paper
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/aaaaaaaaaaaavm/VOLLEY/main/cad/renders/gen5/hero_open.png" alt="VOLLEY Gen5, enclosure removed" width="100%">
+</p>
+
+<p align="center">
+  <img src="paper/figures/A02_field_map.png" alt="Halbach airgap field and its depth profile" width="49%">
+  <img src="paper/figures/A29_wake.png" alt="OpenFOAM mid-plane pressure and speed" width="49%">
+</p>
+
+<p align="center"><sub><b>Left:</b> the airgap field, resolved through the array's 90 mm depth rather than sampled at the centre plane &mdash; the assumption that cost K<sub>t</sub> <b>4.42&nbsp;%</b>. <b>Right:</b> the converged OpenFOAM solution around the sled, <b>581&nbsp;779 cells</b>; the pressure term is solved, <b>the viscous term is bounded rather than solved</b>.</sub></p>
+
 **The manuscript, and everything needed to check it.**
 
 Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper describes a
