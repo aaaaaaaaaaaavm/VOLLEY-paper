@@ -1,0 +1,8 @@
+% A4 print build of the manuscript.
+%
+% The content is not duplicated. This wrapper passes the a4paper option to
+% IEEEtran and then reads paper.tex verbatim, so the two builds can never
+% diverge in anything but page geometry. paper.tex remains the Letter build
+% and the submission format.
+\PassOptionsToClass{a4paper}{IEEEtran}
+\input{paper.tex}

@@ -44,7 +44,7 @@ Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper 
 deployer that gives each of twelve satellites an orbit chosen for it, without modifying any of
 them — and reports, in the same voice, the three thresholds the design currently fails.
 
-**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (15 pages)
+**[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** (17 pages)
 
 Every number in it comes from a script in this repository, and every analysis behind it declared
 what would count as failure **before** it ran. Nothing has been built, fired or measured.
