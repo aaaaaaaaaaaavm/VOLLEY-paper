@@ -61,6 +61,7 @@ extracting both texts and comparing word streams: 13 657 tokens each, identical.
 | Deployer mass per 3U satellite | 10.55 kg | 5 | M | `payload_family` 3U `kg_per_satellite` | live |
 | Track first mode | 109.0 Hz | 5 | M | `sizing.track_mode.fixed_fixed_Hz` | live |
 | Recoil per shot | 64.1 N·s | 5 | M | `astro_results.recoil_Ns_per_shot` | live |
+| Stator coil adiabatic rise per shot | **0.35 K** | 5 | M | derived: `motor_results.shot.Q_copper` 854.2 J into `mass_properties` "Stator copper (1.3 m, 60 % fill)" 6.29 kg at 385 J/(kg·K) = 0.3527 K | **Standardised 2026-08-22.** The manuscript carried 0.3 K in §IV-B and 0.35 K in §XIII; they are the same number at different roundings, and it is now stated once to two significant figures. **Not printed on either handout sheet** |
 | Recurring hardware cost | ₹1,345,055 | 5 | **A** | `cost.total_INR` | **every price assumed. No vendor quotation exists for any line item (E16)** |
 
 ## Comparative claims — the back of the brochure
@@ -152,6 +153,12 @@ sourced.
 10. **No claim that only Δv changes an orbit.** Drag, J₂ and solar radiation pressure change orbital
     elements. The claim is that a clock changes phase and a commanded impulse changes orbital energy.
 11. **No claim of conference compliance.** The manuscript is IEEE-formatted, not venue-verified.
+12. **No host relationship.** POEM and Vikram-1 appear as **worked host examples** — POEM as the
+    flown precedent for operating a spent stage as a platform, Vikram-1 as a worked commercial host
+    case for the interface budgets. **No host is selected, no launch provider has been approached,
+    and no endorsement, approval or integration activity is implied.** The conclusion no longer says
+    the system is *compatible with* any stage; it says it is *specified against* a four-item
+    interface, analysed parametrically, with compatibility undemonstrated.
 
 ## Verification performed 2026-08-21
 
