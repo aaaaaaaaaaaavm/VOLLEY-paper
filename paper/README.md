@@ -6,6 +6,26 @@
 > ADR-028: the flagship is an engineering record and holds no LaTeX. See [`BUILD.md`](BUILD.md)
 > for what is authored here and what is generated.
 
+## Current build — 2026-08-22
+
+| | |
+|---|---|
+| `VOLLEY_IEEE_Conference.pdf` | **18 pages**, US Letter. The canonical build |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same file, named for handover |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | **18 pages, A4.** Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s `paper.tex` verbatim — **the two cannot diverge in content**, and they extract to identical text |
+| Build | pdfTeX, TeX Live 2023, three passes from clean. **Zero undefined references, zero missing figures, zero overfull boxes, every font embedded, no Type 3 bitmaps** |
+
+**It is an IEEE-*formatted* manuscript, using the IEEEtran class. Submission compliance for any
+particular venue is not claimed** — page and abstract limits are set by the conference or journal,
+and none has been selected.
+
+---
+
+## Build history
+
+**Everything below this line is a dated record of an earlier pass. The figures in it were current
+when written and several have since moved; the table above is the current state.**
+
 **Rebuilt 2026-08-13 (sixth pass)** from the current source with pdfTeX (TeX Live 2023):
 **15 pages, zero undefined references, zero missing figures, zero errors.** Source and PDF agree. The one-page CV was
 regenerated from `analysis/results/*.json` and rebuilt in the same environment on 2026-08-06
@@ -163,7 +183,7 @@ directly. Run `python3 paper/make_figures.py` after any change to the operating 
 ## Licensing, and why this directory is a separate case
 
 The **reproducibility package** — `make_figures.py`, `make_animation.py`, `figures/` and these
-build notes — is **CC BY 4.0**, like the rest of the repository. See [`../LICENSING.md`](../LICENSING.md).
+build notes — is **CC BY 4.0**, like the rest of the repository. See [`../LICENSING.md`](../LICENSING.md), which also records that the repository root carried an MIT file until 2026-08-22 and why it was a leftover.
 
 **The manuscript is different.** `paper.tex` and the compiled PDF are published here under
 CC BY 4.0 **today, and that position is provisional**: if the manuscript is accepted for
