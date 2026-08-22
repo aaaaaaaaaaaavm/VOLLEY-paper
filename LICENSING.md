@@ -1,44 +1,96 @@
 # Licensing
 
-**Two different things live in this repository and they are not licensed identically.**
+**The whole of this repository is licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).** The full legal text is in [`LICENSE`](LICENSE); the
+attribution form is in [`NOTICE`](NOTICE).
 
-| | Licence |
+**A single licence, at the root, with no directory split.**
+
+| Directory | Licence |
 |---|---|
-| **The reproducibility payload** — `analysis/`, `validation/`, `paper/figures/`, `BASELINE.md`, `PROVENANCE.md`, and everything generated from the flagship | **CC BY 4.0.** Full text in [`LICENSE`](LICENSE), attribution form in [`NOTICE`](NOTICE) |
-| **The manuscript** — `paper/paper.tex`, `paper/IEEEtran.cls`, the compiled PDFs, `paper/archive/`, `paper/cv/`, `handout/` and `print/` | **CC BY 4.0 today, and that position is provisional** — see below |
+| `analysis/` | CC BY 4.0 |
+| `cad/` | CC BY 4.0 |
+| `docs/` | CC BY 4.0 |
+| `legacy/` | CC BY 4.0 |
+| `paper/` | CC BY 4.0 — **except the IEEE manuscript, see below** |
+| `tools/` | CC BY 4.0 |
+| `validation/` | CC BY 4.0 |
+| `wiki/` | CC BY 4.0 |
+| `.github/` | CC BY 4.0 |
+| Root files | CC BY 4.0 |
 
-## Why the manuscript is held separately
+## Why one licence rather than a code/documents split
 
-**A `.tex` file is not a derived artefact.** It is written, revised, submitted, reviewed and
-revised again, and it acquires a copyright status of its own. **If the manuscript is accepted for
-publication, an IEEE copyright transfer would supersede this licence for the accepted version.**
-This repository cannot license rights it has transferred.
+A split placing a code licence on `analysis/` and `tools/` was considered and **rejected**.
+This repository does not separate cleanly into code and documents: `validation/` holds fourteen
+Python files alongside its run sheets, `cad/` holds three generator scripts including the one
+that produces the geometry, and `paper/` holds three figure generators. More importantly,
+`analysis/` is not incidental tooling — `motor_model.py` computes the thrust constant and the
+operating point, and `sizing.py` sets the geometry. **That code is the design expressed
+executably**, not machinery around it.
 
-That is why [ADR-028](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/main/docs/adr/028-no-latex-in-the-flagship.md)
-moved the manuscript out of the flagship in the first place: *"a file the flagship cannot license
-is not a file the flagship should own."* **The payload the manuscript draws on stays CC BY 4.0
-regardless of what happens to the manuscript itself**, which is the part that matters for anyone
-reproducing the numbers.
+A carve-out would therefore have drawn a line through the middle of the same disclosure. One
+licence over everything is the simpler and more defensible position.
 
-**Nothing has been submitted to any venue**, so nothing has been transferred.
+## What this change does not do
 
-## The MIT licence this repository used to carry
+**This is not retroactive.** Snapshots of this repository taken before this change — clones,
+forks, archives, and every commit reachable before it — **remain available under the MIT
+licence** they carried at the time. The previous licence text is retained at
+[`LICENSE-MIT-superseded`](LICENSE-MIT-superseded) for that reason. Nothing here revokes rights
+already granted.
 
-**Corrected 2026-08-22.** The root of this repository carried an **MIT** licence file while
-[`paper/README.md`](paper/README.md) described the contents as CC BY 4.0 and linked a
-`LICENSING.md` that did not exist. **The MIT file was a leftover**: the flagship and every other
-companion moved to CC BY 4.0 and this repository's root file was not moved with them.
+## The IEEE manuscript
 
-**The MIT text is retained at [`LICENSE-MIT-superseded`](LICENSE-MIT-superseded)** and this change
-is **not retroactive** — clones, forks, archives and every commit reachable before it remain
-available under the licence they carried at the time. Nothing here revokes rights already granted.
+`paper/` contains two different things:
 
-## The other repositories
+- **The reproducibility package** — `make_figures.py`, `make_animation.py`, `figures/`, and the
+  build notes — is CC BY 4.0 like the rest of the repository.
+- **The manuscript itself** (`paper.tex` and the compiled PDF) is CC BY 4.0 **as published here
+  today**, and that position is provisional. **If the manuscript is accepted for publication, an
+  IEEE copyright transfer would supersede this licence for the accepted version.** This
+  repository cannot license rights it has transferred. See [`paper/README.md`](https://github.com/aaaaaaaaaaaavm/VOLLEY-paper).
 
-| | |
-|---|---|
-| [VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) (flagship) | CC BY 4.0 |
-| [VOLLEY-thesis](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis) | CC BY 4.0, with the same manuscript hold |
-| [VOLLEY-lab](https://github.com/aaaaaaaaaaaavm/VOLLEY-lab) | CC BY 4.0 |
-| [orbital-deployment-trade-study](https://github.com/aaaaaaaaaaaavm/orbital-deployment-trade-study) · [pulsed-linear-motor-design-lab](https://github.com/aaaaaaaaaaaavm/pulsed-linear-motor-design-lab) | CC BY 4.0 |
-| [engineering-evidence-toolkit](https://github.com/aaaaaaaaaaaavm/engineering-evidence-toolkit) | Apache 2.0 — it is a tool meant to be depended on, not a document |
+## Citation, across the programme
+
+**One work, one citation.** `CITATION.cff` in this repository is the only citation record in the
+programme, and the generated companions carry it verbatim rather than declaring titles of their
+own. A companion that is a copy of this work should not become a second citable identity for it —
+that is the same fork-of-truth problem `ADR-015` exists to prevent, applied to metadata.
+
+**`VOLLEY-lab` carries no `CITATION.cff` deliberately.** Its own README states that nothing in it
+should be cited, and adding a citation file would contradict that in the same repository. The
+contradiction is removed rather than annotated: cite this repository instead.
+
+## The generated companions are deliberately not yet relicensed
+
+`VOLLEY-paper` and `VOLLEY-thesis` are both generated by `tools/export_companion.py`. **They are
+now handled separately.**
+
+**`VOLLEY-thesis` is CC BY 4.0**, relicensed 2026-08-10. Its manifest carries `LICENSE`, `NOTICE`,
+`LICENSING.md`, `LICENSE-MIT-superseded` and `CITATION.cff`, so regeneration maintains the licence
+rather than wiping it. It was held only because it shared an export run with the paper companion,
+and it carries no manuscript rights issue of its own.
+
+**`VOLLEY-paper` remains MIT, deliberately.** Relicensing it sets terms for a manuscript whose
+rights may transfer to IEEE on acceptance, and this repository cannot license rights it has
+transferred. The hold is wired into the manifest rather than left to discipline: that companion's
+`LICENSE` is sourced from **`LICENSE-MIT-superseded`**, so a plain `export_companion.py` run
+**cannot relicense it by accident.** `NOTICE`, `LICENSING.md` and `CITATION.cff` are excluded from
+it for the same reason — a citation file declaring CC BY 4.0 beside an MIT `LICENSE` would be a
+contradiction inside one repository.
+
+**To release the hold** once the manuscript's status is settled, `PAPER_MANIFEST` carries the
+five lines to restore, commented, immediately above the mapping that implements the hold.
+
+`VOLLEY-lab` and the three tool repositories were relicensed directly on 2026-08-10:
+`VOLLEY-lab`, `pulsed-linear-motor-design-lab` and `orbital-deployment-trade-study` to CC BY 4.0,
+and `engineering-evidence-toolkit` to Apache-2.0 — the last because it contains no part of the
+deployer design, its original code being `src/engtrace/` and its `reference/volley/` copies being
+repository tooling rather than the motor model.
+
+## Attribution
+
+CC BY 4.0 requires credit, a link to the licence, and **an indication of whether changes were
+made**. The last of those is the one most often skipped, and for an engineering record where
+numbers have moved and are documented as having moved, it is the one that matters most.
