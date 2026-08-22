@@ -1,7 +1,7 @@
 > ## What is generated here, and what is not
 >
 > **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `83d56e1` by `tools/export_companion.py`: the analysis scripts and their results, the
+> `c1c131b` by `tools/export_companion.py`: the analysis scripts and their results, the
 > validation run sheets, the figures, and the reference records. Any edit to those is
 > destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
@@ -32,6 +32,26 @@
 Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper describes a
 deployer that gives each of twelve satellites an orbit chosen for it, without modifying any of
 them — and reports, in the same voice, the three thresholds the design currently fails.
+
+## What the manuscript's machine is for
+
+**VOLLEY is a last-mile orbital delivery programme.** After the primary spacecraft separates, the
+launch vehicle's final stage can — where host capability and mission rules permit — continue as a
+**temporary controlled orbital delivery platform**. **The host performs the coarse orbital
+repositioning; VOLLEY produces the fine, individually commanded release condition for each
+secondary satellite.**
+
+**The machine reported here is Gen5**: the *self-contained* electromagnetic implementation of that
+mission — its own track, drive, sled, energy store, brake and magazine, operating aboard the
+platform. **Host repositioning is treated parametrically throughout, because no launch provider
+has supplied stage propulsion or control-authority data.**
+
+> **The programme has since moved to Gen6**, which keeps the same mission and changes the
+> integration: the stage's own structure and 8 m of length become part of the machine, and cold
+> gas replaces the electromagnetic drive. **The manuscript has not moved with it, deliberately.**
+> Gen5 is the fully analysed configuration and Gen6 has not yet reached the same standard — the
+> [computational-closure target](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/main/docs/COMPUTATIONAL_CLOSURE.md)
+> is what it has to clear first. *A paper does not follow a design target; it follows evidence.*
 
 **[Read the paper](paper/VOLLEY_IEEE_Conference.pdf)** — **18 pages, current build.**
 Print-ready copies: **[A4](print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf)** ·
