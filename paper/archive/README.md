@@ -1,7 +1,7 @@
 # Archived paper builds
 
-Superseded compiles of the EMOCD conference paper, kept for the record. **Do not cite
-these.** The current paper is `../paper.tex` and `../VOLLEY_IEEE_Conference.pdf`.
+Superseded compiles of the EMOCD conference paper, kept for the record. Do not cite
+these. The current paper is `../paper.tex` and `../VOLLEY_IEEE_Conference.pdf`.
 
 ## `EMOCD_submission_uncorrected.pdf`
 

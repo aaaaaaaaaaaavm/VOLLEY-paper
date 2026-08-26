@@ -1,12 +1,12 @@
 # Building the manuscript
 
-**This repository is the manuscript's authoritative home** as of 2026-08-13
+This repository is the manuscript's authoritative home as of 2026-08-13
 ([ADR-028](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/main/docs/adr/028-no-latex-in-the-flagship.md)).
-`paper.tex`, `IEEEtran.cls`, the compiled PDF, `archive/` and `cv/` are **authored here** and are
+`paper.tex`, `IEEEtran.cls`, the compiled PDF, `archive/` and `cv/` are authored here and are
 not generated from anywhere. The flagship holds no LaTeX at all.
 
-Everything else in this repository — `analysis/`, `validation/`, `paper/figures/`,
-`BASELINE.md`, `PROVENANCE.md` — **is generated** from the flagship by
+Everything else in this repository, `analysis/`, `validation/`, `paper/figures/`,
+`BASELINE.md`, `PROVENANCE.md`, is generated from the flagship by
 `tools/export_companion.py` and must never be hand-edited.
 
 ```

@@ -2,32 +2,32 @@
 
 `paper.tex` is the source. `VOLLEY_IEEE_Conference.pdf` is the last compiled build.
 
-> **This is the manuscript's home.** It moved out of the VOLLEY flagship on 2026-08-13 under
+> This is the manuscript's home. It moved out of the VOLLEY flagship on 2026-08-13 under
 > ADR-028: the flagship is an engineering record and holds no LaTeX. See [`BUILD.md`](BUILD.md)
 > for what is authored here and what is generated.
 
-## Current build — 2026-08-22
+## Current build, 2026-08-22
 
 | | |
 |---|---|
-| `VOLLEY_IEEE_Conference.pdf` | **18 pages**, US Letter. The canonical build |
+| `VOLLEY_IEEE_Conference.pdf` | 18 pages, US Letter. The canonical build |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same file, named for handover |
-| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | **18 pages, A4.** Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s `paper.tex` verbatim — **the two cannot diverge in content**, and they extract to identical text |
-| Build | pdfTeX, TeX Live 2023, three passes from clean. **Zero undefined references, zero missing figures, zero overfull boxes, every font embedded, no Type 3 bitmaps** |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 18 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s `paper.tex` verbatim, the two cannot diverge in content, and they extract to identical text |
+| Build | pdfTeX, TeX Live 2023, three passes from clean. Zero undefined references, zero missing figures, zero overfull boxes, every font embedded, no Type 3 bitmaps |
 
-**It is an IEEE-*formatted* manuscript, using the IEEEtran class. Submission compliance for any
-particular venue is not claimed** — page and abstract limits are set by the conference or journal,
+It is an IEEE-*formatted* manuscript, using the IEEEtran class. Submission compliance for any
+particular venue is not claimed, page and abstract limits are set by the conference or journal,
 and none has been selected.
 
 ---
 
 ## Build history
 
-**Everything below this line is a dated record of an earlier pass. The figures in it were current
-when written and several have since moved; the table above is the current state.**
+Everything below this line is a dated record of an earlier pass. The figures in it were current
+when written and several have since moved; the table above is the current state.
 
-**Rebuilt 2026-08-13 (sixth pass)** from the current source with pdfTeX (TeX Live 2023):
-**15 pages, zero undefined references, zero missing figures, zero errors.** Source and PDF agree. The one-page CV was
+Rebuilt 2026-08-13 (sixth pass) from the current source with pdfTeX (TeX Live 2023):
+15 pages, zero undefined references, zero missing figures, zero errors. Source and PDF agree. The one-page CV was
 regenerated from `analysis/results/*.json` and rebuilt in the same environment on 2026-08-06
 and is unchanged by this build.
 
@@ -36,24 +36,24 @@ To rebuild: run `pdflatex paper.tex` from this directory until the cross-referen
 
 ## What changed in the sixth pass, 2026-08-13
 
-**The baseline moved, and the manuscript follows it.** ADR-030 in the flagship applied the
-depth-resolved thrust constant (**P46**) and three decisions beside it. Every headline in this
-paper changed and **every one of them moved the wrong way**:
+The baseline moved, and the manuscript follows it. ADR-030 in the flagship applied the
+depth-resolved thrust constant (P46) and three decisions beside it. Every headline in this
+paper changed and every one of them moved the wrong way:
 
 | | Was | Is |
 |---|---:|---:|
-| K_t, N per kA/m | 11.03 | **10.54** |
-| Exit velocity, 3U | 16.4 m/s | **16.0 m/s** |
-| Fleet setpoint | 16.2 m/s | **15.8 m/s** |
-| Electrical-to-payload | 21.0 % | **18.8 %** |
-| Energy recovered per shot | 0.29 kJ | **0.05 kJ** |
-| Dry / loaded mass | 76.5 / 124.5 kg | **84.5 / 132.5 kg** |
+| K_t, N per kA/m | 11.03 | 10.54 |
+| Exit velocity, 3U | 16.4 m/s | 16.0 m/s |
+| Fleet setpoint | 16.2 m/s | 15.8 m/s |
+| Electrical-to-payload | 21.0 % | 18.8 % |
+| Energy recovered per shot | 0.29 kJ | 0.05 kJ |
+| Dry / loaded mass | 76.5 / 124.5 kg | 84.5 / 132.5 kg |
 
-**§IV-B now states the depth assumption where the thrust constant is derived**, because the
+§IV-B now states the depth assumption where the thrust constant is derived, because the
 centre-plane value this work used until an independent depth-resolved integral was run is 4.4 %
 higher, and saying so is the difference between a corrected paper and a quietly re-baselined one.
 
-**The regenerative section is 39 mm, not 240** — it and the 300 mm eddy fin could not both fit a
+The regenerative section is 39 mm, not 240, it and the 300 mm eddy fin could not both fit a
 339 mm arrest section, and shortening regen was chosen over dropping it because dropping it
 raises brake duty 24 % against a structure holding eleven stowed satellites.
 
@@ -61,116 +61,116 @@ raises brake duty 24 % against a structure holding eleven stowed satellites.
 
 ## What changed in the fifth pass, 2026-08-13
 
-**One new subsection and one new figure, from A29.**
+One new subsection and one new figure, from A29.
 
-1. **§VI-E, *What Air Costs a Ground Test*.** The machine flies in vacuum; the full-scale
-   demonstration fires in a room. Steady RANS on the sled and payload **as generated** — meshed
-   from the CAD surfaces, not an idealised body — gives **C_d 0.52** and an exit-velocity deficit
-   of **5.1 mm/s** over the acceleration zone.
-2. **The point of it is the comparison, not the number.** 5.1 mm/s is 0.031 % of the design point
-   and **19 % of the 3σ dispersion a ground test exists to resolve.** No vacuum chamber is
+1. §VI-E, *What Air Costs a Ground Test*. The machine flies in vacuum; the full-scale
+   demonstration fires in a room. Steady RANS on the sled and payload as generated, meshed
+   from the CAD surfaces, not an idealised body, gives C_d 0.52 and an exit-velocity deficit
+   of 5.1 mm/s over the acceleration zone.
+2. The point of it is the comparison, not the number. 5.1 mm/s is 0.031 % of the design point
+   and 19 % of the 3σ dispersion a ground test exists to resolve. No vacuum chamber is
    needed; an air correction on every measured velocity is.
-3. **Two properties are reported rather than dressed as convergence.** The solve **plateaus and
-   oscillates** — the expected behaviour of a steady solver on a separated wake — so the force is
+3. Two properties are reported rather than dressed as convergence. The solve plateaus and
+   oscillates, the expected behaviour of a steady solver on a separated wake, so the force is
    a windowed mean quoted with its spread, 1.734 ± 0.144 N. And the viscous term is a flat-plate
-   **bound**, 17.7 % of the total, not a solved wall shear stress.
-4. **Figure `F14_airdrag.png`** added, generated by `paper/make_figures.py` from
+   bound, 17.7 % of the total, not a solved wall shear stress.
+4. Figure `F14_airdrag.png` added, generated by `paper/make_figures.py` from
    `analysis/results/cfd_air_drag.json`.
 
-**No other body text moved.** Full sheet:
+No other body text moved. Full sheet:
 [`validation/A29_ground_test_air_drag.md`](../validation/A29_ground_test_air_drag.md); the two
-band failures are **P48**.
+band failures are P48.
 
 ## What changed in the fourth pass, 2026-08-13
 
-**One new subsection, two new figures, and one propagated model change.**
+One new subsection, two new figures, and one propagated model change.
 
-1. **§IV-D, Velocity-Loop Stability**, is new. It states the fact the whole loop turns on and that
+1. §IV-D, Velocity-Loop Stability, is new. It states the fact the whole loop turns on and that
    the repository had never written down: the control law is feedback-linearised, so
-   `L(s) = Kp·exp(−sτ)/s` and **Kp is the gain crossover in rad/s, not a current gain**.
-2. **The earlier gain of 3500 s⁻¹ is reported as what it was** — a crossover at 557 Hz, above both
-   track modes, with **−50.4°** of phase margin at the reference delay. The subsection also says
+   `L(s) = Kp·exp(−sτ)/s` and Kp is the gain crossover in rad/s, not a current gain.
+2. The earlier gain of 3500 s⁻¹ is reported as what it was, a crossover at 557 Hz, above both
+   track modes, with −50.4° of phase margin at the reference delay. The subsection also says
    why the simulation did not show it: an undelayed feedback state, and a command clip that turned
    an unstable loop into a bang-bang relay whose mean followed the feedforward term.
-3. **The designed gain is 195 s⁻¹** — the largest holding ≥ 50° of phase margin at 0.6 ms and
-   bandwidth ≤ one third of the 109 Hz first mode. **The gain falls 18× and the dispersion does
-   not move**, 0.0271 → 0.0267 m/s.
-4. **Figures `F12_bode.png` and `F13_latency.png`** added, both generated by
+3. The designed gain is 195 s⁻¹, the largest holding >= 50° of phase margin at 0.6 ms and
+   bandwidth <= one third of the 109 Hz first mode. The gain falls 18x and the dispersion does
+   not move, 0.0271 to 0.0267 m/s.
+4. Figures `F12_bode.png` and `F13_latency.png` added, both generated by
    `paper/make_figures.py` from `analysis/control_design.py`. Nothing re-derived in the figure
    script.
-5. **§IV-C now says the gain is designed rather than tuned**, and points at the new subsection.
+5. §IV-C now says the gain is designed rather than tuned, and points at the new subsection.
 
 The 0.027 m/s dispersion quoted in the abstract, §V-A, §V-E, §VIII and the conclusion is
-unchanged — it is 0.027 to two significant figures both before and after — so no other body text
-moved. **K_t and exit velocity are untouched.** Full sheet:
-[`validation/A28_control_stability.md`](../validation/A28_control_stability.md); defect **P47**;
-decision **ADR-027**.
+unchanged, it is 0.027 to two significant figures both before and after, so no other body text
+moved. K_t and exit velocity are untouched. Full sheet:
+[`validation/A28_control_stability.md`](../validation/A28_control_stability.md); defect P47;
+decision ADR-027.
 
 ## What changed in the current build
 
-**2026-08-10, second pass.** Three factual corrections and two additions. The retention gate now
-states **two D9 pins at 41.0 kN**, margin **+0.45 at Q = 30**, after A22 resized it — the text
+2026-08-10, second pass. Three factual corrections and two additions. The retention gate now
+states two D9 pins at 41.0 kN, margin +0.45 at Q = 30, after A22 resized it, the text
 previously described a negative margin as an open problem. Tip-off is rewritten to A23's result:
 the release is comfortable because it happens 12.2 ms into coast at zero force, and the risk is
-the **36–231 °/s** cradle arrival at the *start* of the stroke. The claim that the 10–20 s versus
-1200 s cadence contradiction "remains open" is removed — **ADR-020 closed it at 1200 s**.
-Added: the last-mile ConOps in §VII with its envelope bounded by A20, and the **7.5×**
+the 36-231 °/s cradle arrival at the *start* of the stroke. The claim that the 10-20 s versus
+1200 s cadence contradiction "remains open" is removed, ADR-020 closed it at 1200 s.
+Added: the last-mile ConOps in §VII with its envelope bounded by A20, and the 7.5x
 lifetime-extension ratio from A21 in the abstract.
 
 ## What changed in the third pass, 2026-08-10
 
-**Five corrections and one new subsection**, all from work that landed after the second pass and
+Five corrections and one new subsection, all from work that landed after the second pass and
 from the external review recorded in [`docs/REVIEW_RESPONSES.md`](../docs/REVIEW_RESPONSES.md).
 
-1. **The abstract's 7.5× now carries its counterpart.** That ratio compares *gains*; on
-   **delivered orbital life** it is **1.50**, which is the figure a risk-weighted comparison must
+1. The abstract's 7.5x now carries its counterpart. That ratio compares *gains*; on
+   delivered orbital life it is 1.50, which is the figure a risk-weighted comparison must
    use because a satellite the deployer fails to release delivers nothing. E30-02.
-2. **The limitations section is rewritten where it had gone stale.** Three-dimensional field
+2. The limitations section is rewritten where it had gone stale. Three-dimensional field
    closure is no longer "open": resolving the field across the array's 90 mm depth rather than
-   sampling the centre plane and multiplying **reduces K<sub>t</sub> by 4.42 %** to 10.54 and
-   v_exit to 16.03 m/s. **That correction is computed and deliberately not applied** — it has not
+   sampling the centre plane and multiplying reduces K<sub>t</sub> by 4.42 % to 10.54 and
+   v_exit to 16.03 m/s. That correction is computed and deliberately not applied, it has not
    been checked by a method that solves a field equation in 3-D, and re-baselining onto an
-   unchecked number would repeat the error it identifies (**P46**). The ESR sentence now records
-   that a flywheel clears the ceiling at 35 mΩ against 68, at mass parity (**A25**).
-3. **A new subsection, "Architecture reliability, and the bar it sets."** **Nine of thirteen
+   unchecked number would repeat the error it identifies (P46). The ESR sentence now records
+   that a flywheel clears the ceiling at 35 mΩ against 68, at mass parity (A25).
+3. A new subsection, "Architecture reliability, and the bar it sets." Nine of thirteen
    elements forfeit the remaining manifest on a single failure, against zero for a spring
-   dispenser.** Matching a spring on satellite count needs p = 0.9985 and is unrealistic;
-   matching on delivered life needs p = 0.9347, i.e. **r ≥ 0.99326 per element per cycle** — the
+   dispenser. Matching a spring on satellite count needs p = 0.9985 and is unrealistic;
+   matching on delivered life needs p = 0.9347, i.e. r >= 0.99326 per element per cycle, the
    first quantitative reliability requirement the design has carried, and unmeasured. Segmentation
-   is analysed as genuine redundancy **except at the breech segment**, where no force acts on a
+   is analysed as genuine redundancy except at the breech segment, where no force acts on a
    stationary sled.
-4. **The FMEA table's sled-jam row is corrected.** It claimed the dual-cassette split bounds a jam
-   to half the manifest. It does not: that bounds an *escapement or gate* fault, and **one sled
-   serves all twelve cells.**
-5. **The payload-family table gains a footnote.** Its counts are volumetric; the fixed-cell design
-   study replaces them where a cell exists — **1U gives 36 per load at 2.125 kg, not 40 at 1.92**,
-   and **ThinSat and 12U are refused outright** (**A24**).
-6. **The conclusion is narrowed.** The linear motor is selected for **commandability, not
-   performance** — a screw cannot reach the velocity and a ~1.8 kg spring can, failing only in
-   that its velocity is built in rather than commanded (**A27**).
+4. The FMEA table's sled-jam row is corrected. It claimed the dual-cassette split bounds a jam
+ to half the manifest. It does not: that bounds an *escapement or gate* fault, and one sled
+   serves all twelve cells.
+5. The payload-family table gains a footnote. Its counts are volumetric; the fixed-cell design
+   study replaces them where a cell exists, 1U gives 36 per load at 2.125 kg, not 40 at 1.92,
+   and ThinSat and 12U are refused outright (A24).
+6. The conclusion is narrowed. The linear motor is selected for commandability, not
+   performance, a screw cannot reach the velocity and a ~1.8 kg spring can, failing only in
+   that its velocity is built in rather than commanded (A27).
 
-**2026-08-10, the payload magnetic environment (P34, P38).** Sec. VII gains the inward-facing
+2026-08-10, the payload magnetic environment (P34, P38). Sec. VII gains the inward-facing
 half of the interface, and Sec. on space environment and EMC has a falsified sentence removed:
 it claimed a magnetometer-carrying customer payload "sees a field comparable to a conventional
-reaction-wheel assembly at the same standoff", which A14 band 4 had already falsified at 611×
+reaction-wheel assembly at the same standoff", which A14 band 4 had already falsified at 611x
 magnetometer full scale five days earlier. See `docs/PAYLOAD_ENVIRONMENT.md`.
 
 The three groups below are from the 2026-08-06 build and still describe the rated point:
 
-1. **The rated point moved.** The sled mass was computed as 9.445 kg from the Gen3 CAD solid volumes, against the 4.86 kg the parametric model assumed (P15). Exit velocity is now
+1. The rated point moved. The sled mass was computed as 9.445 kg from the Gen3 CAD solid volumes, against the 4.86 kg the parametric model assumed (P15). Exit velocity is now
    16.4 m/s at 10.5 g, efficiency 21.0 %, lifetime multiplier x1.62, dry mass 76.5 kg. This
    was not a judgement call after the fact: `validation/A4_sled_structural.md` fixed the
-   consequence of each mass band **before** the structural analysis ran, and the ≥ 6.80 kg
+   consequence of each mass band before the structural analysis ran, and the >= 6.80 kg
    branch is the one that fired.
-2. **The invariance claim is gone** (P16). GMAT falsified it, and Sec. V-B now explains why
+2. The invariance claim is gone (P16). GMAT falsified it, and Sec. V-B now explains why
    the sweep that supported it could never have detected a problem.
-3. **Two claims the CAD contradicted are corrected** (P12): the ESPA-Grande envelope is
+3. Two claims the CAD contradicted are corrected (P12): the ESPA-Grande envelope is
    stated as a requirement the geometry does not yet meet, and the "not detailed CAD"
    limitation is replaced by what the CAD actually says.
 
 ## Figures
 
-`figures/F*.png` are regenerated by **`make_figures.py`**, which imports `analysis/`
+`figures/F*.png` are regenerated by `make_figures.py`, which imports `analysis/`
 directly. Run `python3 paper/make_figures.py` after any change to the operating point.
 
 `D01_block.png` and `D02_layout.png` are schematics, not plots, see
@@ -182,15 +182,15 @@ directly. Run `python3 paper/make_figures.py` after any change to the operating 
 
 ## Licensing, and why this directory is a separate case
 
-The **reproducibility package** — `make_figures.py`, `make_animation.py`, `figures/` and these
-build notes — is **CC BY 4.0**, like the rest of the repository. See [`../LICENSING.md`](../LICENSING.md), which also records that the repository root carried an MIT file until 2026-08-22 and why it was a leftover.
+The reproducibility package, `make_figures.py`, `make_animation.py`, `figures/` and these
+build notes, is CC BY 4.0, like the rest of the repository. See [`../LICENSING.md`](../LICENSING.md), which also records that the repository root carried an MIT file until 2026-08-22 and why it was a leftover.
 
-**The manuscript is different.** `paper.tex` and the compiled PDF are published here under
-CC BY 4.0 **today, and that position is provisional**: if the manuscript is accepted for
-publication, **an IEEE copyright transfer would supersede this licence for the accepted
-version**. This repository cannot license rights it has transferred, and the preprint published
+The manuscript is different. `paper.tex` and the compiled PDF are published here under
+CC BY 4.0 today, and that position is provisional: if the manuscript is accepted for
+publication, an IEEE copyright transfer would supersede this licence for the accepted
+version. This repository cannot license rights it has transferred, and the preprint published
 here would not automatically carry the same terms as the accepted paper.
 
-**Nothing about the analysis changes.** The scripts, the results, and the run sheets the
+Nothing about the analysis changes. The scripts, the results, and the run sheets the
 manuscript draws on stay CC BY 4.0 regardless of what happens to the manuscript itself, which is
 the practical reason the two are separated here rather than treated as one artifact.
