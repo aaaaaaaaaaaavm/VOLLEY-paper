@@ -1,7 +1,7 @@
 > ## What is generated here, and what is not
 >
 > **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `5b970f6` by `tools/export_companion.py`: the analysis scripts and their results, the
+> `55a8732` by `tools/export_companion.py`: the analysis scripts and their results, the
 > validation run sheets, the figures, and the reference records. Any edit to those is
 > destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
@@ -28,6 +28,12 @@
 # VOLLEY: the manuscript
 
 An IEEE-formatted technical manuscript, and everything needed to check it.
+
+<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and Gen6" width="100%"></p>
+
+<p align="center"><sub>The manuscript reports Gen5. The current design target is Gen6. They share
+the mission, not the evidence base; this generated overview keeps that distinction visible before
+the paper is opened.</sub></p>
 
 Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper describes a
 deployer that gives each of twelve satellites an orbit chosen for it, without modifying any of
