@@ -1,7 +1,7 @@
 > ## What is generated here, and what is not
 >
 > **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `55a8732` by `tools/export_companion.py`: the analysis scripts and their results, the
+> `59b3661` by `tools/export_companion.py`: the analysis scripts and their results, the
 > validation run sheets, the figures, and the reference records. Any edit to those is
 > destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
@@ -34,6 +34,15 @@ An IEEE-formatted technical manuscript, and everything needed to check it.
 <p align="center"><sub>The manuscript reports Gen5. The current design target is Gen6. They share
 the mission, not the evidence base; this generated overview keeps that distinction visible before
 the paper is opened.</sub></p>
+
+<p align="center">
+  <img src="paper/figures/A02_field_map.png" alt="Depth-resolved Halbach airgap field" width="32%">
+  <img src="paper/figures/F01_shot.png" alt="Gen5 force, velocity and current through the modelled shot" width="32%">
+  <img src="paper/figures/A35_ledger.png" alt="Requirement-attributed mass and the 64-corner mass floor" width="32%">
+</p>
+
+<p align="center"><sub>Field assumption → modelled shot → architecture verdict. The manuscript's
+visual spine is generated from the same analysis files as its tables.</sub></p>
 
 Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper describes a
 deployer that gives each of twelve satellites an orbit chosen for it, without modifying any of
