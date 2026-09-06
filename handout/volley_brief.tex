@@ -85,7 +85,7 @@ has been built, fired or measured.}\par}
 \textbf{VOLLEY} & the programme & one question, asked to a fixed evidence standard: can a
 propulsion-less satellite be given its own orbit?\\[1.0mm]
 \textcolor{ox}{\textbf{Gen5}} & \textcolor{ox}{\textbf{the analysed evidence base}} &
-\textcolor{ox}{a self-contained electromagnetic deployer. 64 run-sheet files covering 61 analyses, four independent solvers.
+\textcolor{ox}{a self-contained electromagnetic deployer. 77 programme run-sheet files covering 72 analysis identifiers, four independent solvers.
 \textbf{Everything numeric on this sheet is Gen5.}}\\[1.0mm]
 \textbf{Current direction} & stage-integrated, gas-driven & the payload accelerated directly along
 a rail a spent upper stage already provides. \textbf{It has not inherited Gen5's validation} and
@@ -121,8 +121,8 @@ not with this machine.}\par}
 \begin{tabular}{@{}L{38mm}@{\hspace{2mm}}L{26mm}@{\hspace{7mm}}L{38mm}@{\hspace{2mm}}L{\dimexpr\linewidth-113mm\relax}@{}}
 Thrust constant       & \num{10.54} N per kA/m        & Exit velocity, 3U      & \num{16.029} m/s\\
 \quad ripple          & $\pm$1.01\,\%                 & \quad acceleration     & \num{10.07}\,$g$ for 162 ms\\
-\quad 2-D FEM agrees  & to \num{0.03\,\%}             & Dispersion, closed loop& \num{0.0274} m/s (3$\sigma$)\\
-\quad 3-D FEM agrees  & to \num{0.059\,\%}            & \quad as apogee        & $\pm$0.10 km\\[1.2mm]
+\quad 2-D centre-plane check  & to \num{0.03\,\%}             & Dispersion, closed loop& \num{0.0274} m/s (3$\sigma$)\\
+\quad 3-D midgap field check  & to \num{0.059\,\%}            & \quad as apogee        & $\pm$0.10 km\\[1.2mm]
 Energy per shot       & \num{2782} J gross            & Semi-major axis change & \num{+28.8} km\\
 \quad net of recovery & \num{2735} J                  & Orbital lifetime       & \num{$\times$1.60} at mean activity\\
 \quad to the payload  & 514 J --- \num{18.8\,\%}      & \quad against a spring & +60.2\,\% vs +8.2\,\%\\[1.2mm]
@@ -165,7 +165,7 @@ structural question needing an integration review that has not been done.\par}
 \textbf{Circuit} & \textbf{ngspice} transient on the pulse chain, against the analytic ledger.\\
 \textbf{Astrodynamics} & \textbf{GMAT R2022a} headless, MSISE90, 20$\times$20 gravity, lunisolar and SRP, against this project's own propagator.\\
 \textbf{Control} & Closed-loop Monte Carlo, 800 runs, with modelled sensing.\\[1.0mm]
-\textcolor{ox}{\textbf{The discipline}} & \textcolor{ox}{\textbf{64 run-sheet files covering 61 analyses. Each declares its acceptance bands, and commits them, \emph{before} the script that produces the number exists} --- provable by checking that the band commit touched no script. A failed band moves the design point. \textbf{No band has ever been widened after a result was known.}}\\
+\textcolor{ox}{\textbf{The discipline}} & \textcolor{ox}{\textbf{77 programme run-sheet files covering 72 analysis identifiers. Each declares its acceptance bands, and commits them, \emph{before} the script that produces the number exists} --- provable by checking that the band commit touched no script. A failed band moves the design point. \textbf{No band has ever been widened after a result was known.}}\\
 \end{tabular}\par}
 
 \vspace{2.0mm}
@@ -175,7 +175,7 @@ structural question needing an integration review that has not been done.\par}
 \textbf{1} & \textbf{Exact CAD mass took the headline from 20.37 to 16.029\,m/s.} A parametric 4.86\,kg sled became a 9.445\,kg one when solid volumes were computed; resolving the field through the array's 90\,mm depth, rather than sampling the centre plane, then took another 4.42\,\%. \emph{Both consequences were declared in writing before the analyses ran.}\\[1.0mm]
 \textbf{2} & \textbf{An independent propagator falsified a claim in this project's own abstract.} The orbital-lifetime ratio had been offered as invariant across ballistic coefficient and solar activity. GMAT disagreed at low activity by 18\,\% against a 5\,\% band. The cause was the sweep, not the arithmetic: both variables entered the same multiplicative slot, so the ratio could not have moved. \emph{The claim is withdrawn in the manuscript.}\\[1.0mm]
 \textbf{3} & \textbf{ngspice found a term no script carried.} Energy closure failed at 97.0\,\% against a declared 98--102\,\%. The missing \textbf{86.6\,J a shot} was the capacitor bank's own series resistance, which the analytic ledger had no term for at all.\\[1.0mm]
-\textbf{4} & \textbf{Every kilogram was attributed to the requirement causing it, and then every requirement was deleted.} Across all \textbf{64 corners}, \textbf{88.67\,kg survives} --- 70.06\,\% of dry mass, \textbf{7.39\,kg per satellite against a 2\,kg criterion.} \emph{This is why Gen5 cannot be optimised into its own mass target, and it is the single result that redirected the work.}\\
+\textbf{4} & \textbf{Every kilogram was attributed to the requirement causing it, and then every requirement was deleted.} Across all \textbf{64 corners}, \textbf{88.67\,kg survives} --- 70.06\,\% of dry mass, \textbf{7.39\,kg per satellite against a 2\,kg criterion.} \emph{The evaluated deletion combinations miss the mass target, and it is the single result that redirected the work.}\\
 \end{tabular}\par}
 
 \vspace{1.6mm}
@@ -195,8 +195,8 @@ made the thrust constant 4.42\,\% smaller. Both are model outputs.}\par}
 \toprule
  & \textbf{Spring dispenser} & \textcolor{ox}{\textbf{VOLLEY Gen5}} & \textbf{Cold-gas module on the satellite}\\
 \midrule
-$\Delta v$ per satellite & 1--2.5 m/s, one value for all & \textcolor{ox}{16.03 m/s, commanded} & $\sim$16 m/s\\
-Designed differential & \textbf{exactly 0} & \textcolor{ox}{\textbf{16.03 m/s, to 0.027 (3$\sigma$)}} & per satellite\\
+$\Delta v$ per satellite & 1--2.5 m/s, preset spring energy & \textcolor{ox}{16.03 m/s, commanded} & $\sim$16 m/s\\
+Designed differential & no commanded profile & \textcolor{ox}{\textbf{16.03 m/s, to 0.027 (3$\sigma$)}} & per satellite\\
 Orbital energy & +8.2 \% life at 2.5 m/s & \textcolor{ox}{+28.8 km, $\times$1.60 life} & comparable\\
 \textbf{Mass per 3U sat.} & \textbf{$\sim$6.0 kg} & \textbf{10.55 kg --- \emph{loses}, 1.758$\times$} & \textbf{0.5--1.2 kg --- \emph{loses}, 12.4$\times$}\\
 Satellite carries & nothing & nothing & pressure vessel, qualification, range safety\\
@@ -208,12 +208,12 @@ Host provides & one deploy signal & 150--300 W, serial link, firing window & not
 {\scriptsize\textcolor{soft}{\textbf{Two of the three rows that matter commercially are losses, and
 they are printed because they are the result.} Mass parity with a canister of springs was claimed
 by this project and is \textbf{withdrawn}: an acceptance band asked for parity within 15\,\% and
-the measured ratio is 1.758. So is the constellation-phasing claim --- 30$^\circ$ of in-track phase
+the computed ratio is 1.758. So is the constellation-phasing claim --- 30$^\circ$ of in-track phase
 costs \textbf{468 seconds of waiting} at zero $\Delta v$, so a spring and a clock reach it and this
 machine is not needed for it. \textbf{What survives is the third row: a clock changes phase; a commanded
 deployment impulse changes orbital energy.} Drag, $J_2$ and solar pressure change orbits too --- a
 clock is not the only thing that cannot. What a clock cannot produce is the \textbf{+28.8\,km of
-semi-major axis} a commanded shot does, and no spring at any preload produces it either. No cost comparison is offered in either direction; there is no
+semi-major axis} a commanded shot does, beyond the reference 2.5 m/s spring case. No cost comparison is offered in either direction; there is no
 quotation for any of it.}\par}
 
 \vspace{2.4mm}
@@ -233,7 +233,7 @@ quotation for any of it.}\par}
 \draw[a] (c)--(g); \draw[a] (g)--(t); \draw[a] (t)--(n);
 \draw[b] (g) to[out=-40,in=-140] node[below,font=\tiny,text=soft,pos=0.5]{\emph{does not inherit}} (n);
 \end{tikzpicture}\\[1.6mm]
-{\scriptsize The next step is not more analysis. It is a benchtop track and a mass simulator ---
+{\scriptsize The next evidence step is a benchtop track and a mass simulator ---
 the point at which the \emph{measured} evidence class in this project's own figure index stops
 having zero members.\par}
 \end{minipage}\hfill
@@ -249,7 +249,7 @@ having zero members.\par}
 {\scriptsize\textcolor{soft}{\textbf{Status.} Phase I design study, TRL 2--3. Nothing has been
 built, fired, measured, qualified or flown, and no result here has been reviewed by a third party.
 Model-to-model agreement between two solvers is a consistency check, not experimental validation.
-The defect register carries \textbf{133 numbered entries, 53 of them still open}, including every
+The defect register carries \textbf{153 numbered entries, 53 of them still open}, including every
 one that damages the claims above. \textbf{No institutional, agency or commercial affiliation is
 claimed or implied by this document.}}\par}
 \end{document}
