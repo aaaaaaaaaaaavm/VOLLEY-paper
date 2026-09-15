@@ -1,14 +1,14 @@
-> ## What is generated here, and what is not
+> ## What is synchronized here, and what is not
 >
-> **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `1e22704` by `tools/export_companion.py`: the analysis scripts and their results, the
-> validation run sheets, the figures, and the reference records. Any edit to those is
-> destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
+> **Synchronized** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
+> `1e22704`: the analysis scripts and their results, the validation run sheets, the figures,
+> and the reference records. Any edit to those is replaced by the next companion export.
+> **Fix them in VOLLEY and this repository picks the fix up.**
 >
 > **Authored here, and never overwritten:** the manuscript, its class file, the built PDF, the CV and the submission archive, all under `paper/`. VOLLEY is an engineering
 > record and holds no manuscript source.
 >
-> Where a generated file disagrees with VOLLEY, VOLLEY is right and this copy is stale.
+> Where a synchronized file disagrees with VOLLEY, VOLLEY is right and this copy is stale.
 >
 > **This repository may be improved until the work is published, and freezes at that
 > moment.** What enters it has to be stable, effective and reliable against the problem
