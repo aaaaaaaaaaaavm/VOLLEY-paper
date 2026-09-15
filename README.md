@@ -37,11 +37,11 @@ the authored manuscript remains Gen5.
 
 An IEEE-formatted technical manuscript, and everything needed to check it.
 
-<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and Gen6" width="100%"></p>
+<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and later architecture work" width="100%"></p>
 
-<p align="center"><sub>The manuscript reports Gen5. The current design target is Gen6. They share
-the mission, not the evidence base; this generated overview keeps that distinction visible before
-the paper is opened.</sub></p>
+<p align="center"><sub>The manuscript reports Gen5. The engineering programme has moved beyond
+that frozen machine: the stage-integrated gas-guide Gen6 is now a comparator and clean-sheet
+mechanism selection is open. Newer directions do not inherit Gen5 evidence.</sub></p>
 
 <p align="center">
   <img src="paper/figures/A02_field_map.png" alt="Depth-resolved Halbach airgap field" width="32%">
@@ -69,12 +69,11 @@ mission, its own track, drive, sled, energy store, brake and magazine, operating
 platform. Host repositioning is treated parametrically throughout, because no launch provider
 has supplied stage propulsion or control-authority data.
 
-> The programme has since moved to Gen6, which keeps the same mission and changes the
-> integration: the stage's own structure and 8 m of length become part of the machine, and cold
-> gas replaces the electromagnetic drive. The manuscript has not moved with it, deliberately.
-> Gen5 is the fully analysed configuration and Gen6 has not yet reached the same standard, the
-> [computational-closure target](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/main/docs/COMPUTATIONAL_CLOSURE.md)
-> is what it has to clear first. *A paper does not follow a design target; it follows evidence.*
+> The programme later investigated a stage-integrated cold-gas guide as Gen6: the stage's own
+> structure and roughly 8 m of length became part of the machine. Contact/release and trim work
+> exposed unresolved limits, and the flagship has since reopened mechanism selection. The
+> manuscript has not moved with those investigations, deliberately. Gen5 remains the fully
+> analysed manuscript configuration. *A paper does not follow a design target; it follows evidence.*
 
 [Read the paper](paper/VOLLEY_IEEE_Conference.pdf), 18 pages, current build.
 Print-ready copies: [A4](print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf) ·
@@ -131,21 +130,20 @@ claims the paper had to retract after reading it. [`LITERATURE.md`](LITERATURE.m
 field.
 
 
-## The manuscript describes Gen5, and the design target has moved
+## The manuscript describes Gen5, and the programme has moved beyond it
 
-This is deliberate and worth stating plainly. Everything reproduced here is Gen5, the
-analysed baseline -- a frozen computational one, with no hardware behind it -- and the record of
-what a self-contained deployer costs. On 2026-08-14 five
-analyses in the main repository replaced the design target: Gen6 is the payload accelerated
-directly, by cold gas, along a rail a spent upper stage provides (ADR-032). No mover, no
-pulse-power chain, no brake, no return stroke.
+This is deliberate and worth stating plainly. Everything reproduced here is Gen5, the analysed
+baseline -- a frozen computational one, with no hardware behind it -- and the record of what a
+self-contained deployer costs. On 2026-08-14 the main repository introduced the stage-integrated
+cold-gas guide as Gen6 (ADR-032). Later contact/release and trim work exposed limits in that
+architecture, and the flagship has since reopened mechanism selection.
 
-Nothing in Gen6 is measured, its fluid system is unsized, its cradle mechanism does not exist,
-and no launch provider has agreed to lend a stage, which is exactly why the manuscript still
-carries Gen5. A paper reports what has been analysed to a declared standard, not what looks best
-this week.
+Nothing in the existing gas-guide Gen6 is measured, and no launch provider has agreed to lend a
+stage. That is exactly why the manuscript still carries Gen5. A paper reports what has been
+analysed to a declared standard, not whichever architecture is currently being investigated.
 
-The main repository carries both, and the failures at the same standard as the results.
+The main repository carries Gen5, the existing gas-guide comparator and the clean-sheet selection
+work, with failures kept at the same standard as results.
 
 ## What is deliberately absent
 
