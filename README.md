@@ -1,7 +1,7 @@
 > ## What is synchronized here, and what is not
 >
 > **Synchronized** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `1e22704`: the analysis scripts and their results, the validation run sheets, the figures,
+> `68c26ae`: the analysis scripts and their results, the validation run sheets, the figures,
 > and the reference records. Any edit to those is replaced by the next companion export.
 > **Fix them in VOLLEY and this repository picks the fix up.**
 >
@@ -14,12 +14,14 @@
 > moment.** What enters it has to be stable, effective and reliable against the problem
 > statement -- not merely newer.
 
-Live programme studies at this export: [sequential campaign allocation](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/1e22704/docs/CAMPAIGN_ALLOCATION.md)
-and [architecture decision gates](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/1e22704/docs/PROGRAMME_EXECUTION.md).
-[Terminal-state timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/1e22704/docs/TERMINAL_TIMING.md)
+Live programme studies at this export: [sequential campaign allocation](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/CAMPAIGN_ALLOCATION.md)
+and [architecture decision gates](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/PROGRAMME_EXECUTION.md).
+[Terminal-state timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/TERMINAL_TIMING.md)
 extends the single-payload benchmark.
-[Two-payload manifest timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/1e22704/docs/MANIFEST_TIMING.md)
-adds shared-host coupling while P113/E5 remain open. These studies extend the engineering record;
+[Two-payload manifest timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/MANIFEST_TIMING.md)
+adds shared-host coupling while P113/E5 remain open.
+[Clean-sheet Gen6 reference](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/GEN6_REFERENCE_ARCHITECTURE.md)
+carries that bounded mission result into a compact reference cell while P92 remains open. These studies extend the engineering record;
 the authored manuscript remains Gen5.
 
 <!-- PROGRAMME-HEADER-START -->
@@ -40,8 +42,8 @@ An IEEE-formatted technical manuscript, and everything needed to check it.
 <p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and later architecture work" width="100%"></p>
 
 <p align="center"><sub>The manuscript reports Gen5. The engineering programme has moved beyond
-that frozen machine: the stage-integrated gas-guide Gen6 is now a comparator and clean-sheet
-mechanism selection is open. Newer directions do not inherit Gen5 evidence.</sub></p>
+that frozen machine: the stage-integrated gas-guide Gen6 is now a comparator. The clean-sheet reference is an
+independent retained cell with stored mechanical release energy; P92 remains open. Newer directions do not inherit Gen5 evidence.</sub></p>
 
 <p align="center">
   <img src="paper/figures/A02_field_map.png" alt="Depth-resolved Halbach airgap field" width="32%">
