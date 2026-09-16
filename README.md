@@ -1,27 +1,23 @@
-> ## What is synchronized here, and what is not
+> ## What is generated here, and what is not
 >
-> **Synchronized** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `68c26ae`: the analysis scripts and their results, the validation run sheets, the figures,
-> and the reference records. Any edit to those is replaced by the next companion export.
-> **Fix them in VOLLEY and this repository picks the fix up.**
+> **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
+> `3807f1b` by `tools/export_companion.py`: the analysis scripts and their results, the
+> validation run sheets, the figures, and the reference records. Any edit to those is
+> destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
 >
 > **Authored here, and never overwritten:** the manuscript, its class file, the built PDF, the CV and the submission archive, all under `paper/`. VOLLEY is an engineering
 > record and holds no manuscript source.
 >
-> Where a synchronized file disagrees with VOLLEY, VOLLEY is right and this copy is stale.
+> Where a generated file disagrees with VOLLEY, VOLLEY is right and this copy is stale.
 >
 > **This repository may be improved until the work is published, and freezes at that
 > moment.** What enters it has to be stable, effective and reliable against the problem
 > statement -- not merely newer.
 
-Live programme studies at this export: [sequential campaign allocation](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/CAMPAIGN_ALLOCATION.md)
-and [architecture decision gates](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/PROGRAMME_EXECUTION.md).
-[Terminal-state timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/TERMINAL_TIMING.md)
-extends the single-payload benchmark.
-[Two-payload manifest timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/MANIFEST_TIMING.md)
-adds shared-host coupling while P113/E5 remain open.
-[Clean-sheet Gen6 reference](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/68c26ae/docs/GEN6_REFERENCE_ARCHITECTURE.md)
-carries that bounded mission result into a compact reference cell while P92 remains open. These studies extend the engineering record;
+Live programme studies at this export: [sequential campaign allocation](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/3807f1b/docs/CAMPAIGN_ALLOCATION.md)
+and [architecture decision gates](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/3807f1b/docs/PROGRAMME_EXECUTION.md).
+[Terminal-state timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/3807f1b/docs/TERMINAL_TIMING.md)
+extends the single-payload benchmark. These studies extend the engineering record;
 the authored manuscript remains Gen5.
 
 <!-- PROGRAMME-HEADER-START -->
@@ -39,11 +35,11 @@ the authored manuscript remains Gen5.
 
 An IEEE-formatted technical manuscript, and everything needed to check it.
 
-<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and later architecture work" width="100%"></p>
+<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and Gen6" width="100%"></p>
 
-<p align="center"><sub>The manuscript reports Gen5. The engineering programme has moved beyond
-that frozen machine: the stage-integrated gas-guide Gen6 is now a comparator. The clean-sheet reference is an
-independent retained cell with stored mechanical release energy; P92 remains open. Newer directions do not inherit Gen5 evidence.</sub></p>
+<p align="center"><sub>The manuscript reports Gen5. The current design target is Gen6. They share
+the mission, not the evidence base; this generated overview keeps that distinction visible before
+the paper is opened.</sub></p>
 
 <p align="center">
   <img src="paper/figures/A02_field_map.png" alt="Depth-resolved Halbach airgap field" width="32%">
@@ -71,11 +67,11 @@ mission, its own track, drive, sled, energy store, brake and magazine, operating
 platform. Host repositioning is treated parametrically throughout, because no launch provider
 has supplied stage propulsion or control-authority data.
 
-> The programme later investigated a stage-integrated cold-gas guide as Gen6: the stage's own
-> structure and roughly 8 m of length became part of the machine. Contact/release and trim work
-> exposed unresolved limits, and the flagship has since reopened mechanism selection. The
-> manuscript has not moved with those investigations, deliberately. Gen5 remains the fully
-> analysed manuscript configuration. *A paper does not follow a design target; it follows evidence.*
+> The programme has since moved beyond Gen5, but the manuscript has not moved with it,
+> deliberately. The current calculation reference is a clean-sheet compact architecture with
+> independent retained cells, a motor-charged mechanical accumulator, latch, short guided pusher
+> and local catcher. The earlier 8 m cold-gas machine remains a historical comparator. Neither
+> direction inherits Gen5's evidence. *A paper does not follow a design target; it follows evidence.*
 
 [Read the paper](paper/VOLLEY_IEEE_Conference.pdf), 18 pages, current build.
 Print-ready copies: [A4](print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf) ·
@@ -132,20 +128,22 @@ claims the paper had to retract after reading it. [`LITERATURE.md`](LITERATURE.m
 field.
 
 
-## The manuscript describes Gen5, and the programme has moved beyond it
+## The manuscript describes Gen5, and the design target has moved
 
-This is deliberate and worth stating plainly. Everything reproduced here is Gen5, the analysed
-baseline -- a frozen computational one, with no hardware behind it -- and the record of what a
-self-contained deployer costs. On 2026-08-14 the main repository introduced the stage-integrated
-cold-gas guide as Gen6 (ADR-032). Later contact/release and trim work exposed limits in that
-architecture, and the flagship has since reopened mechanism selection.
+This is deliberate and worth stating plainly. Everything reproduced here is Gen5, the
+analysed baseline -- a frozen computational one, with no hardware behind it -- and the record of
+what a self-contained deployer costs. The main repository first moved the design target to an approximately 8 m stage-integrated
+cold-gas machine in August 2026, then reopened the mechanism after mission work showed that the
+highest available release speed did not improve the best tested two-payload campaign. The current
+calculation reference is now a compact independent stored-energy release cell. The gas machine
+remains in the record as a historical comparator with its failures intact.
 
-Nothing in the existing gas-guide Gen6 is measured, and no launch provider has agreed to lend a
-stage. That is exactly why the manuscript still carries Gen5. A paper reports what has been
-analysed to a declared standard, not whichever architecture is currently being investigated.
+Nothing in the current reference is measured, its detailed accumulator, latch, guide, catcher and
+structure are unselected, and no launch provider has supplied an accommodation. That is exactly
+why the manuscript still carries Gen5. A paper reports what has been analysed to a declared
+standard, not what looks best this week.
 
-The main repository carries Gen5, the existing gas-guide comparator and the clean-sheet selection
-work, with failures kept at the same standard as results.
+The main repository carries both, and the failures at the same standard as the results.
 
 ## What is deliberately absent
 
