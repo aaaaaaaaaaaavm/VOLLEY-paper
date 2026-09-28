@@ -1,3 +1,5 @@
+> **Programme status, 2026-09-28:** Gen6 is in development. No architecture or speed envelope is selected or validated. The independent spring-cell bank and the historical gas guide are unselected studies. This manuscript reports the older Gen5 model; it must not be read as a physical test or a current design specification.
+
 > ## What is generated here, and what is not
 >
 > **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
@@ -39,11 +41,9 @@ These bounded calculations do not close the full campaign or select flight hardw
 
 An IEEE-formatted technical manuscript, and everything needed to check it.
 
-<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and Gen6" width="100%"></p>
+<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and historical study" width="100%"></p>
 
-<p align="center"><sub>The manuscript reports Gen5. The current design target is Gen6. They share
-the mission, not the evidence base; this generated overview keeps that distinction visible before
-the paper is opened.</sub></p>
+<p align="center"><sub>The manuscript reports the historical Gen5 model. Later architecture studies remain unselected and have a different evidence base.</sub></p>
 
 <p align="center">
   <img src="paper/figures/A02_field_map.png" alt="Depth-resolved Halbach airgap field" width="32%">
@@ -54,9 +54,9 @@ the paper is opened.</sub></p>
 <p align="center"><sub>Field assumption → modelled shot → architecture verdict. The manuscript's
 visual spine is generated from the same analysis files as its tables.</sub></p>
 
-Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper describes a
-deployer that gives each of twelve satellites an orbit chosen for it, without modifying any of
-them, and reports, in the same voice, the three thresholds the design currently fails.
+Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper models a
+deployer intended to give twelve satellites individually selected release conditions without
+modifying them, and reports thresholds the model fails. No mission benefit is physically verified.
 
 ## What the manuscript's machine is for
 
@@ -71,11 +71,9 @@ mission, its own track, drive, sled, energy store, brake and magazine, operating
 platform. Host repositioning is treated parametrically throughout, because no launch provider
 has supplied stage propulsion or control-authority data.
 
-> The programme has since moved beyond Gen5, but the manuscript has not moved with it,
-> deliberately. The current calculation reference is a clean-sheet compact architecture with
-> independent retained cells, a motor-charged mechanical accumulator, latch, short guided pusher
-> and local catcher. The earlier 8 m cold-gas machine remains a historical comparator. Neither
-> direction inherits Gen5's evidence. *A paper does not follow a design target; it follows evidence.*
+> The programme has since studied other mechanisms, but none is selected. The separate spring-cell
+> bank and the approximately 8 m gas guide are historical comparisons. Neither inherits Gen5's
+> evidence. The manuscript is retained as a dated model study.
 
 [Read the paper](paper/VOLLEY_IEEE_Conference.pdf), 18 pages, current build.
 Print-ready copies: [A4](print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf) ·
@@ -132,22 +130,20 @@ claims the paper had to retract after reading it. [`LITERATURE.md`](LITERATURE.m
 field.
 
 
-## The manuscript describes Gen5, and the design target has moved
+## The manuscript describes Gen5; the next architecture is open
 
 This is deliberate and worth stating plainly. The authored manuscript describes Gen5, the
 analysed baseline -- a frozen computational one, with no hardware behind it -- and the record of
-what a self-contained deployer costs. The main repository first moved the design target to an approximately 8 m stage-integrated
-cold-gas machine in August 2026, then reopened the mechanism after mission work showed that the
-highest available release speed did not improve the best tested two-payload campaign. The current
-calculation reference is now a compact independent stored-energy release cell. The gas machine
-remains in the record as a historical comparator with its failures intact.
+what one self-contained deployer model costs. The long gas guide and compact independent spring
+cells were later investigated and remain unselected comparators. The best sampled two-payload
+campaign cannot select a product mechanism or speed ceiling; the later twelve-payload screens did
+not complete a full manifest. The next design must restore the reusable shared path and loading
+objective, then be compared under complete installed and mission accounting.
 
-Nothing in the current reference is measured, its detailed accumulator, latch, guide, catcher and
-structure are unselected, and no launch provider has supplied an accommodation. That is exactly
-why the manuscript still carries Gen5. A paper reports what has been analysed to a declared
-standard, not what looks best this week.
+No performance has been physically measured, and no launch provider has supplied an accommodation.
+The manuscript retains Gen5 as a historical computational case, not a current product specification.
 
-The main repository carries both, and the failures at the same standard as the results.
+The main repository retains these studies and their recorded failures.
 
 ## What is deliberately absent
 
