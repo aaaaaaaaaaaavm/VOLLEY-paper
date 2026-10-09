@@ -10,10 +10,10 @@
 
 | | |
 |---|---|
-| `VOLLEY_IEEE_Conference.pdf` | 16 pages, US Letter. The canonical build; includes rated two-body, CAD fit and energy-accounting checks |
+| `VOLLEY_IEEE_Conference.pdf` | 17 pages, US Letter. The canonical build; includes finite-force, matched-mission, CAD-fit and energy-accounting findings |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same file, named for handover |
-| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 16 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s the same `paper.tex`; PDF extraction order around equations may differ with the layout |
-| Build | pdfTeX, TeX Live 2025, clean `latexmk` builds of Letter and A4; 16 pages each |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 17 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s the same `paper.tex`; PDF extraction order around equations may differ with the layout |
+| Build | pdfTeX, TeX Live 2025, clean `latexmk` builds of Letter and A4; 17 pages each |
 
 This build presents Gen5 as the fixed computational design baseline and Gen6 as future scale-up
 research. It corrects the earlier claim that elapsed time between zero-impulse releases from an
