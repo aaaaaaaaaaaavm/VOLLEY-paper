@@ -90,7 +90,7 @@ Outputs are written under [analysis/results](analysis/results/). Run in the list
 | [analysis/](analysis/) | Executable models and captured JSON results |
 | [validation/](validation/) | Predeclared run sheets, cross-checks and failures |
 | [cad/](cad/) | Gen5 source parts, eight FreeCAD-exported STEP parts, native FCStd assembly, failure report and rendered views |
-| [reports/](reports/) | Local four-page computational evidence review and its source |
+| [reports/](reports/) | Local seven-page computational evidence review and its source |
 | [BASELINE.md](BASELINE.md), [PROVENANCE.md](PROVENANCE.md), [EVIDENCE_LIMITS.md](EVIDENCE_LIMITS.md) | Claim values, evidence classes and unresolved decisions |
 
 The analysis and reference records began as a dated engineering snapshot and now include local P115/P116 checks and FreeCAD exports. This copy is the evidence package for the manuscript; later changes elsewhere do not silently change its claims. The manuscript and PDFs are authored here. Any future update requires rerunning the local checks and recording the changed sources. [VOLLEY engineering](https://github.com/aaaaaaaaaaaavm/VOLLEY), [college thesis](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis) and [research vault](https://github.com/aaaaaaaaaaaavm/VOLLEY-lab) provide optional programme context.
