@@ -1,0 +1,396 @@
+{
+  "_WARNING": "THIS FILE IS THE SINGLE SOURCE OF TRUTH FOR VOLLEY GEOMETRY. Do NOT edit dimensions inside Fusion 360 \u2014 user parameters there are document-scoped and will silently drift across the nine documents. Change a value here, then regenerate the affected document from script. Fusion is authoritative for geometry and fit only; analysis/*.py remains authoritative for mass and performance. Fusion-computed masses are proxies (solid-copper stator, solid-aluminium CubeSats, steel standing in for NdFeB) and are deliberately excluded from this file.",
+  "_PROVENANCE": {
+    "regenerated": "2026-07-23",
+    "method": "Rebuilt by reading the nine-document Autodesk Fusion model directly during the CAD build of 2026-07-23. The prior parameters.json (described as 62 dimensions / seven groups) was not available at the time, so this file's schema is NEW, not the original. DIFF THIS AGAINST THE REPO COPY BEFORE MERGING \u2014 the original may carry provenance fields or analysis-script cross-references not reproduced here.",
+    "final_verification_read": "INCOMPLETE \u2014 the confirming read did not complete. All values below come from earlier reads of the live model and were individually verified on all three axes at creation time. Re-run a verification pass against the CAD.",
+    "units": "millimetres unless stated",
+    "coordinate_frame": "x = firing axis, positive toward the muzzle. Origin x=0 at the ESPA flange aft mating face. y = lateral (P = +y port, S = -y starboard). z = vertical, z=0 at the stator mid-plane."
+  },
+  "envelope": {
+    "installed_closed_mm": [
+      1839,
+      530,
+      940
+    ],
+    "extremes_min_mm": [
+      -32,
+      -265,
+      -230
+    ],
+    "extremes_max_mm": [
+      1807,
+      265,
+      710
+    ],
+    "status": "authoritative",
+    "reconciliation_note": "SUPERSEDES the 1825 x 516 x ~1030 figure in EMOCD_CAD_Master_Plan.md. That earlier value was measured on the now-superseded single-file model (MOCD_Deployer_Assembly_v1, closed and archived) BEFORE the enclosure existed, before the ESPA interface was rebuilt from a flat plate into a ring flange, and before the cassette septum/pin corrections. Length and width grow by skin clearance plus 2 mm shell (1825->1839, 516->530). CAUTION: the height change (1030->940) is larger than skin thickness explains \u2014 the lower bound is now set by the flange ring (z=-230) and the upper by the radiator (z=+710); the earlier model's height is believed to have included annotation-plane text and a differently-measured follower-motor stack. FLAGGED FOR RE-VERIFICATION.",
+    "espa_grande_conflict": "Longest dimension exceeds ESPA Grande's ~1270 mm class limit by ~44%. Open problem P9 \u2014 host claim must be re-scoped or the machine repackaged."
+  },
+  "groups": {
+    "track": {
+      "_document": "EMOCD_Track",
+      "longeron_length": 1800,
+      "longeron_count": 2,
+      "longeron_z_min": -45,
+      "longeron_z_max": 20,
+      "overall_width": 205,
+      "roller_channel_y_inner": 67,
+      "roller_channel_y_outer": 90,
+      "roller_channel_z_half_height": 22,
+      "guide_rail_y_inner": 68,
+      "guide_rail_y_outer": 88,
+      "guide_rail_z_contact": 15,
+      "guide_rail_z_outer": 22,
+      "guide_rails_per_side": 2,
+      "launch_lock_x_start": 30,
+      "launch_lock_x_end": 50,
+      "launch_lock_y_inner": 68,
+      "launch_lock_y_outer": 78,
+      "launch_lock_z_half_height": 14,
+      "launch_lock_count": 2,
+      "acceleration_zone_end": 1300,
+      "release_point": 1500,
+      "status": "authoritative"
+    },
+    "stator": {
+      "_document": "EMOCD_Stator (v4)",
+      "topology": "ironless, single-layer, three-phase",
+      "conductor_count": 162,
+      "conductors_per_phase": 54,
+      "belt_pitch": 8.0,
+      "belt_width": 7.0,
+      "insulation_gap": 1.0,
+      "belt_thickness_z": 10.0,
+      "belt_z_min": -5,
+      "belt_z_max": 5,
+      "active_width_y": 90,
+      "pole_pitch": 24,
+      "wavelength": 48,
+      "active_span_start": 0,
+      "active_span_end": 1296,
+      "belt_sequence": [
+        "A+",
+        "C-",
+        "B+",
+        "A-",
+        "C+",
+        "B-"
+      ],
+      "phase_colours": {
+        "A": "red",
+        "B": "green",
+        "C": "blue"
+      },
+      "winding_fill_factor_for_mass": 0.6,
+      "end_turns_modelled": false,
+      "end_turns_note": "Omitted \u2014 correct for field and force computation, WRONG for packaging. Real racetrack ends wrap beyond the 90 mm active depth and are not in the envelope.",
+      "layer_count_decision": "OPEN \u2014 single vs two-layer is an unmade electromagnetic design decision. Single layer as drawn.",
+      "status": "authoritative_for_field_geometry"
+    },
+    "sled": {
+      "_document": "EMOCD_Sled",
+      "overall_length": 488,
+      "overall_width": 140,
+      "overall_height": 140,
+      "halbach_array_x_start": 230,
+      "halbach_array_x_end": 570,
+      "halbach_array_length": 340,
+      "halbach_array_width_y": 90,
+      "halbach_array_z_inner": 6,
+      "halbach_array_z_outer": 14,
+      "halbach_magnet_thickness": 8,
+      "airgap_per_side": 1.0,
+      "chassis_plate_thickness": 6.0,
+      "chassis_web_thickness": 6.0,
+      "chassis_web_y_inner": 48,
+      "chassis_web_y_outer": 54,
+      "backstop_thickness": 8.0,
+      "roller_count": 4,
+      "roller_diameter": 30,
+      "roller_width": 16,
+      "roller_base_span": 300,
+      "roller_x_offset_from_centre": 125,
+      "roller_y_inner": 70,
+      "roller_y_outer": 86,
+      "payload_com_offset_above_thrust_line": 70,
+      "gap_shim_tolerance": 0.05,
+      "status": "PROVISIONAL_PENDING_FEA",
+      "provisional_note": "The 6 mm chassis was the original first-pass stiffness design. A4 subsequently ran CalculiX 2.21 on the Gen3 chassis and passed its stated deflection, stress and first-mode bands at the conservative 3.68 kN attraction case; A12 later revised that attraction to 2.69 kN. The adopted 9.445 kg sled is from Gen3 solid volumes and is carried into Gen5 analysis, not independently measured from a complete Gen5 installed assembly. A lighter ribbed chassis, moving-load response and payload interface remain open. See validation/A4_sled_structural.md and docs/GEN5_FREEZE_READINESS.md."
+    },
+    "magazine": {
+      "_document": "EMOCD_Magazine_Cassette (one document, inserted twice; second instance is a 180-degree rotation about z through x=210.25, NOT a mirror \u2014 Fusion rejects mirror transforms for external references)",
+      "cassette_length_x": 380.5,
+      "cassette_width_y": 166,
+      "cassette_height_z": 690,
+      "satellites_per_cassette": 6,
+      "satellite_pitch_z": 104,
+      "drive_bay_width": 30,
+      "leadscrew_x_position": 200,
+      "follower_plate_thickness": 6.0,
+      "follower_rib_count": 3,
+      "escapement_finger_count": 2,
+      "gate_frame_z_min": 46,
+      "gate_frame_z_max": 626,
+      "gate_pin_diameter": 9,
+      "gate_pin_count": 2,
+      "gate_pin_x_positions": [
+        110,
+        290
+      ],
+      "gate_pin_material": "A-286",
+      "gate_ascent_preload_N": 5900,
+      "septum_thickness": 1.0,
+      "septum_x_min": 25,
+      "septum_x_max": 375,
+      "septum_z_min": 26,
+      "septum_z_max": 646,
+      "septum_material": "silicon steel",
+      "shell_panel_thickness": 4.0,
+      "shell_construction_decision": "OPEN \u2014 drawn as closed 4 mm panels (upper bound, and the mounting surface the silicon-steel septa need). mass_properties.py assumes a 6% fill open frame (lower bound). The ~4.8 kg difference is a real design decision, not an error.",
+      "status": "authoritative_geometry_open_decision",
+      "gate_pin_diameter_note": "6 -> 9 mm, 2026-08-10 by validation/A22_gate_resize.md. D6 was sized against a quasi-static 25 g case; the governing case is random vibration through the 109 Hz mode, where D6 gives a negative margin at Q = 30. D9 gives +0.45 there and stays positive across Q = 10..30 for 11 g. See P37."
+    },
+    "payload_cell": {
+      "_document": "EMOCD_Payload_Cell (NEW, ADR-025 \u2014 not yet drawn; parameters only)",
+      "cell_length_x": 340.5,
+      "cell_section_y": 100.0,
+      "cell_section_z": 100.0,
+      "cell_pitch_z": 104.0,
+      "cells_per_cassette": 6,
+      "cells_total": 12,
+      "insert_divider_thickness": 1.5,
+      "insert_divider_axis": "x \u2014 dividers subdivide the cell lengthwise; the cell's own walls serve in y and z, which is what makes the pitch, gate and cradle common to every class",
+      "section_limit_origin": "y is set by the 166 mm cassette width less structure; z by the 104 mm stack pitch less the 1 mm septum. Both are fixed by the existing magazine and neither may be grown for a payload class.",
+      "classes_accommodated": [
+        "PocketQube 1P",
+        "PocketQube 3P",
+        "TubeSat",
+        "1U CubeSat",
+        "3U CubeSat",
+        "6U CubeSat (2 whole cells in z)"
+      ],
+      "classes_refused": {
+        "ThinSat": "114 x 114 x 25.4 \u2014 two dimensions exceed the 100 mm section in every orientation",
+        "12U CubeSat": "needs 200 mm in both section axes; there is no second cell in y",
+        "ChipSat / femtosat": "geometrically fits at 720 per cell, but NOT QUALIFIED \u2014 P44, the separation hardware outweighs the payload"
+      },
+      "status": "PARAMETRIC_ONLY_NOT_DRAWN",
+      "provisional_note": "No insert exists in CAD for any class. These parameters define the cell A24 analysed and ADR-025 adopted; the insert's retention, thermal path, ground handling, and the CDS-rail-to-class interface it must present are all undesigned. The cradle, escapement and retention gate are unchanged by this group \u2014 a fixed cell changes what is inside a slot and nothing about the machine around it."
+    },
+    "brake": {
+      "_document": "EMOCD_Brake",
+      "x_start": 1530,
+      "x_end": 1740,
+      "pole_plate_thickness": 15,
+      "pole_taper_entry_length": 30,
+      "pole_count": 2,
+      "pole_width_y": 90,
+      "ring_spring_stop": true,
+      "arrest_g_cap": 200,
+      "taper_purpose": "Tapered pole entry is the 200 g deceleration limiter protecting the brittle sintered NdFeB bonding.",
+      "status": "PROVISIONAL",
+      "provisional_note": "Poles were lightened from solid blocks to 15 mm plates on structural reasoning alone. Magnetic sizing against the required pole area has NOT been done \u2014 pending the eddy-brake field check."
+    },
+    "interface_espa": {
+      "_document": "EMOCD_Interface_ESPA",
+      "flange_outer_diameter": 460,
+      "bolt_circle_diameter": 400,
+      "bolt_hole_count": 24,
+      "bolt_hole_diameter": 9,
+      "flange_thickness": 25,
+      "hub_plate_diameter": 300,
+      "hub_plate_thickness": 15,
+      "gusset_count": 4,
+      "gusset_thickness": 12,
+      "gusset_inner_radius": 50,
+      "gusset_outer_radius": 220,
+      "x_min": -25,
+      "x_max": 0,
+      "flange_protrudes_through_aft_skin": true,
+      "status": "authoritative"
+    },
+    "payload_3u": {
+      "_document": "EMOCD_Payload_3U (one document, twelve instances)",
+      "length_x": 340.5,
+      "width_y": 100,
+      "height_z": 100,
+      "corner_rail_size": 8.5,
+      "corner_rail_count": 4,
+      "corner_rail_standard": "CubeSat Design Specification rail interface",
+      "instances_in_assembly": 12,
+      "modelled_as": "solid aluminium proxy \u2014 real 3U flight mass is 4 kg, NOT the Fusion-computed value",
+      "status": "authoritative"
+    },
+    "enclosure": {
+      "_document": "EMOCD_Enclosure (NEW \u2014 the ninth document; this is the flight unit as seen from outside)",
+      "skin_thickness": 2.0,
+      "skin_material": "aluminium",
+      "x_min": -32,
+      "x_max": 1807,
+      "y_half_width": 265,
+      "z_bottom_skin_outer": -207,
+      "z_top_skin_outer": 707,
+      "muzzle_aperture_width_y": 160,
+      "muzzle_aperture_height_z": 160,
+      "muzzle_aperture_centre_y": 0,
+      "muzzle_aperture_centre_z": 70,
+      "muzzle_panel_x": 1805,
+      "muzzle_aperture_verified": "point-containment probe on the satellite exit line returns OUTSIDE (open); probe above the aperture returns INSIDE (solid panel)",
+      "aft_flange_cutout_diameter": 466,
+      "aft_cutout_profile": "horseshoe \u2014 the cutout breaches the panel's lower edge by design, because the flange OD extends below the belly line",
+      "belly_notch_x_min": -27,
+      "belly_notch_x_max": 2,
+      "belly_notch_y_half_width": 110,
+      "radiator_length": 1600,
+      "radiator_width": 200,
+      "radiator_thickness": 3,
+      "radiator_x_start": 70,
+      "radiator_z": 707,
+      "radiator_area_m2": 0.32,
+      "bays": {
+        "supercap_bank_96V_6F": {
+          "x": [
+            0,
+            300
+          ],
+          "y": [
+            -255,
+            -115
+          ],
+          "z": [
+            -180,
+            -30
+          ]
+        },
+        "ppu_sic_inverter": {
+          "x": [
+            330,
+            580
+          ],
+          "y": [
+            -255,
+            -115
+          ],
+          "z": [
+            -130,
+            -30
+          ]
+        },
+        "avionics_sequencer": {
+          "x": [
+            610,
+            760
+          ],
+          "y": [
+            -255,
+            -135
+          ],
+          "z": [
+            -130,
+            -50
+          ]
+        },
+        "imu_unit": {
+          "x": [
+            790,
+            850
+          ],
+          "y": [
+            -255,
+            -195
+          ],
+          "z": [
+            -130,
+            -80
+          ]
+        }
+      },
+      "bays_verified_clear_of_track": true,
+      "status": "authoritative_geometry",
+      "mass_note": "A46 replaced the earlier P10 enclosure placeholder with separate modeled enclosure, frame, radiator, equipment-bay and bracket line items in mass_properties.py. These are estimates; installed host-specific mass and supplier-backed component masses remain unclosed."
+    },
+    "legacy_study_drive": {
+      "_document": "Built by cad/build_legacy_study.py. ADR-032: the payload is accelerated directly by cold gas along a rail the host stage provides. There is no mover, no stator, no brake and no return stroke. ADR-034: the stroke is the host stage's whole usable acceleration length, and the charge pressure fell to hold the exit velocity while the peak acceleration halved.",
+      "_source": "A49 (stroke and charge pressure), A41 (chamber), A42 (reservoir and fill), A38 (tip-off ceiling and cradle preload), A37 (stage class and the 25 g payload cap). BOTH velocity numerators are carried. exit_velocity_m_s_zero_friction is the gas work alone; exit_velocity_m_s_at_friction_allowance subtracts A41's full tolerable seal friction scaled over the longer stroke. The gap between them widened from 5.00 % to 15.38 % at ADR-034 -- friction scales with contact length while shot work saturates. P67, P78. ADR-035 states the material, which was named nowhere until 2026-08-20 -- A49 computed the tube at 2700 kg/m3 and precharged.py sizes the chamber at 7800, and A49 band 7 passed at 1.140 kg without knowing it was choosing. Aluminium on mass: A59 found strength, stiffness and buckling all indifferent between the metals, and A58 found it is MATCHING the piston and bore that removes the 10.79 um differential, not which metal. A61 band 7 found a 16.000 mm ISO 6432 stock bore costs 0.00 % on the SEAL specification, but it moves the charge pressure and every number derived from it, so it is left as a separate decision rather than bundled here. The 473 K ceiling FORECLOSES steam -- A63 found none of 108 steam design points reaches it.",
+      "bore_mm": 15.805,
+      "piston_area_mm2": 196.2,
+      "stroke_mm": 8000.0,
+      "tube_wall_mm": 1.0,
+      "acceleration_g": 11.362895,
+      "commanded_force_N": 445.88,
+      "exit_velocity_m_s": 29.01,
+      "cradle_preload_N_per_contact": 201.7,
+      "cradle_contact_lever_mm": 170.25,
+      "exit_velocity_m_s_zero_friction": 34.28,
+      "exit_velocity_m_s_at_friction_allowance": 29.01,
+      "exit_velocity_m_s_constant_pressure_bound": 42.23,
+      "tube_mass_kg": 1.1404,
+      "friction_work_fraction": 0.2839,
+      "tube_material": "aluminium 6061-T6, hard anodised",
+      "piston_material": "aluminium 6061-T6, matched to the tube",
+      "tube_material_density_kg_m3": 2700.0,
+      "tube_temperature_ceiling_K": 473.0
+    },
+    "legacy_study_store": {
+      "_document": "Built by cad/build_legacy_study.py.",
+      "_source": "A41 bands 2-6, A42 bands 1-6, A43 bands 2-8, and A56, which SIZED it at ADR-034's charge pressure rather than scaling it. 3.46 L against A43's 9.55 at 50 bar -- the bottle falls 63.8 % where the gas falls 54.55 %, because a lower target pressure lets it be drawn further down. A43's finding survives: conduction gives 8873 s against the 1200 s cadence, 7.39x, so the no-relaxation figure is still the physically right end. Store 3.1216 kg, which is 24 % BELOW the 4.10 kg ADR-034 quoted from A49's scaling -- falsifier 2 does not fire, P82 closed. The last fill takes 11.516 s against a 10 s window and that fails at A43's point too -- P87.",
+      "chamber_volume_l": 2.0,
+      "charge_pressure_bar": 22.7258,
+      "reservoir_volume_l": 3.46,
+      "storage_pressure_bar": 200.0,
+      "fill_orifice_mm": 1.0,
+      "first_fill_s": 4.14,
+      "gas": "nitrogen",
+      "gas_per_shot_kg": 0.051046,
+      "store_mass_kg": 3.1216
+    },
+    "legacy_study_seal": {
+      "_document": "Built by cad/build_legacy_study.py. ADR-036: the seal is SPECIFIED, not allowed. A41 declared a tolerable friction and every figure downstream descended from that ceiling; A61 asked instead what the loosest seal is that the design can survive, and the THERMAL case sets it -- the seal must survive its own friction heating before it must satisfy any control requirement.",
+      "_source": "A61 bands 1-7, with the thermal limit from A58 band 5 (a 2 g seal within 50 K) and the dispersion consequence from A55. friction_max_N is the SPECIFICATION. friction_allowance_N is A41's ceiling, RETAINED because P67 has measured neither and the ceiling is the only honest worst-case number. The two differ by 4.68x and every published LegacyStudy dispersion figure descends from the ceiling, not from this specification. P67 is the measurement that decides which one the machine has.",
+      "friction_max_N": 17.8,
+      "friction_max_fraction_of_p0A": 0.04,
+      "friction_allowance_N": 83.40371375447981,
+      "allowance_fraction_of_p0A": 0.1871,
+      "binding_requirement": "thermal: a 2 g seal stays within 50 K per shot (A58 band 5, P88)",
+      "trim_stage_unnecessary_below_fraction": 0.05,
+      "seal_mass_kg": 0.002,
+      "seal_temperature_rise_limit_K": 50.0,
+      "candidate_class": "filled PTFE glide ring; A61 places 4.00 % inside a 2-10 % handbook range but NOT at its loose end, and does not claim any class achieves it",
+      "measured": "NO -- P67. Nothing in this project has measured this seal or any seal."
+    },
+    "legacy_study_trim": {
+      "_document": "Built by cad/build_legacy_study.py. ADR-033: a short stator at the muzzle end, energised after the gas has finished, correcting the velocity the gas actually produced. It never throws the payload.",
+      "_source": "A55 bands 4 and 6, which resized it. A48's 39.7 mm carried 0.323 m/s against A44's dispersion over a 2.18 m stroke; at ADR-034's 8.0 m the same model needs 1.1543 m/s and 144.01 mm -- P83, confirmed and closed. The section is 1.800 % of the stroke, against A48's 1.822 %, so it grew in exact proportion. PEAK POWER IS ESSENTIALLY UNCHANGED at 28.6 kW: the force per metre is fixed by A2's thrust constant and A1's sheet current, so the section gets longer rather than harder to drive. THE PULSE STORE THAT FEEDS IT IS STILL NOT SIZED -- ADR-033 falsifier 1, P77.",
+      "section_length_mm": 144.01,
+      "section_start_mm": 7855.99,
+      "thrust_constant_N_per_kA_m": 10.5386,
+      "sheet_current_A_per_m": 90000.0,
+      "force_N": 948.0,
+      "authority_m_s": 1.1543,
+      "energy_per_correction_J": 136.59,
+      "peak_mechanical_W": 28606.0,
+      "added_mass_kg": 1.2328,
+      "pulse_store_kg": null
+    }
+  },
+  "documents": {
+    "EMOCD_Track": "longerons, roller channels, guide rails, launch locks",
+    "EMOCD_Stator": "162-conductor three-phase belt winding; also the FEMM geometry source",
+    "EMOCD_Sled": "Halbach arrays, chassis, webs, backstop, rollers, brake fin",
+    "EMOCD_Magazine_Cassette": "shell, follower drive, escapement, retention gate, pins, septum",
+    "EMOCD_Brake": "tapered pole plates, ring-spring stop",
+    "EMOCD_Interface_ESPA": "ring flange, hub, gussets",
+    "EMOCD_Payload_3U": "3U CubeSat with CDS corner rails",
+    "EMOCD_Enclosure": "skins, muzzle panel, aft flange cutout, radiator, equipment bays",
+    "EMOCD_Assembly": "inserts all eight above; carries sled_slider_X and payload_on_sled_rigid joints"
+  },
+  "open_problems_referenced": {
+    "P5": "CAD sled mass contradicts the parametric assumption",
+    "P8": "exit velocity provisional pending sled structural FEA",
+    "P9": "closed envelope exceeds ESPA Grande by ~44%",
+    "P10": "historical enclosure mass omission resolved by A46; installed host-specific mass remains unclosed",
+    "E1": "3-D end effects on the thrust constant \u2014 closed only by FEMM/Maxwell",
+    "P44": "intra-cell separation hardware outweighs the payload at femtosat scale"
+  }
+}

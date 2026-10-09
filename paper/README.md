@@ -10,7 +10,7 @@
 
 | | |
 |---|---|
-| `VOLLEY_IEEE_Conference.pdf` | 17 pages, US Letter. The canonical build |
+| `VOLLEY_IEEE_Conference.pdf` | 17 pages, US Letter. The canonical build; includes rated two-body and CAD fit checks |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same file, named for handover |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 17 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s `paper.tex` verbatim, the two cannot diverge in content, and they extract to identical text |
 | Build | pdfTeX, TeX Live 2025, clean `latexmk` builds of Letter and A4; 17 pages each |
@@ -19,6 +19,10 @@ This build presents Gen5 as the fixed computational design baseline and Gen6 as 
 research. It corrects the earlier claim that elapsed time between zero-impulse releases from an
 unchanged host produces a persistent in-track phase offset. The corrected text and figure caption
 require an actual relative state change for lasting separation.
+
+The 9 October review update adds a separate Cartesian check of the immediate 28.800775 km
+semi-major-axis rise and a FreeCAD reference assembly check that **fails** side-fed packaging
+by 11 mm. Neither check validates atmospheric lifetime, moving release mechanics or hardware.
 
 It is an IEEE-*formatted* manuscript, using the IEEEtran class. Submission compliance for any
 particular venue is not claimed, page and abstract limits are set by the conference or journal,
