@@ -6,9 +6,11 @@ This repository is the **standalone companion** to an [IEEE-formatted manuscript
 
 > **Publication state, October 2026:** The paper is **not submitted or peer reviewed**. No IEEE venue has been selected, so venue-specific page, abstract, reference and copyright requirements have not been checked. Gen5 is a controlled computational evaluation snapshot; Gen6 is future scaling research toward a 1 km/s-class objective. No VOLLEY hardware has been built, fired, measured, qualified or flown.
 
-![STEP-derived Gen5 reference assembly rendered in Blender](cad/renders/step_review/gen5_reference_open.jpg)
+![Four-stage STEP-derived Blender storyboard of intended Gen5 storage, handoff, acceleration and departure](cad/renders/sequence/gen5_operations_hero.png)
 
-*The enclosure is hidden to show the modeled parts. This [FreeCAD-linked STEP view](cad/renders/step_review/README.md) depicts the evaluated reference placement, whose side-fed track and cassettes intersect. It is a geometry visualization, not a photograph, flight article or manufacturing release.*
+*Conceptual motion from the local [FreeCAD-linked STEP review solids](cad/renders/sequence/README.md). The enclosure and near cassette shell are hidden. The evaluated reference placement has a known side-fed track/cassette clash; moving clearances, contact and brake behavior are unverified. [Watch the eight-second sequence](cad/renders/sequence/gen5_intended_sequence.mp4) · [view the static STEP audit](cad/renders/step_review/README.md). This is graphical orientation for the paper, not added performance evidence.*
+
+<p align="center"><img src="cad/renders/sequence/gen5_intended_sequence.gif" alt="STEP-derived Gen5 intended-operations animation; not a mechanism validation" width="70%"></p>
 
 > **Performance correction under review:** a finite-geometry analytic 3-D force integral finds **12.448 m/s only under ideal phase with circuit losses omitted**. This challenges the historical periodic-force shot result of **16.029 m/s**. The latter remains in the paper as a traceable model output, not an established machine capability. [Numerical run sheet](validation/P118_gen5_finite_force_map.md) · [affected-claim disposition](docs/GEN5_2026_10_09_FINDING_DISPOSITION.md).
 
