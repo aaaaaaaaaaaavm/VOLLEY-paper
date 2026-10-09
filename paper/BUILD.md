@@ -1,25 +1,24 @@
-# Building the manuscript
+# Build and evidence ownership
 
-This repository is the manuscript's authoritative home as of 2026-08-13
-([ADR-028](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/main/docs/adr/028-no-latex-in-the-flagship.md)).
-`paper.tex`, `IEEEtran.cls`, the compiled PDF, `archive/` and `cv/` are authored here and are
-not generated from anywhere. The flagship holds no LaTeX at all.
+`paper/paper.tex` is the editable manuscript. `paper/paper_a4.tex` uses the same source with A4 page geometry. The figures, model scripts, result JSON, validation sheets and CAD in this repository are local, inspectable snapshots; reading or rebuilding the paper does not require the flagship repository. The PDF is an IEEE-*formatted* draft. No venue has been selected, and this file does not claim submission compliance or acceptance.
 
-Everything else in this repository, `analysis/`, `validation/`, `paper/figures/`,
-`BASELINE.md`, `PROVENANCE.md`, is generated from the flagship by
-`tools/export_companion.py` and must never be hand-edited.
+## Build the manuscript
 
-```
-pdflatex paper.tex     # three passes from clean, until cross-references settle
-cd cv && python3 make_cv.py && pdflatex cv.tex
+From `paper/`:
+
+```bash
+latexmk -pdf -interaction=nonstopmode -halt-on-error paper.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error paper_a4.tex
 ```
 
-Needs `texlive-latex-base`, `texlive-latex-recommended`, `texlive-publishers`,
-`texlive-fonts-recommended` and `lmodern`. The CV generator reads `../../analysis/results/*.json`,
-so run the analysis first if those are stale.
+The Letter result is `paper/VOLLEY_IEEE_Conference.pdf` (a copy of the `paper.tex` build); the A4 handover copy is under `print/`. Check that the PDF page count, references, figures and text match this source before publishing a new build. The selected venue will determine which page size, length, bibliography style and supplemental files are actually permissible.
 
-## The figures are not authored here
+## Rebuild or inspect evidence
 
-`paper/figures/*.png` are regenerated in the flagship by `tools/make_figures.py`, which imports
-`analysis/` rather than re-deriving any physics. Editing a figure here is editing a copy. Change
-the analysis, regenerate there, re-export.
+- `python3 -m pip install -r requirements.txt` from the repository root installs the pinned Python model dependencies. Optional CAD and system solvers are described in `requirements.txt` and their run sheets.
+- `analysis/` contains model code and captured results. The finite-force and matched-mission scripts and their JSON outputs are local to this repository.
+- `paper/make_figures.py` draws many manuscript figures from local `analysis/`; diagrams and newer review figures have separate generators and are not all reproduced by that script. See `paper/README.md` and each figure's provenance before rebuilding.
+- `validation/P115` through `P118` identify the immediate-orbit, CAD fit, energy-accounting and finite-force checks. A passing numerical check applies only to its stated quantity and boundary conditions.
+- `cad/` contains the native FreeCAD review assemblies and STEP exchange files. Imported FreeCAD solids are review geometry, not a manufacturing release or an independently rated mechanism.
+
+Some historical validation sheets retain links to wider programme records that were not copied here. The paper's current numerical conclusions, scripts, result files, CAD review and named P115–P118 checks are held locally. Historical links must not be treated as a substitute for a source in this repository when making a manuscript claim.

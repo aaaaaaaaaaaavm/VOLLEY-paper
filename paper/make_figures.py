@@ -17,12 +17,15 @@ than copied into this file.
 D01_block.png and D02_layout.png are schematics, not plots, and are not regenerated
 here -- see `legacy/make_diagrams.py`.
 
-Run:  python3 tools/make_figures.py
+Run from the repository root: python3 paper/make_figures.py
+Outputs are written to top-level figures/ and copied to paper/figures/, the
+directory read by paper.tex.
 """
 
 import hashlib
 import math
 import os
+import shutil
 import sys
 import json
 
@@ -41,6 +44,7 @@ import motor_model as mm
 import sizing
 
 OUT = os.path.join(ROOT, 'figures')
+PAPER_OUT = os.path.join(ROOT, 'paper', 'figures')
 
 plt.rcParams.update({
     'font.family': 'serif', 'font.size': 10, 'axes.grid': True, 'grid.alpha': 0.3,
@@ -59,6 +63,7 @@ def save(fig, name):
     path = os.path.join(OUT, name)
     fig.savefig(path)
     plt.close(fig)
+    shutil.copyfile(path, os.path.join(PAPER_OUT, name))
     print(f"  {name}")
 
 
