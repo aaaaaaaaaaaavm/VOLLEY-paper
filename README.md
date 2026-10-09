@@ -1,152 +1,76 @@
-> **Programme status, 2026-09-28:** Gen6 is in development. No architecture or speed envelope is selected or validated. The independent spring-cell bank and the historical gas guide are unselected studies. This manuscript reports the older Gen5 model; it must not be read as a physical test or a current design specification.
+# VOLLEY Gen5 — paper and reproducibility package
 
-> ## What is generated here, and what is not
->
-> **Generated** from [aaaaaaaaaaaavm/VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) at commit
-> `06ebd07` by `tools/export_companion.py`: the analysis scripts and their results, the
-> validation run sheets, the figures, and the reference records. Any edit to those is
-> destroyed on the next export. **Fix them in VOLLEY and this repository picks the fix up.**
->
-> **Authored here, and never overwritten:** the manuscript, its class file, the built PDF, the CV and the submission archive, all under `paper/`. VOLLEY is an engineering
-> record and holds no manuscript source.
->
-> Where a generated file disagrees with VOLLEY, VOLLEY is right and this copy is stale.
->
-> **This repository may be improved until the work is published, and freezes at that
-> moment.** What enters it has to be stable, effective and reliable against the problem
-> statement -- not merely newer.
+### A system-level computational design study of a programmable electromagnetic CubeSat deployer
 
-Live programme studies at this export: [sequential campaign allocation](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/06ebd07/docs/CAMPAIGN_ALLOCATION.md)
-and [architecture decision gates](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/06ebd07/docs/PROGRAMME_EXECUTION.md).
-[Terminal-state timing](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/06ebd07/docs/TERMINAL_TIMING.md)
-extends the single-payload benchmark. These studies extend the engineering record;
-the authored manuscript remains Gen5.
+This repository is the **standalone companion** to an [IEEE-formatted, 17-page manuscript](paper/VOLLEY_IEEE_Conference.pdf). It includes the manuscript source, cited local figures, CAD, analysis code and outputs, validation records, assumptions and known defects. A reader can evaluate the paper from this repository alone.
 
-The latest [review and restart record](https://github.com/aaaaaaaaaaaavm/VOLLEY/blob/06ebd07/docs/REVIEW_20260916.md)
-adds combined conditional release-error corners, reference-cell mechanics and the verification matrix.
-These bounded calculations do not close the full campaign or select flight hardware.
+> **Publication state, October 2026:** The paper is **not submitted or peer reviewed**. No IEEE venue has been selected, so venue-specific page, abstract, reference and copyright requirements have not been checked. Gen5 is a fixed computational baseline; Gen6 is future scaling research toward a 1 km/s-class objective. No VOLLEY hardware has been built, fired, measured, qualified or flown.
 
-<!-- PROGRAMME-HEADER-START -->
-| Repository | Role | You are here |
-|---|---|---|
-| [VOLLEY](https://github.com/aaaaaaaaaaaavm/VOLLEY) | Main: the authoritative engineering record. Improved continuously |  |
-| **[VOLLEY-paper](https://github.com/aaaaaaaaaaaavm/VOLLEY-paper)** | The concept at its most reliable, as an IEEE-formatted manuscript. **Frozen when published** | ← |
-| [VOLLEY-thesis](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis) | The same concept as a full submission. **Frozen when presented** |  |
-| [VOLLEY-lab](https://github.com/aaaaaaaaaaaavm/VOLLEY-lab) | The vault: ideas that never became a complete thing, and why each stopped |  |
-<!-- PROGRAMME-HEADER-END -->
+<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="Gen5 system architecture and mission concept" width="100%"></p>
 
----
+*Architecture figure from this repository. Host operations and payload interface are conceptual and provider dependent.*
 
-# VOLLEY: the manuscript
+**Start here:** [Paper PDF](paper/VOLLEY_IEEE_Conference.pdf) · [LaTeX source](paper/paper.tex) · [Build notes](paper/README.md) · [Claim provenance](PROVENANCE.md) · [Baseline](BASELINE.md) · [Validation register](validation/README.md)
 
-An IEEE-formatted technical manuscript, and everything needed to check it.
+## What the paper actually establishes
 
-<p align="center"><img src="paper/figures/V00_system_overview.svg" alt="VOLLEY mission chain and the evidence boundary between Gen5 and historical study" width="100%"></p>
+Gen5 models a magazine-fed, reusable-sled electromagnetic deployer for twelve unmodified 3U CubeSats on a host platform. The 1.5 m track includes a 1.3 m powered stroke, double-sided Halbach linear motor, pulse-energy store and eddy-current sled arrest. A qualified host, complete release mechanism and flight interface have not been selected.
 
-<p align="center"><sub>The manuscript reports the historical Gen5 model. Later architecture studies remain unselected and have a different evidence base.</sub></p>
+| Reported quantity | Gen5 result | How to read it |
+|:--|--:|:--|
+| Rated 3U exit speed | **16.029 m/s** | Coupled model output, not measured release speed or proven command envelope |
+| Modeled acceleration | **10.07 g** | Payload-specific structural compatibility unproven |
+| Gross shot energy | **2.78 kJ** | Circuit and dynamics model at the rated point |
+| Dry / loaded mass | **126.6 / 174.6 kg** | CAD-based design rollup; installed host system not closed |
+| Exit-speed dispersion | **0.0274 m/s (3σ)** | Closed-loop simulation with assumed sensor and uncertainty terms |
+| 3U deployer mass per satellite | **10.547 kg** | Fails the stated roughly 2 kg/satellite economic criterion |
+| Single-shot orbit case | **28.8 km** semi-major-axis rise; **1.60×** modeled lifetime | Stated 450 km, mean-activity case; lifetime result has not been independently rerun at the current rated point |
 
-<p align="center">
-  <img src="paper/figures/A02_field_map.png" alt="Depth-resolved Halbach airgap field" width="32%">
-  <img src="paper/figures/F01_shot.png" alt="Gen5 force, velocity and current through the modelled shot" width="32%">
-  <img src="paper/figures/A35_ledger.png" alt="Requirement-attributed mass and the 64-corner mass floor" width="32%">
-</p>
+See [baseline field names](BASELINE.md), [method limits](PROVENANCE.md), [decision gates and open problems](EVIDENCE_LIMITS.md). The approximately 6 kg/3U canister comparison is a separate incumbent-hardware parity test; it also fails (10.547/6 ≈ 1.76). These are two different decision boundaries.
 
-<p align="center"><sub>Field assumption → modelled shot → architecture verdict. The manuscript's
-visual spine is generated from the same analysis files as its tables.</sub></p>
+<p align="center"><img src="paper/figures/A02_field_map.png" alt="Calculated Halbach field" width="32%"> <img src="paper/figures/F01_shot.png" alt="Modeled Gen5 shot" width="32%"> <img src="paper/figures/A35_ledger.png" alt="Requirement-attributed mass floor" width="32%"></p>
 
-Rideshare CubeSats inherit the orbit of whoever paid for the launch. This paper models a
-deployer intended to give twelve satellites individually selected release conditions without
-modifying them, and reports thresholds the model fails. No mission benefit is physically verified.
+*Field → shot → mass floor. The numerical field cross-check applies to selected quantities, not to the entire machine. The mass-ledger result is a negative finding, not a design endorsement.*
 
-## What the manuscript's machine is for
+## Evidence levels
 
-VOLLEY is a last-mile orbital delivery programme. After the primary spacecraft separates, the
-launch vehicle's final stage can, where host capability and mission rules permit, continue as a
-temporary controlled orbital delivery platform. The host performs the coarse orbital
-repositioning; VOLLEY produces the fine, individually commanded release condition for each
-secondary satellite.
+| Level | Present evidence | Limit |
+|:--|:--|:--|
+| Model calculation | Shot, orbit, control, thermal, mass and CAD outputs in [analysis](analysis/) and [cad](cad/) | Depends on assumed inputs and geometry |
+| Independent numerical cross-check | Selected field, circuit and orbital calculations in [validation](validation/) | Checks defined model aspects and cases only |
+| External literature or products | [Prior art](PRIOR_ART.md), [literature](LITERATURE.md), bibliography in the manuscript | Supports comparison and assumptions; does not validate Gen5 hardware |
+| Physical qualification | **None** | Release repeatability, loads, feeder, recoil, environmental and host acceptance remain open |
 
-The machine reported here is Gen5: the *self-contained* electromagnetic implementation of that
-mission, its own track, drive, sled, energy store, brake and magazine, operating aboard the
-platform. Host repositioning is treated parametrically throughout, because no launch provider
-has supplied stage propulsion or control-authority data.
+![Bounded two-payload timing screen](figures/manifest_timing.svg)
 
-> The programme has since studied other mechanisms, but none is selected. The separate spring-cell
-> bank and the approximately 8 m gas guide are historical comparisons. Neither inherits Gen5's
-> evidence. The manuscript is retained as a dated model study.
+*The timing figure is a sampled mission study. Its 4.57 m/s best point is not an achieved launcher setting, a maximum speed or a full twelve-payload mission result.*
 
-[Read the paper](paper/VOLLEY_IEEE_Conference.pdf), 18 pages, current build.
-Print-ready copies: [A4](print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf) ·
-[US Letter](print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf). Both come from one source
-and are content-identical; only the page geometry differs.
-
-> It is IEEE-*formatted*, using the IEEEtran class. It is not claimed to be submission-compliant
-> for any venue, page and abstract limits are set by the conference or journal, and no venue
-> has been selected and nothing has been submitted.
-
-Every number in it comes from a script in this repository, and every analysis behind it declared
-what would count as failure before it ran. Nothing has been built, fired or measured.
-
-## Reproduce it in one command
+## Reproduce the published model point
 
 ```bash
-pip install -r requirements.txt
-cd analysis && python3 verify_field.py && python3 mass_properties.py \
-  && python3 motor_model.py && python3 sizing.py && python3 payload_family.py \
-  && python3 astro.py && python3 comparators.py && python3 cost.py
+python3 -m pip install -r requirements.txt
+cd analysis
+python3 verify_field.py
+python3 mass_properties.py
+python3 motor_model.py
+python3 sizing.py
+python3 payload_family.py
+python3 astro.py
+python3 comparators.py
+python3 cost.py
 ```
 
-Roughly two minutes, and the order matters: everything downstream reads the rated shot from
-`motor_results.json` rather than restating it. Results land in `analysis/results/*.json`.
+Outputs are written under [analysis/results](analysis/results/). Run in the listed order because downstream analyses read the rated shot from `motor_results.json`. The cited artifact is the checked-in result set; dependency and solver availability may affect a new run. [Build both paper page sizes](paper/README.md) and [regenerate figures](paper/make_figures.py) from local sources.
 
-This has been checked from a clean clone rather than assumed: run that way, `motor_results.json`
-returns `shot.v_exit = 16.029`, which is the figure the paper's abstract quotes.
+## Package map
 
-## What reproduces, and how well
+| Path | Purpose |
+|:--|:--|
+| [paper/](paper/) | Authored LaTeX, figures and current Letter PDF |
+| [print/](print/) | Current A4 and Letter handover PDFs |
+| [analysis/](analysis/) | Executable models and captured JSON results |
+| [validation/](validation/) | Predeclared run sheets, cross-checks and failures |
+| [cad/](cad/) | Gen5 geometry, rendered views and historical comparison parts |
+| [BASELINE.md](BASELINE.md), [PROVENANCE.md](PROVENANCE.md), [EVIDENCE_LIMITS.md](EVIDENCE_LIMITS.md) | Claim values, evidence classes and unresolved decisions |
 
-| Quantity | Value | Cross-checked against |
-|---|---|---|
-| Thrust constant, depth-resolved | 10.54 N per kA/m | Nothing independent. The FEM check below is of the centre-plane value it derives from |
-| Thrust constant, centre-plane | 11.03 N per kA/m | A meshed 2-D magnetostatic FEM, agreeing to 0.03 % |
-| Airgap field | 0.694 T midgap peak | magpylib, agreeing to three digits |
-| Orbital decay | x1.60 lifetime | Cowell RK4, agreeing to 99.4 % |
-| Exit velocity | 16.029 m/s at 10.07 g | Single-sourced |
-| Dispersion | 0.0274 m/s, 3 sigma | Single-sourced, and resting on assumed sensor noise |
-
-Only two rows carry an independent check. `PROVENANCE.md` says which of these carry weight.
-
-## Figures
-
-`python3 paper/make_figures.py` regenerates all of them. It imports the analysis rather than
-reimplementing it, so a figure cannot quietly disagree with the number it plots.
-
-## Before citing
-
-Read [`PROVENANCE.md`](PROVENANCE.md). This is a design study at TRL 2-3. Nothing has been
-built, fired or measured, and the paper says so.
-
-[`PRIOR_ART.md`](PRIOR_ART.md) records the published work nearest to this one, including two
-claims the paper had to retract after reading it. [`LITERATURE.md`](LITERATURE.md) maps the wider
-field.
-
-
-## The manuscript describes Gen5; the next architecture is open
-
-This is deliberate and worth stating plainly. The authored manuscript describes Gen5, the
-analysed baseline -- a frozen computational one, with no hardware behind it -- and the record of
-what one self-contained deployer model costs. The long gas guide and compact independent spring
-cells were later investigated and remain unselected comparators. The best sampled two-payload
-campaign cannot select a product mechanism or speed ceiling; the later twelve-payload screens did
-not complete a full manifest. The next design must restore the reusable shared path and loading
-objective, then be compared under complete installed and mission accounting.
-
-No performance has been physically measured, and no launch provider has supplied an accommodation.
-The manuscript retains Gen5 as a historical computational case, not a current product specification.
-
-The main repository retains these studies and their recorded failures.
-
-## What is deliberately absent
-
-The engineering record. Decision log, defect ledger, CAD generations, roadmap and change history
-live in the flagship. This package exists so the paper can be checked, not so it can stand in for
-the repository it came from.
+The analysis and reference records were copied from the VOLLEY engineering project at source revision `06ebd07` as a **dated snapshot**. This copy is the evidence package for this manuscript; later changes elsewhere do not silently change its claims. The manuscript and PDFs are authored here. Any future update requires rerunning the local checks and recording the changed source revision. [VOLLEY engineering](https://github.com/aaaaaaaaaaaavm/VOLLEY), [college thesis](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis) and [research vault](https://github.com/aaaaaaaaaaaavm/VOLLEY-lab) provide optional programme context.
