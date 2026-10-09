@@ -21,7 +21,7 @@ Gen5 models a magazine-fed, reusable-sled electromagnetic deployer for twelve un
 | Rated 3U exit speed | **16.029 m/s** | Coupled model output, not measured release speed or proven command envelope |
 | Modeled acceleration | **10.07 g** | Payload-specific structural compatibility unproven |
 | Gross shot energy | **2.78 kJ** | Circuit and dynamics model at the rated point |
-| Dry / loaded mass | **126.6 / 174.6 kg** | CAD-based design rollup; installed host system not closed |
+| Dry / loaded mass | **126.6 / 174.6 kg** | Modeled rollup with a historical Gen3 sled solid-volume input and assumed components; installed host system not closed |
 | Exit-speed dispersion | **0.0274 m/s (3σ)** | Closed-loop simulation with assumed sensor and uncertainty terms |
 | 3U deployer mass per satellite | **10.547 kg** | Fails the stated roughly 2 kg/satellite economic criterion |
 | Single-shot orbit case | **28.8 km** semi-major-axis rise; **1.60×** modeled lifetime | Stated 450 km, mean-activity case; lifetime result has not been independently rerun at the current rated point |

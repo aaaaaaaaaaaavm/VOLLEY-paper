@@ -14,4 +14,6 @@ This file is the paper companion's local route from a headline to its counterevi
 
 The publication claim is a **completed computational evaluation of a fixed design**, including failed criteria. It is not physical verification or an assertion that Gen5 meets every objective. Prior published hardware and product data can bound assumptions and establish prior art; they do not count as tests of this machine.
 
+The 9.445 kg sled input comes from historical Gen3 CAD solid volumes and the A4 chassis analysis, then carries into the Gen5 model. The Gen5 STEP package checks geometry; it does not independently prove the 126.6 kg installed mass. Other mass lines include modeled and assumed hardware.
+
 Before submission to an IEEE venue, check its current scope, length, template, abstract, ethics, data/code, author and copyright rules, and revise the manuscript accordingly. No venue is selected or submission claimed in this snapshot.
