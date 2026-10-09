@@ -28,6 +28,10 @@ Gen5 models a magazine-fed, reusable-sled electromagnetic deployer for twelve un
 
 See [baseline field names](BASELINE.md), [method limits](PROVENANCE.md), [decision gates and open problems](EVIDENCE_LIMITS.md). The approximately 6 kg/3U canister comparison is a separate incumbent-hardware parity test; it also fails (10.547/6 ≈ 1.76). These are two different decision boundaries.
 
+<p align="center"><img src="figures/gen5_mass_decision.svg" alt="Gen5 mass per 3U compared with two distinct screens" width="49%"> <img src="figures/gen5_energy_accounting.svg" alt="Rated Gen5 shot energy accounting" width="49%"></p>
+
+*Generated from this repository's [mass](analysis/results/mass_properties.json) and [shot](analysis/results/motor_results.json) outputs by the local [plot script](tools/plot_gen5_decision.py). Neither is a measurement; the energy balance's grey section is not an itemized loss audit.*
+
 <p align="center"><img src="paper/figures/A02_field_map.png" alt="Calculated Halbach field" width="32%"> <img src="paper/figures/F01_shot.png" alt="Modeled Gen5 shot" width="32%"> <img src="paper/figures/A35_ledger.png" alt="Requirement-attributed mass floor" width="32%"></p>
 
 *Field → shot → mass floor. The numerical field cross-check applies to selected quantities, not to the entire machine. The mass-ledger result is a negative finding, not a design endorsement.*
