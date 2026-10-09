@@ -22,8 +22,8 @@ require an actual relative state change for lasting separation.
 The 9 October review update adds a separate Cartesian check of the immediate 28.800775 km
 semi-major-axis rise and a FreeCAD reference assembly check that **fails** side-fed packaging
 by 11 mm. Neither check validates atmospheric lifetime, moving release mechanics or hardware.
-An additional algebraic audit passes basic mass, stroke and recovery identities but leaves
-124.488 J of gross shot draw unitemized. The host, material, manufacturing and TRL language
+An additional algebraic audit passes basic mass, stroke and recovery identities and
+reconciles the old 124.488 J compact-output gross remainder to assumed converter, auxiliary and integration terms. The host, material, manufacturing and TRL language
 has been revised so the paper does not imply provider approval or hardware qualification.
 
 It is an IEEE-*formatted* manuscript, using the IEEEtran class. Submission compliance for any
