@@ -2,7 +2,7 @@
 
 ### A system-level computational design study of a programmable electromagnetic CubeSat deployer
 
-This repository is the **standalone companion** to an [IEEE-formatted, 17-page manuscript](paper/VOLLEY_IEEE_Conference.pdf). It includes the manuscript source, cited local figures, CAD, analysis code and outputs, validation records, assumptions and known defects. A reader can evaluate the paper from this repository alone.
+This repository is the **standalone companion** to an [IEEE-formatted, 16-page manuscript](paper/VOLLEY_IEEE_Conference.pdf). It includes the manuscript source, cited local figures, CAD, analysis code and outputs, validation records, assumptions and known defects. A reader can evaluate the paper from this repository alone.
 
 > **Publication state, October 2026:** The paper is **not submitted or peer reviewed**. No IEEE venue has been selected, so venue-specific page, abstract, reference and copyright requirements have not been checked. Gen5 is a fixed computational baseline; Gen6 is future scaling research toward a 1 km/s-class objective. No VOLLEY hardware has been built, fired, measured, qualified or flown.
 
@@ -10,11 +10,11 @@ This repository is the **standalone companion** to an [IEEE-formatted, 17-page m
 
 *Architecture figure from this repository. Host operations and payload interface are conceptual and provider dependent.*
 
-**Start here:** [Paper PDF](paper/VOLLEY_IEEE_Conference.pdf) · [LaTeX source](paper/paper.tex) · [Computational review PDF](reports/GEN5_COMPUTATIONAL_REVIEW.pdf) · [FreeCAD/CAD review PDF](cad/GEN5_CAD_REVIEW.pdf) · [Artifact checksums](ARTIFACT_MANIFEST.sha256) · [Build notes](paper/README.md) · [Market and spacecraft fit](MARKET_AND_CUSTOMER_FIT.md) · [Claim provenance](PROVENANCE.md) · [Baseline](BASELINE.md) · [Validation register](validation/README.md)
+**Start here:** [Paper PDF](paper/VOLLEY_IEEE_Conference.pdf) · [LaTeX source](paper/paper.tex) · [Claim audit](CLAIM_CORRECTIONS_2026-10-09.md) · [Computational review PDF](reports/GEN5_COMPUTATIONAL_REVIEW.pdf) · [FreeCAD/CAD review PDF](cad/GEN5_CAD_REVIEW.pdf) · [Artifact checksums](ARTIFACT_MANIFEST.sha256) · [Build notes](paper/README.md) · [Market and spacecraft fit](MARKET_AND_CUSTOMER_FIT.md) · [Claim provenance](PROVENANCE.md) · [Baseline](BASELINE.md) · [Validation register](validation/README.md)
 
 ## What the paper actually establishes
 
-Gen5 models a magazine-fed, reusable-sled electromagnetic deployer for twelve unmodified 3U CubeSats on a host platform. The 1.5 m track includes a 1.3 m powered stroke, double-sided Halbach linear motor, pulse-energy store and eddy-current sled arrest. A qualified host, complete release mechanism and flight interface have not been selected.
+Gen5 models a magazine-fed, reusable-sled electromagnetic deployer for twelve unmodified 3U CubeSats on a host platform. The release station is 1.5 m from the breech on 1.8 m structural longerons; the powered stroke is 1.3 m. The design includes a double-sided Halbach linear motor, pulse-energy store and eddy-current sled arrest. A qualified host, complete release mechanism and flight interface have not been selected.
 
 | Reported quantity | Gen5 result | How to read it |
 |:--|--:|:--|
@@ -31,7 +31,7 @@ See [baseline field names](BASELINE.md), [method limits](PROVENANCE.md), [decisi
 
 <p align="center"><img src="figures/gen5_mass_decision.svg" alt="Gen5 mass per 3U compared with two distinct screens" width="49%"> <img src="figures/gen5_energy_accounting.svg" alt="Rated Gen5 shot energy accounting" width="49%"></p>
 
-*Generated from this repository's [mass](analysis/results/mass_properties.json) and [shot](analysis/results/motor_results.json) outputs by the local [plot script](tools/plot_gen5_decision.py). Neither is a measurement; the energy balance's grey section is not an itemized loss audit.*
+*Generated from this repository's [mass](analysis/results/mass_properties.json) and [shot](analysis/results/motor_results.json) outputs by the local [plot script](tools/plot_gen5_decision.py). Neither is a measurement. The [P117 algebra audit](validation/P117_rated_energy_mass_audit.md) finds 124.488 J of gross draw unitemized; the grey section is not a closed loss audit.*
 
 <p align="center"><img src="figures/rated_orbit_crosscheck.svg" alt="Current rated two-body orbit cross-check" width="49%"> <img src="figures/gen5_packaging_section.svg" alt="FreeCAD reference assembly packaging failure" width="34%"></p>
 
