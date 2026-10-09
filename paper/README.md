@@ -6,14 +6,19 @@
 > ADR-028: the flagship is an engineering record and holds no LaTeX. See [`BUILD.md`](BUILD.md)
 > for what is authored here and what is generated.
 
-## Current build, 2026-08-22
+## Current build, 2026-10-09
 
 | | |
 |---|---|
-| `VOLLEY_IEEE_Conference.pdf` | 18 pages, US Letter. The canonical build |
+| `VOLLEY_IEEE_Conference.pdf` | 17 pages, US Letter. The canonical build |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same file, named for handover |
-| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 18 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s `paper.tex` verbatim, the two cannot diverge in content, and they extract to identical text |
-| Build | pdfTeX, TeX Live 2023, three passes from clean. Zero undefined references, zero missing figures, zero overfull boxes, every font embedded, no Type 3 bitmaps |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 17 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s `paper.tex` verbatim, the two cannot diverge in content, and they extract to identical text |
+| Build | pdfTeX, TeX Live 2025, clean `latexmk` builds of Letter and A4; 17 pages each |
+
+This build presents Gen5 as the fixed computational design baseline and Gen6 as future scale-up
+research. It corrects the earlier claim that elapsed time between zero-impulse releases from an
+unchanged host produces a persistent in-track phase offset. The corrected text and figure caption
+require an actual relative state change for lasting separation.
 
 It is an IEEE-*formatted* manuscript, using the IEEEtran class. Submission compliance for any
 particular venue is not claimed, page and abstract limits are set by the conference or journal,
