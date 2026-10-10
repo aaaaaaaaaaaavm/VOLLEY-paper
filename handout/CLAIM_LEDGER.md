@@ -164,7 +164,7 @@ sourced.
 
 | | |
 |---|---|
-| Page geometry | brochure 2 pages A4, work sheet 1 page A4, carry paper 17 pages A4, submission paper 17 pages Letter — `pdfinfo` |
+| Page geometry | brochure 2 pages A4, work sheet 1 page A4, current carry paper 18 pages A4, current submission paper 18 pages Letter — `pdfinfo` |
 | Fonts | all four PDFs: every font embedded, **zero Type 3 bitmap fonts** — `pdffonts`. The handout sources carry `beramono` for a Type 1 typewriter (the default `tt` embedded as a 600 dpi bitmap) and declare the `cmr` condensed shape before `roboto` loads, so the builds log **zero warnings of any kind** |
 | Overfull lines | zero in all four documents |
 | Withdrawn wording | *qualification envelope*, *standard qualification loads*, *CDS cap*, *not enough to change an orbit*, *too little to alter that orbit*, *only Δv changes an orbit* — **zero occurrences across all four rendered PDFs**. `42 g` survives twice, both inside the sentence that names the withdrawn derivation and immediately withdraws it |
