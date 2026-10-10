@@ -22,6 +22,9 @@ An independent [2-D finite-element screen](validation/P119_gen5_finite_force_fem
 
 > **New requirements screen, P124:** [reproducible orbit and stroke analysis](validation/P124_precision_delivery_design_space.md) translates explicit 450 km orbital-state tolerances to ideal tangential velocity margins and tests payload load against release speed. At 1.3 m usable stroke, 1 km/s implies about **39,220 g** for a 4 kg payload; it is not a credible first Gen6 3U prototype specification. The analysis does not demonstrate a VOLLEY command range or accuracy. [Code](analysis/precision_delivery_design_space.py) · [result](analysis/results/precision_delivery_design_space.json).
 
+> **P125 drive feasibility screen:** A quasi-steady, three-phase voltage/current model uses the finite Gen5 force map and the historical **unselected** winding and 96 V source. The reference surrogate reaches 12.448 m/s; halving the current limit gives 8.802 m/s and halving the initial source voltage gives 10.794 m/s. These are conditional model outputs, **not a rated release speed or selected drive**. [Method and limits](validation/P125_gen5_voltage_limited_screen.md) · [source](analysis/gen5_voltage_limited_screen.py) · [result](analysis/results/gen5_voltage_limited_screen.json).
+
+
 The [prototype-to-flight decision gates](docs/GEN6_PROTOTYPE_TO_FLIGHT_ROADMAP.md) show what evidence a real Gen6 instrumented article, engineering model, qualification candidate and eventual flight demonstration would each need. Those stages are proposed, not achieved.
 
 ![Ideal speed, stroke and payload-load screen](figures/precision_delivery_design_space.svg)
@@ -77,6 +80,8 @@ See [baseline field names](BASELINE.md), [method limits](PROVENANCE.md), [decisi
 <p align="center"><img src="cad/renders/step_review/gen5_fit_plan.jpg" alt="STEP-derived top view of Gen5 reference track and cassettes, enclosure and payloads hidden" width="49%"> <img src="cad/renders/step_review/r1_candidate_plan.jpg" alt="STEP-derived top view of the separate unselected R1 feeder candidate" width="49%"></p>
 
 *Left: failed Gen5 reference placement. Right: separate R1 widened geometry candidate; its actuation and installed system remain open. [Exact-solid audit and render provenance](cad/renders/step_review/README.md).*
+
+The [P126 R1 tolerance screen](cad/FEEDER_R1_TOLERANCE_SCREEN.md) finds 1.31 mm residual for an assumed 0.2° alignment band and −0.47 mm for 0.5° against the R1 CAD-derived 5 mm nominal side gap. These bands are illustrative; moving hardware and flight tolerances remain unselected.
 
 *The [R1 FreeCAD/STEP candidate](cad/FEEDER_CANDIDATE_R1.md) clears a scripted 3U envelope path in a widened enclosure. It has no lift actuator, launch retention, tolerance closure or revised installed budget, and is not the evaluated Gen5 baseline.*
 
