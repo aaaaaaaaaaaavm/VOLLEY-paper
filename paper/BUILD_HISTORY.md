@@ -174,3 +174,7 @@ here would not automatically carry the same terms as the accepted paper.
 Nothing about the analysis changes. The scripts, the results, and the run sheets the
 manuscript draws on stay CC BY 4.0 regardless of what happens to the manuscript itself, which is
 the practical reason the two are separated here rather than treated as one artifact.
+
+## 10 October 2026 — P125–P127 evidence update
+
+The manuscript now includes the conditional source-power failure at the older single-string 116–185 mΩ ESR bound, the R1 assumed tolerance stack and the finite-force sled arrest lower bound. Letter and A4 PDFs were rebuilt with `latexmk`; each claim remains a model screen, not a selected component or hardware test.
