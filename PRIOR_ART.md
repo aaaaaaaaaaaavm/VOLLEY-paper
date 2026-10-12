@@ -5,9 +5,7 @@
 > shown. This file was first written from abstracts alone on 2026-07-29 and three of its
 > conclusions were wrong; the corrections are listed at the bottom rather than silently applied.
 
-What to do about all of it is in [`RESEARCH_POSITION.md`](RESEARCH_POSITION.md), organised
-by adopt / cite / avoid / replicate / concede. This file is the evidence; that one is the
-position.
+The current [prior-art update](IEEE_PRIOR_ART_UPDATE_2026-10-09.md) identifies the contribution and comparison limits used by the manuscript. This longer historical review preserves earlier source notes.
 
 This file exists because a literature check on 2026-07-29 found published work on this exact
 concept that the paper did not cite. Two claims in `paper/paper.tex` did not survive it, and one
@@ -117,7 +115,7 @@ limitations stated for extreme conditions.
 > measured is a slow transport mechanism, not an ejection. It is not a validated electromagnetic
 > launcher. But they built hardware and this project has built none, E4 has been open throughout,
 > and their willingness to report observed collisions is the standard
-> [`BENCHTOP_TESTS.md`](BENCHTOP_TESTS.md) is written to.
+> the proposed benchtop validation plan is written to.
 
 ---
 
@@ -135,7 +133,7 @@ Three of its choices are choices this project made independently, and that is th
 | Its choice | This project |
 |---|---|
 | Linear induction motor, passive conductive armature on the shuttle, not a permanent-magnet synchronous machine | Gen1, Gen5 chose PM synchronous. A30/A31 pushed toward LIM on independent grounds and arrived at the same topology |
-| Segmented stator, energised only under the shuttle | [ADR-022](adr/022-stator-segmented-not-block-commutated.md), reached from a fault-isolation argument |
+| Segmented stator, energised only under the shuttle | the historical segmented-stator hypothesis, reached from a fault-isolation argument |
 | Rotating-machine (flywheel) pulsed energy storage, decoupling a large peak from a modest average | A25, `analysis/flywheel_store.py`, reached from the supercapacitor ESR ceiling (P26) |
 
 Three independent convergences with a flown system is a stronger credibility argument than

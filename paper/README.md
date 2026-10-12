@@ -10,7 +10,7 @@
 
 | | |
 |---|---|
-| `VOLLEY_IEEE_Conference.pdf` | 19 pages, US Letter. The canonical build; includes finite-force, matched-mission, installed-burden, orbit-requirement and CAD-fit findings |
+| `VOLLEY_IEEE_Conference.pdf` | 19 pages, US Letter. The canonical build; includes finite-force, matched-mission, installed-burden, orbit-requirement and expanded exact-solid CAD-interference findings |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same file, named for handover |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 19 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s the same `paper.tex`; PDF extraction order around equations may differ with the layout |
 | Build | pdfTeX, TeX Live 2025, `latexmk` builds of Letter and A4; 19 pages each |
@@ -24,6 +24,10 @@ require an actual relative state change for lasting separation.
 The 9 October review update adds a separate Cartesian check of the immediate 28.800775 km
 semi-major-axis rise and a FreeCAD reference assembly check that **fails** side-fed packaging
 by 11 mm. Neither check validates atmospheric lifetime, moving release mechanics or hardware.
+The 12 October all-leaf audit further finds **17 intersecting pairs** in evaluated Gen5 and
+**five** in widened R1, including sled--track and sled--stator conflicts in both. The
+[audited pair list](../cad/GEN5_FULL_INTERFERENCE_AUDIT_2026_10_12.md) and separate
+[Gen6 integration check](../cad/GEN6_INTEGRATION_AUDIT_2026_10_12.md) are held locally.
 An additional algebraic audit passes basic mass, stroke and recovery identities and
 reconciles the old 124.488 J compact-output gross remainder to assumed converter, auxiliary and integration terms. The host, material, manufacturing and TRL language
 has been revised so the paper does not imply provider approval or hardware qualification.

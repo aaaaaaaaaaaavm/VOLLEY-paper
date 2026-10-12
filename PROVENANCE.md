@@ -39,8 +39,8 @@ The independent numerical paths include:
 | Sled structure | CalculiX A4 under the declared material, mesh and boundary conditions. It does not establish the launch qualification of a payload. |
 | Aerodynamics | OpenFOAM A29 with a mesh-convergence study. This does not validate vacuum release contact or tip-off. |
 
-See [GEN5_CLOSURE.md](GEN5_CLOSURE.md) for the frozen baseline evidence and
-[COMPUTATIONAL_CLOSURE.md](COMPUTATIONAL_CLOSURE.md) for remaining work. A successful
+See the [evaluated configuration](BASELINE.md) for the current numerical case and
+[evidence limits](EVIDENCE_LIMITS.md) for unresolved verification. A successful
 repository consistency gate is not another independent physical check.
 
 ## Errors made and corrected during the work

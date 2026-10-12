@@ -27,7 +27,7 @@ citing, and they are the ones to read first.
 None of the works below has been read. Bibliographic details are reproduced as the citing paper
 printed them, not verified against the publisher record one by one, so a typo in a source paper is
 reproduced here. Nothing in this file may support a number in `paper/paper.tex`; that rule is set
-in [`RELATED_WORK.md`](RELATED_WORK.md) and it applies with more force here, not less.
+in [the current prior-art update](IEEE_PRIOR_ART_UPDATE_2026-10-09.md) and it applies with more force here, not less.
 
 Treat it as a reading list with provenance attached. The five works that *have* been read, and the
 claims they changed, are in [`PRIOR_ART.md`](PRIOR_ART.md).
@@ -223,7 +223,7 @@ The two entries this cluster started with, both harvested from the coilgun sourc
 - Kim, S. & Kim, J. Control of discharge time using physical contact in a two-stage coil gun. Adv. Mech. Eng. 11(9), 1-8 (2019) `E`
 - Akay, C., Bavuk, U., Tunçdamar, A. & Özer, M. Coilgun design and evaluation without capacitor. J. Mechatron. Artif. Intell. Eng. 1(2), 53-62 (2020) `E`
 
-What this cluster still does not contain, and PII-7 needs: a manufacturer datasheet for a specific cell, with DC ESR at the operating temperature and its derating with age. That is a procurement document rather than literature, and the entry criterion in [`VAULT.md`](VAULT.md) says so.
+What this cluster still does not contain, and PII-7 needs: a manufacturer datasheet for a specific cell, with DC ESR at the operating temperature and its derating with age. That is a procurement document rather than literature, and the entry criterion in the historical research archive (outside this paper package) says so.
 
 ---
 
