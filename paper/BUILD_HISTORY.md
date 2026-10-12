@@ -2,6 +2,8 @@
 
 This archive records superseded builds and numbers. Use `README.md`, `BUILD.md` and the current manuscript for present claims. Historical links may point to wider programme records outside this companion repository.
 
+References below to a full-scale ground demonstration describe a proposed, **unrun** test. No VOLLEY firing or exit-velocity measurement exists; A29 is a pre-test CFD screen at a historical model point.
+
 
 Everything below this line is a dated record of an earlier pass. The figures in it were current
 when written and several have since moved; the table above is the current state.
@@ -100,7 +102,8 @@ lifetime-extension ratio from A21 in the abstract.
 ## What changed in the third pass, 2026-08-10
 
 Five corrections and one new subsection, all from work that landed after the second pass and
-from the external review recorded in [`docs/REVIEW_RESPONSES.md`](../docs/REVIEW_RESPONSES.md).
+from a historical review record outside this companion archive. The current manuscript's
+numerical conclusions are supported by local evidence, not that older record.
 
 1. The abstract's 7.5x now carries its counterpart. That ratio compares *gains*; on
    delivered orbital life it is 1.50, which is the figure a risk-weighted comparison must
