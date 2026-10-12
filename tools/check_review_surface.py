@@ -9,23 +9,13 @@ import re
 import runpy
 from pathlib import Path
 from urllib.parse import unquote
-from zipfile import ZipFile, is_zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IS_PAPER = (ROOT / "paper/paper.tex").exists()
-CURRENT = (
-    ["README.md", "paper/README.md", "paper/BUILD.md", "EVIDENCE_LIMITS.md"]
-    if IS_PAPER else
-    ["README.md", "ACADEMIC_EVIDENCE.md", "university/GEN5_FINAL_YEAR_REPORT.md",
-     "university/final_review_2026_10_10/README.md",
-     "university/final_review_2026_10_10/READ_THIS_FIRST.md",
-     "university/final_review_2026_10_10/TOMORROW_RUN_SHEET.md",
-     "university/final_review_2026_10_10/CLAIM_EVIDENCE_MAP.md"]
-)
-SOURCE = "paper/paper.tex" if IS_PAPER else "source/paper.tex"
-PDF = "paper/VOLLEY_IEEE_Conference.pdf" if IS_PAPER else "source/VOLLEY_IEEE_Conference.pdf"
-FIGURES = "paper/figures" if IS_PAPER else "source/figures"
+CURRENT = ["README.md", "paper/README.md", "paper/BUILD.md", "EVIDENCE_LIMITS.md"]
+SOURCE = "paper/paper.tex"
+PDF = "paper/VOLLEY_IEEE_Conference.pdf"
+FIGURES = "paper/figures"
 LINK = re.compile(r"!?\[[^\]]*\]\((<[^>]+>|[^)]+)\)|<img\b[^>]*\bsrc=['\"]([^'\"]+)", re.I)
 IMAGE = re.compile(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}")
 
@@ -129,11 +119,6 @@ def check_manifest() -> int:
 def check_containers() -> None:
     pdf = (ROOT / PDF).read_bytes()
     require(pdf.startswith(b"%PDF-") and b"%%EOF" in pdf[-2048:], "paper PDF incomplete")
-    if not IS_PAPER:
-        package = ROOT / "university/final_review_2026_10_10/TOMORROW_PRESENTATION_PACK.zip"
-        require(is_zipfile(package), "review ZIP missing or invalid")
-        with ZipFile(package) as archive:
-            require(archive.testzip() is None, "review ZIP contains a damaged member")
 
 
 def main() -> None:
