@@ -150,7 +150,15 @@ Run `python3 tools/check_review_surface.py` for the repository's fast integrity 
 | [analysis/](analysis/) | Executable models and captured JSON results |
 | [validation/](validation/) | Predeclared run sheets, cross-checks and failures |
 | [cad/](cad/) | Gen5 source parts, eight FreeCAD-exported STEP parts, native FCStd assembly, failure report and rendered views |
-| [reports/](reports/) | Local seven-page computational evidence review and its source |
+| [reports/](reports/) | Local computational evidence review and its source |
 | [BASELINE.md](BASELINE.md), [PROVENANCE.md](PROVENANCE.md), [EVIDENCE_LIMITS.md](EVIDENCE_LIMITS.md) | Claim values, evidence classes and unresolved decisions |
 
 The analysis and reference records began as a dated engineering snapshot and now include local P115/P116 checks and FreeCAD exports. This copy is the evidence package for the manuscript; later changes elsewhere do not silently change its claims. The manuscript and PDFs are authored here. Any future update requires rerunning the local checks and recording the changed sources. [VOLLEY engineering](https://github.com/aaaaaaaaaaaavm/VOLLEY), [college thesis](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis) and [research vault](https://github.com/aaaaaaaaaaaavm/VOLLEY-lab) provide optional programme context.
+
+## Reconciled Gen5 evidence, 16 October 2026
+
+The [engineering record](validation/P133_gen5_evidence_audit.md) reconciles the complete historical mass rollup, all 22 Gen5/R1 intersection pairs, fault/uncertainty limits and matched mission outcomes. [P134](validation/P134_gen5_lifetime_crosscheck.md) reproduces a 1.602 static-atmosphere lifetime ratio by a separate numerical integration; the real atmosphere, achieved release speed and full mission remain unvalidated. [The corrected A15 R1 archive](validation/A15_poem_campaign.md) distinguishes the executed GMAT run from regenerated inputs and sampled clearance.
+
+![Reconciled historical mass screen; model assumptions, not measured installed mass](figures/gen5_reconciled_mass.png)
+
+[Versioned evaluated Gen5 technical baseline](docs/GEN5_TECHNICAL_BASELINE.json) fixes exact source/result/CAD hashes and known exceptions. Academic guide approval and final submission remain separate gates.
