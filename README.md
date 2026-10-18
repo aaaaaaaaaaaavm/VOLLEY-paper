@@ -1,5 +1,9 @@
 # VOLLEY Gen5 — paper and reproducibility package
 
+
+
+
+
 ### A system-level computational design study of a programmable electromagnetic CubeSat deployer
 
 This repository is the **standalone companion** to an [IEEE-formatted manuscript](paper/VOLLEY_IEEE_Conference.pdf). It includes the manuscript source, cited local figures, CAD, analysis code and outputs, validation records, assumptions and known defects. A reader can evaluate the paper from this repository alone. [Go 3 academic release review](GO3_ACADEMIC_RELEASE_REVIEW.md) traces the current claims and unresolved gates.
@@ -69,7 +73,7 @@ The [prototype-to-flight decision gates](docs/GEN6_PROTOTYPE_TO_FLIGHT_ROADMAP.m
 
 **Start here:** [Paper PDF](paper/VOLLEY_IEEE_Conference.pdf) · [LaTeX source](paper/paper.tex) · [Remaining CAD and IEEE work](IEEE_AND_CAD_REMAINING_WORK.md) · [IEEE prior-art update](IEEE_PRIOR_ART_UPDATE_2026-10-09.md) · [Claim audit](CLAIM_CORRECTIONS_2026-10-09.md) · [Computational review PDF](reports/GEN5_COMPUTATIONAL_REVIEW.pdf) · [FreeCAD/CAD review PDF](cad/GEN5_CAD_REVIEW.pdf) · [Artifact checksums](ARTIFACT_MANIFEST.sha256) · [Build notes](paper/README.md) · [Market and spacecraft fit](MARKET_AND_CUSTOMER_FIT.md) · [Claim provenance](PROVENANCE.md) · [Baseline](BASELINE.md) · [Validation register](validation/README.md)
 
-## What the paper actually establishes
+## Scope and findings
 
 Gen5 models a magazine-fed, reusable-sled electromagnetic deployer for twelve unmodified 3U CubeSats on a host platform. The release station is 1.5 m from the breech on 1.8 m structural longerons; the powered stroke is 1.3 m. The design includes a double-sided Halbach linear motor, pulse-energy store and eddy-current sled arrest. A qualified host, complete release mechanism and flight interface have not been selected.
 
@@ -122,7 +126,7 @@ The [P126 R1 tolerance screen](cad/FEEDER_R1_TOLERANCE_SCREEN.md) finds 1.31 mm 
 
 *The timing figure is a sampled mission study. Its 4.57 m/s best point is not an achieved launcher setting, a maximum speed or a full twelve-payload mission result.*
 
-## Reproduce the published model point
+## Reproduce the historical model point
 
 ```bash
 python3 -m pip install -r requirements.txt
@@ -162,3 +166,17 @@ The [engineering record](validation/P133_gen5_evidence_audit.md) reconciles the 
 ![Reconciled historical mass screen; model assumptions, not measured installed mass](figures/gen5_reconciled_mass.png)
 
 [Versioned evaluated Gen5 technical baseline](docs/GEN5_TECHNICAL_BASELINE.json) fixes exact source/result/CAD hashes and known exceptions. Academic guide approval and final submission remain separate gates.
+
+## Native orbital analysis — 18 October 2026
+
+The [standalone orbital evidence guide](validation/orbit_evidence/README.md) contains executed
+Orekit 13.1.6 and GMAT R2026a cases, source and CSV histories, refinement/conservation checks,
+and the archived 90-day campaign. The unresolved J2 setup difference is shown explicitly;
+this supplement does not establish hardware performance or continuous clearance.
+
+![Native solver comparison with the unresolved J2 difference](validation/orbit_evidence/figures/solver_comparison.png)
+
+[Five-page evidence brief](validation/orbit_evidence/ORBIT_EVIDENCE_BRIEF.pdf) ·
+[Release histories](validation/orbit_evidence/figures/release_history.svg) ·
+[Archived campaign](validation/orbit_evidence/figures/archived_campaign.svg) ·
+[Figure conventions](docs/FIGURE_STANDARD.md)
