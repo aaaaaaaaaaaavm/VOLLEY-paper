@@ -10,10 +10,10 @@
 
 | | |
 |---|---|
-| `VOLLEY_IEEE_Conference.pdf` | 19 pages, US Letter. The canonical build; includes finite-force, matched-mission, installed-burden, orbit-requirement and expanded exact-solid CAD-interference findings |
+| `VOLLEY_IEEE_Conference.pdf` | 20 pages, US Letter. The canonical build; includes finite-force, matched-mission, installed-burden, orbit-requirement and expanded exact-solid CAD-interference findings |
 | `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_Letter.pdf` | the same file, named for handover |
-| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 19 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s the same `paper.tex`; PDF extraction order around equations may differ with the layout |
-| Build | pdfTeX, TeX Live 2025, `latexmk` builds of Letter and A4; 19 pages each |
+| `../print/Adityavardhan_Mishra_VOLLEY_IEEE_2026_A4_Print.pdf` | 20 pages, A4. Built by `paper_a4.tex`, which passes `a4paper` to IEEEtran and then `\input`s the same `paper.tex`; PDF extraction order around equations may differ with the layout |
+| Build | pdfTeX, TeX Live 2025, `latexmk` builds of Letter and A4; 20 Letter pages and 20 A4 pages |
 
 The ground-air CFD section is a **pre-test screen at a historical 16.388 m/s model point**. No full-scale VOLLEY shot or measured exit velocity exists. It is not a validation of the current finite-force release result.
 
