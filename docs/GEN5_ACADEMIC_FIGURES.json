@@ -1,5 +1,5 @@
 {
-  "revision": "2026-10-21-FCE12",
+  "revision": "2026-10-21-FM07-FCE12",
   "hardware_measurements": false,
   "boundary": "Legacy graphs remain historical model outputs with current manuscript limitations. STEP-derived views do not prove loaded clearance. This catalog fixes image identity; method/units/case are described by captions and validation records.",
   "figures": [
@@ -655,11 +655,20 @@
         "paper/paper.tex"
       ],
       "evidence_class": "Native numerical contact calibration; no hardware measurement or delivered-accuracy acceptance"
+    },
+    {
+      "path": "validation/feeder_release_review/figures/FM07_Technical_exit_open.png",
+      "sha256": "a38ba6ee3bfc46345f7541cee9112fe29a939adb403ca74e4a3fae35c4666912",
+      "bytes": 565455,
+      "referenced_by": [
+        "README.md"
+      ],
+      "evidence_class": "Blender Workbench render of actual FreeCAD geometry; prescribed nominal state, no hardware or launch result"
     }
   ],
   "document_sha256": {
-    "README.md": "e7fbfb5b8be1111cbae1d7f36e81efc663e1e6fec5dcfab576e531482ff90d46",
-    "paper/paper.tex": "0ea981b9c8111cad730fa33dac4ac9168800e4577973749296c6ecf90d0285b9",
+    "README.md": "773ca503f7e18d78b74b54cddb10003bb1b28a76573df1409105956e9afa4e01",
+    "paper/paper.tex": "03fcd1af89527ba0ddf19011c00d458e677965d65f5d68631a1941aa2ab11b97",
     "reports/GEN5_COMPUTATIONAL_REVIEW.md": "1541b43f05818888dd0cc1ded1fe42dc1d7e5e73f3f17a8a6ecc45668d6619e6",
     "validation/orbit_evidence/README.md": "3f350ec088a33fb413861c20e88e04946c183bb67c67c2378625103412190967",
     "validation/feeder_review/README.md": "b226b959274eb24030f6f20b4ac58932154fa9b2713ea486bf49a09bb4dba94a",
