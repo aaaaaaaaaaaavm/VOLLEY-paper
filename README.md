@@ -74,6 +74,16 @@ The [prototype-to-flight decision gates](docs/GEN6_PROTOTYPE_TO_FLIGHT_ROADMAP.m
 **Start here:** [Paper PDF](paper/VOLLEY_IEEE_Conference.pdf) · [LaTeX source](paper/paper.tex) · [Remaining CAD and IEEE work](IEEE_AND_CAD_REMAINING_WORK.md) · [IEEE prior-art update](IEEE_PRIOR_ART_UPDATE_2026-10-09.md) · [Claim audit](CLAIM_CORRECTIONS_2026-10-09.md) · [Computational review PDF](reports/GEN5_COMPUTATIONAL_REVIEW.pdf) · [FreeCAD/CAD review PDF](cad/GEN5_CAD_REVIEW.pdf) · [Artifact checksums](ARTIFACT_MANIFEST.sha256) · [Build notes](paper/README.md) · [Market and spacecraft fit](MARKET_AND_CUSTOMER_FIT.md) · [Claim provenance](PROVENANCE.md) · [Baseline](BASELINE.md) · [Validation register](validation/README.md)
 
 
+## Feeder geometry and native load/contact review · 21 October 2026
+
+[FM06-R1 engineering record](validation/feeder_integrity_review/README.md) adds thirty native assembly/STEP poses, seventy independently checked individual STEP files and a corrected backstop junction. Fifty-two receiver-fixture analyses (40 historical, 12 on the actual current geometry) and four tine unit-load analyses retain mesh refinement, force/moment balance and explicit support assumptions.
+
+The native contact campaign is a **negative numerical finding**: programmed transfer completion does not establish converged forces or dynamic clearance. Independent B-rep checks detect payload/fork overlap, and adverse tolerance cases remain. Installed actuators, release/reset and multi-cell integration are unfinished. No feeder architecture is selected; the evaluated Gen5 is unchanged.
+
+![FM06-R1 native-CAD transfer state rendered in Blender Workbench; nominal research geometry, not a tested or qualified mechanism](validation/feeder_integrity_review/figures/FM06_Technical_transfer.png)
+
+[Engineering report](validation/feeder_integrity_review/FEEDER_INTEGRITY_REVIEW.pdf) · [Native 3U FreeCAD](validation/feeder_integrity_review/cad/FM06_3U_transfer.FCStd) · [3U STEP](validation/feeder_integrity_review/cad/FM06_3U_transfer.step) · [70 reference parts](validation/feeder_integrity_review/parts/INDEX.json) · [Contact assessment](validation/feeder_integrity_review/CONTACT_REVIEW.md)
+
 ## Finite-duration host manoeuvres
 
 The [FBR-01 finite-force study](validation/finite_burn_review/README.md) and [seven-page report](validation/finite_burn_review/FINITE_BURN_CAMPAIGN_REVIEW.pdf) replace the earlier ideal impulses with explicit preparation, thrust windows, mass flow and recovery. Eighteen targeted schedules and 46 native Orekit runs retain numerical refinements, control-error probes and thrust/fuel failures.

@@ -21,3 +21,7 @@ The publication claim is a **completed computational evaluation of a fixed desig
 The 9.445 kg sled input comes from historical Gen3 CAD solid volumes and the A4 chassis analysis, then carries into the Gen5 model. The Gen5 STEP package checks geometry; it does not independently prove the 126.6 kg installed mass. Other mass lines include modeled and assumed hardware.
 
 Before submission to an IEEE venue, check its current scope, length, template, abstract, ethics, data/code, author and copyright rules, and revise the manuscript accordingly. No venue is selected or submission claimed in this snapshot.
+
+## 21 October feeder integrity evidence
+
+The [local FM06-R1/FLR01/FLR02/FCE08 record](validation/feeder_integrity_review/README.md) separates nominal CAD corrections and bounded component-fixture results from rejected native-contact acceptance. All seven feeder concepts remain unselected. Actual-solid overlap, adverse fit inputs and missing installed release/reset interfaces remain explicit. This separate Gen6 research does not revise the evaluated Gen5.
