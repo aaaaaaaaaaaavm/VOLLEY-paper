@@ -1,6 +1,6 @@
 # VOLLEY — Research companion
 
-### Models, CAD and numerical evidence for the IEEE-formatted manuscript
+### VOLLEY: Design and Computational Feasibility Assessment of a Commanded Electromagnetic CubeSat Deployment Mechanism
 
 This repository provides the manuscript, numerical methods, source data, figures and CAD needed to examine and reproduce the VOLLEY study. Its contribution is a system-level evaluation of finite motor geometry, installed resources, release mechanics and matched orbital delivery. Programmable electromagnetic release is established prior art.
 
