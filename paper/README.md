@@ -1,6 +1,6 @@
 # Manuscript and build
 
-The current research edition is dated 21 October 2026. `paper.tex` is the LaTeX source; `VOLLEY_IEEE_Conference.pdf` is the 21-page US Letter build. The corresponding A4 edition also has 21 pages and uses the same manuscript source through `paper_a4.tex`.
+The current research edition is dated 21 October 2026. `paper.tex` is the LaTeX source; `VOLLEY_IEEE_Conference.pdf` is the 23-page US Letter build. The corresponding A4 edition also has 23-pages and uses the same manuscript source through `paper_a4.tex`.
 
 | File | Edition |
 |:--|:--|
