@@ -24,6 +24,10 @@ Before submission to an IEEE venue, check its current scope, length, template, a
 
 ## 21 October feeder integrity evidence
 
-The [local component-fixture record](validation/feeder_integrity_review/README.md) retains FM06 geometry, actual receiver and tine analyses, and the dated contact capture. The current [FCE12 contact-verification study](validation/feeder_contact_verification/README.md) calibrates the numerical material representation and reports 84 selected full-solid poses. Final COM refinement changes exceed the provisional criterion, so no precision or design-load rating follows. Loaded fits, installed release/reset hardware and the seven-architecture downselect remain separate acceptance requirements. This Gen6 research does not revise evaluated Gen5.
+The [local component-fixture record](validation/feeder_integrity_review/README.md) retains FM06 geometry, actual receiver and tine analyses, and the dated contact capture. The current [FCE12 contact-verification study](validation/feeder_contact_verification/README.md) calibrates the numerical material representation and reports 84 selected full-solid poses. Final COM refinement changes exceed the provisional criterion, so no precision or design-load rating follows. Those dated component/contact studies did not accept loaded fits, installed release/reset hardware or a seven-architecture downselect. The subsequent FM08-R3 selection uses its own declared academic-design criteria. This Gen6 research does not revise evaluated Gen5.
 
 The [FM07-R5 release/reset geometry](validation/feeder_release_review/README.md) adds nominal custody and empty reset. Its native geometry checks remain separate from FM06 contact and component-fixture results; no all-seven downselect or hardware acceptance is asserted.
+
+## Selected academic feeder design — 23 October 2026
+
+The [FM08-R3 design package](validation/selected_feeder/README.md) selects independent guided lead-screw cassettes, fixed 1U spacers and one indexed receiver. Its academic acceptance comprises nominal geometry/motion, declared analytical sizing and tolerance screens, and executable interlock/fault-sequence checks. The earlier rigid-contact study supplies no release-precision or contact-load rating. Selected architecture, measured performance and environmental qualification are separate evidence levels.

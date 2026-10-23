@@ -1,6 +1,6 @@
 # Manuscript and build
 
-The current research edition is dated 21 October 2026. `paper.tex` is the LaTeX source; `VOLLEY_IEEE_Conference.pdf` is the 23-page US Letter build. The corresponding A4 edition also has 23-pages and uses the same manuscript source through `paper_a4.tex`.
+The current research edition is dated 23 October 2026. `paper.tex` is the LaTeX source; `VOLLEY_IEEE_Conference.pdf` is the 27-page US Letter build. The corresponding A4 edition also has 27 pages and uses the same manuscript source through `paper_a4.tex`.
 
 | File | Edition |
 |:--|:--|
@@ -10,7 +10,7 @@ The current research edition is dated 21 October 2026. `paper.tex` is the LaTeX 
 | [LaTeX source](paper.tex) | Manuscript text, equations and figure references |
 | [Build instructions](BUILD.md) | Toolchain and compilation commands |
 
-The manuscript evaluates Gen5 as a fixed computational configuration and discusses Gen6 separately. It includes finite-geometry electromagnetic checks, mass and mission comparisons, geometric integration evidence, native component fixtures and the bounded contact assessment. Ground-air CFD is identified as a historical pre-test calculation rather than measured release evidence.
+The manuscript evaluates Gen5 as a fixed computational configuration and discusses Gen6 separately. It includes finite-geometry electromagnetic checks, mass and mission comparisons, geometric integration evidence, native component fixtures, the bounded contact assessment and the separate FM08-R3 feeder design selection. Ground-air CFD is identified as a historical pre-test calculation rather than measured release evidence.
 
 The layout uses IEEEtran. A target venue has not been selected; venue-specific page, abstract and submission requirements remain to be applied. The manuscript is unsubmitted.
 
