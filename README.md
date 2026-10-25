@@ -17,7 +17,7 @@ Current academic files are the [ED1 citation-corrected editorial revision](curre
 | Research result | Source and data |
 |---|---|
 | Twelve 4 kg 3U surrogates; studied commanded release 1–3 m/s | [Controlled parameters](current/cad/PARAMETERS.json), [coupled source/shot model](current/analysis/coupled_shot.py), [sampled results](current/analysis/COUPLED_SHOT.json) |
-| Eight native/STEP states and 154 accepted motion/refinement checks | [CAD inventory](current/cad/release/FINAL_CAD_MANIFEST.json), [motion evidence](current/cad/release/MOTION_VERIFICATION.json), [local home native/STEP](current/cad/release/) |
+| Eight native/STEP states and 154 accepted motion/refinement checks | [CAD inventory](current/cad/release/FINAL_CAD_MANIFEST.json), [motion evidence](current/cad/release/MOTION_VERIFICATION.json), [all eight local native/STEP states](current/cad/release/) |
 | 149.557 kg represented dry CAD plus 7 kg electrical/control allowance | [Resource ledger](current/analysis/RESOURCE_LEDGER.json), [mass/CG/inertia](current/verification/MASS_CG_INERTIA_SUMMARY.json) |
 | Approximately 1.328 N/A active force and 1.399 N/A including represented returns | [Finite motor](current/analysis/FINITE_MOTOR.json), [independent source-face calculation](current/analysis/SURFACE_CHARGE_CHECK.json), [actual-conductor-current comparison](current/analysis/CURRENT_FIELD_FORCE.json) |
 | 24 nominal custody commands and 166 declared logic tests | [Executable interlocks](current/analysis/transfer_interlocks.py), [captured checks](current/analysis/TRANSFER_INTERLOCKS.json) |
@@ -34,5 +34,7 @@ The [supplementary chapter and figure map](current/ACADEMIC_MAP.md) connects eac
 The academic record also includes the [55-page report PDF](current/academic/GEN5_FINAL_YEAR_REPORT.pdf), [editable DOCX](current/academic/GEN5_FINAL_YEAR_REPORT.docx), [report source](current/academic/GEN5_FINAL_YEAR_REPORT.md), and [17-slide presentation PDF](current/presentation/VOLLEY_BTech_Presentation.pdf)/[PPTX](current/presentation/VOLLEY_BTech_Presentation.pptx), with [900-second speaker notes](current/presentation/SPEAKER_NOTES.md).
 
 The geometry, source, structural and logic results establish the declared computational criteria. Physical hardware, payload-interface acceptance, environmental and flight qualification remain subsequent development. The [editorial checklist](current/SUBMISSION_CHECKLIST.md) records the external human-read, venue and academic-administration conditions. No individual research-contribution allocation is asserted.
+
+All eight native/STEP/BOM states and the 60-member raw solver supplement are included in this checkout. [Local data and restoration](current/README.md) provide source identities and scratch extraction; the captured conductor solution arrays are also bundled.
 
 [Reproduction and build](current/REPRODUCE.md) · [Scientific figure conventions](docs/FIGURE_STANDARD.md) · [Current verification](VALIDATION_CURRENT.json) · [Citation](CITATION.cff) · [Licensing](LICENSING.md) · [Dated development archive](archive/README.md) · [Release and errata policy](RELEASE_POLICY.md) · [Publication policy](PUBLICATION_POLICY.md)
