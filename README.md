@@ -6,7 +6,7 @@ Adityavardhan Mishra and Pratham Chawla · Mechanical Engineering, Symbiosis Ins
 
 VOLLEY evaluates commanded CubeSat release as an additional control variable for a manoeuvring host. The completed computational study integrates twelve-payload storage, a positive pallet handoff, finite electromagnetic force, source-limited acceleration, release and active carrier recovery in one controlled configuration.
 
-Current academic files are the [ED1 citation-corrected editorial revision](current/academic/EDITORIAL_REVISION.json), dated 25 October 2026. The engineering argument and results are unchanged; the [original dated issue](archive/2026-10-24-acr1-original/README.md) preserves the original bytes.
+The nine-page manuscript and its unchanged `current/` evidence capture remain the [ED1 citation-corrected editorial revision](current/academic/EDITORIAL_REVISION.json), dated 25 October 2026. The engineering argument and results are unchanged; the [original dated issue](archive/2026-10-24-acr1-original/README.md) preserves the original bytes.
 
 **Read the nine-page IEEE-formatted manuscript:** [PDF](current/academic/paper/paper.pdf) · [LaTeX source](current/academic/paper/paper.tex) · [build instructions](current/REPRODUCE.md). The manuscript is unsubmitted and a venue has not been selected.
 
@@ -34,10 +34,14 @@ The numerical contribution is the integrated design reference and its source-lin
 
 The [supplementary chapter and figure map](current/ACADEMIC_MAP.md) connects each argument to local methods, data and figures. The closest [full-text prior-art comparison](current/academic/evidence/literature/FEEDER_FULL_TEXT_REVIEW_2026_10_19.md) distinguishes published laboratory observations from simulations. [Reproduce the local example](current/REPRODUCE.md) to run the actual logic, feeder-sizing and nominal 3 m/s shot source without another checkout.
 
-The academic record also includes the [55-page report PDF](current/academic/GEN5_FINAL_YEAR_REPORT.pdf), [editable DOCX](current/academic/GEN5_FINAL_YEAR_REPORT.docx), [report source](current/academic/GEN5_FINAL_YEAR_REPORT.md), and [17-slide presentation PDF](current/presentation/VOLLEY_BTech_Presentation.pdf)/[PPTX](current/presentation/VOLLEY_BTech_Presentation.pptx), with [900-second speaker notes](current/presentation/SPEAKER_NOTES.md).
+The preserved ED1 academic companions include the [55-page report PDF](current/academic/GEN5_FINAL_YEAR_REPORT.pdf), [editable DOCX](current/academic/GEN5_FINAL_YEAR_REPORT.docx), [report source](current/academic/GEN5_FINAL_YEAR_REPORT.md), and [17-slide presentation PDF](current/presentation/VOLLEY_BTech_Presentation.pdf)/[PPTX](current/presentation/VOLLEY_BTech_Presentation.pptx), with [900-second speaker notes](current/presentation/SPEAKER_NOTES.md).
+
+The latest academic report/deck is [ED3: 58 pages and 17 slides](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis/tree/main/editions/ED3), with [portable sources](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis/blob/main/editions/ED3/README.md) and an [offline presentation handoff](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis/blob/main/docs/ED2_PRESENTATION_HANDOFF.md). ED3 adds clear visual sequencing and retains the matched-load ANSYS comparison; the nine-page manuscript is not revised by that separate edition.
 
 The geometry, source, structural and logic results establish the declared computational criteria. Physical hardware, payload-interface acceptance, environmental and flight qualification remain subsequent development. The [editorial checklist](current/SUBMISSION_CHECKLIST.md) records the external human-read, venue and academic-administration conditions. No individual research-contribution allocation is asserted.
 
 All eight native/STEP/BOM states and the 60-member raw solver supplement are included in this checkout. [Local data and restoration](current/README.md) provide source identities and scratch extraction; the captured conductor solution arrays are also bundled.
 
 [Reproduction and build](current/REPRODUCE.md) · [Scientific figure conventions](docs/FIGURE_STANDARD.md) · [Current verification](VALIDATION_CURRENT.json) · [Citation](CITATION.cff) · [Licensing](LICENSING.md) · [Dated development archive](archive/README.md) · [Release and errata policy](RELEASE_POLICY.md) · [Publication policy](PUBLICATION_POLICY.md)
+
+The academic cutoff remains **30 October 2026, evening IST**. The report/deck and manuscript retain their respective ED3 and ED1 identities until a separately identified revision or actual cutoff snapshot is issued.
