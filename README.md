@@ -10,9 +10,12 @@ Current academic files are the [ED1 citation-corrected editorial revision](curre
 
 **Read the nine-page IEEE-formatted manuscript:** [PDF](current/academic/paper/paper.pdf) · [LaTeX source](current/academic/paper/paper.tex) · [build instructions](current/REPRODUCE.md). The manuscript is unsubmitted and a venue has not been selected.
 
-<p><a href="current/academic/assets/01_assembly_isometric.png"><img src="current/academic/assets/01_assembly_isometric.png" alt="ACR1 native-CAD-derived integrated assembly with two storage banks and a central reusable carrier" width="420"></a></p>
+<p><a href="figures/acr1-polish/assembly_hero.png"><img src="figures/acr1-polish/assembly_hero.webp" alt="CAD-derived render of all 387 represented VOLLEY Gen5 ACR1 parts in the home pose; teal marks the selected feed and captive-pallet path." width="420"></a></p>
 
-*Orienting CAD-derived Blender view · ACR1 home state. [Native/STEP source](current/cad/release/) · [visual source identities](docs/ACR1_VISUALS.json).*
+*CAD-derived Blender render · ACR1 home pose · all 387 represented objects present. Teal identifies the selected feed/pallet path; surface colours are display choices. [View provenance](figures/acr1-polish/POLISH_PROVENANCE.json).*
+
+[Guided-feed close-up](figures/acr1-polish/feeder_detail_annotated.png) · [Four-state custody sequence](figures/acr1-polish/operating_sequence.png) · [Caption and visibility notes](figures/acr1-polish/CAPTIONS.md)
+
 
 | Research result | Source and data |
 |---|---|
