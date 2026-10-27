@@ -1,47 +1,55 @@
-# VOLLEY research manuscript
+# VOLLEY — Research Manuscript
+### Design and Computational Evaluation of a Commanded Electromagnetic CubeSat Deployment Mechanism
 
-**VOLLEY: Design and Computational Evaluation of a Commanded Electromagnetic CubeSat Deployment Mechanism**
+**Adityavardhan Mishra and Pratham Chawla**<br>
+Mechanical Engineering · Symbiosis Institute of Technology, Pune
 
-Adityavardhan Mishra and Pratham Chawla · Mechanical Engineering, Symbiosis Institute of Technology, Pune · Gen5 ACR1
+**[Read the manuscript · 9 pages](current/academic/paper/paper.pdf)** · [LaTeX source](current/academic/paper/paper.tex) · [Methods and data](current/RESULTS.md) · [Reproduce the study](current/REPRODUCE.md)
 
-VOLLEY evaluates commanded CubeSat release as an additional control variable for a manoeuvring host. The completed computational study integrates twelve-payload storage, a positive pallet handoff, finite electromagnetic force, source-limited acceleration, release and active carrier recovery in one controlled configuration.
+**Manuscript status:** IEEE-formatted research draft, unsubmitted; venue unselected. Engineering configuration: **VOLLEY-G5-ACR1**. Editorial edition: **ED1**.
 
-The nine-page manuscript and its unchanged `current/` evidence capture remain the [ED1 citation-corrected editorial revision](current/academic/EDITORIAL_REVISION.json), dated 25 October 2026. The engineering argument and results are unchanged; the [original dated issue](archive/2026-10-24-acr1-original/README.md) preserves the original bytes.
+<p><a href="figures/acr1-polish/assembly_hero.png"><img src="figures/acr1-polish/assembly_hero.webp" alt="CAD-derived VOLLEY Gen5 ACR1 assembly with fixed satellite storage banks and a reusable electromagnetic launch carrier" width="900"></a></p>
 
-**Read the nine-page IEEE-formatted manuscript:** [PDF](current/academic/paper/paper.pdf) · [LaTeX source](current/academic/paper/paper.tex) · [build instructions](current/REPRODUCE.md). The manuscript is unsubmitted and a venue has not been selected.
+*CAD-derived Blender render · Gen5 ACR1 home state. [Geometry and render provenance](figures/acr1-polish/POLISH_PROVENANCE.json).*
 
-<p><a href="figures/acr1-polish/assembly_hero.png"><img src="figures/acr1-polish/assembly_hero.webp" alt="CAD-derived render of all 387 represented VOLLEY Gen5 ACR1 parts in the home pose; teal marks the selected feed and captive-pallet path." width="420"></a></p>
+## Research question
 
-*CAD-derived Blender render · ACR1 home pose · all 387 represented objects present. Teal identifies the selected feed/pallet path; surface colours are display choices. [View provenance](figures/acr1-polish/POLISH_PROVENANCE.json).*
+How does a commanded electromagnetic release mechanism perform when storage, payload custody, finite motor geometry, electrical supply, carrier recovery and host mission resources are evaluated together?
 
-[Guided-feed close-up](figures/acr1-polish/feeder_detail_annotated.png) · [Four-state custody sequence](figures/acr1-polish/operating_sequence.png) · [Caption and visibility notes](figures/acr1-polish/CAPTIONS.md)
+VOLLEY evaluates a twelve-payload reference with **4 kg 3U envelope surrogates**, **1–3 m/s commanded release cases** and **1.300 m powered travel**. The host provides major orbital manoeuvres; the deployer sets each local departure condition.
 
+## Contribution
 
-| Research result | Source and data |
-|---|---|
-| Twelve 4 kg 3U surrogates; studied commanded release 1–3 m/s | [Controlled parameters](current/cad/PARAMETERS.json), [coupled source/shot model](current/analysis/coupled_shot.py), [sampled results](current/analysis/COUPLED_SHOT.json) |
-| Eight native/STEP states and 154 accepted motion/refinement checks | [CAD inventory](current/cad/release/FINAL_CAD_MANIFEST.json), [motion evidence](current/cad/release/MOTION_VERIFICATION.json), [all eight local native/STEP states](current/cad/release/) |
-| 149.557 kg represented dry CAD plus 7 kg electrical/control allowance | [Resource ledger](current/analysis/RESOURCE_LEDGER.json), [mass/CG/inertia](current/verification/MASS_CG_INERTIA_SUMMARY.json) |
-| Approximately 1.328 N/A active force and 1.399 N/A including represented returns | [Finite motor](current/analysis/FINITE_MOTOR.json), [independent source-face calculation](current/analysis/SURFACE_CHARGE_CHECK.json), [actual-conductor-current comparison](current/analysis/CURRENT_FIELD_FORCE.json) |
-| 24 nominal custody commands and 166 declared logic tests | [Executable interlocks](current/analysis/transfer_interlocks.py), [captured checks](current/analysis/TRANSFER_INTERLOCKS.json) |
-| Matched twelve-release host-assisted campaigns | [Inputs/targets](current/mission/MISSION_INPUTS.json), [raw command histories](current/mission/release/), [results](current/mission/MISSION_RESULTS.csv), [native replay](current/mission/NATIVE_REPLAY_CHECKS.json) |
+The contribution is a reproducible, integrated retained-carrier computational reference. Programmable electromagnetic separation is established prior art. This study connects the selected mechanical cycle to finite force, source-limited launch and arrest, installed mass and same-target orbital delivery.
 
-The numerical contribution is the integrated design reference and its source-linked evaluation. Source-face, actual-current, timestep and native orbital comparisons test different numerical approximations while retaining their stated shared assumptions. The mission comparison finds target-dependent outcomes: commanded deployment does not provide a universal propellant advantage. [Methods, quantitative results and boundaries](current/RESULTS.md) explain the supported conclusions.
+| Evidence | Captured result | Local source |
+|:--|:--|:--|
+| Mechanical integration | Eight native/STEP states; 154 accepted sampled motion/refinement cases | [CAD and checks](current/cad/release/) |
+| Electrical and mechanical coupling | Nominal/adverse source cases with finite position-dependent force, current, back-EMF, recoil and arrest | [Shot source](current/analysis/coupled_shot.py) · [Case results](current/analysis/COUPLED_SHOT.json) |
+| Numerical force comparisons | Alternative source-face and actual-conductor-current calculations under stated shared field assumptions | [Finite motor](current/analysis/FINITE_MOTOR.json) · [Current-field comparison](current/analysis/CURRENT_FIELD_FORCE.json) |
+| Custody logic | 24 accepted nominal commands; 166 declared tests | [Interlocks source and results](current/analysis/TRANSFER_INTERLOCKS.json) |
+| Installed resources | 149.557 kg represented dry CAD + 7 kg electrical/control allowance | [Resource ledger](current/analysis/RESOURCE_LEDGER.json) |
+| Orbital delivery | Matched twelve-release campaigns and native Orekit numerical replay | [Inputs](current/mission/MISSION_INPUTS.json) · [Results](current/mission/MISSION_RESULTS.csv) · [Replay checks](current/mission/NATIVE_REPLAY_CHECKS.json) |
 
-<p><a href="current/academic/assets/MISSION_RESOURCES.png"><img src="current/academic/assets/MISSION_RESOURCES.png" alt="Same-input G5-MISSION-01 comparison: host fuel by tested target family and initial wet-mass allocation for Gen5 and spring deployment" width="760"></a></p>
+## System and principal finding
 
-*Computed result · G5-MISSION-01 · twelve 4 kg 3U payloads and common full-state targets. The ideal ground-pretrimmed spring comparator closes both synthetic families at the declared 1 N and 5 N host-authority gates; these preplanned cases establish no Gen5 propellant or initial wet-mass advantage. [Source table](current/mission/MISSION_RESULTS.csv) · [model boundary](current/academic/evidence/mission/MISSION_REPORT.md).*
+<p><a href="figures/acr1-polish/operating_sequence.png"><img src="figures/acr1-polish/operating_sequence.webp" alt="Storage, guided feed, captive-pallet handoff and retained-carrier launch shown in four CAD-derived views" width="900"></a></p>
 
-The [supplementary chapter and figure map](current/ACADEMIC_MAP.md) connects each argument to local methods, data and figures. The closest [full-text prior-art comparison](current/academic/evidence/literature/FEEDER_FULL_TEXT_REVIEW_2026_10_19.md) distinguishes published laboratory observations from simulations. [Reproduce the local example](current/REPRODUCE.md) to run the actual logic, feeder-sizing and nominal 3 m/s shot source without another checkout.
+*CAD-derived mechanism sequence. [Feeder interface](figures/acr1-polish/feeder_detail_annotated.png) · [Configuration parameters](current/cad/PARAMETERS.json).*
 
-The preserved ED1 academic companions include the [55-page report PDF](current/academic/GEN5_FINAL_YEAR_REPORT.pdf), [editable DOCX](current/academic/GEN5_FINAL_YEAR_REPORT.docx), [report source](current/academic/GEN5_FINAL_YEAR_REPORT.md), and [17-slide presentation PDF](current/presentation/VOLLEY_BTech_Presentation.pdf)/[PPTX](current/presentation/VOLLEY_BTech_Presentation.pptx), with [900-second speaker notes](current/presentation/SPEAKER_NOTES.md).
+The source-coupled model supports the declared low-speed reference cases. Mission outcomes depend on target family and host authority: the tested preplanned campaigns establish **no propellant or initial wet-mass advantage over ideal ground-pretrimmed springs**. This identifies the installed-resource challenge for subsequent development rather than assuming that adjustable speed alone creates a service advantage.
 
-The latest academic report/deck is [ED3: 58 pages and 17 slides](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis/tree/main/editions/ED3), with [portable sources](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis/blob/main/editions/ED3/README.md) and an [offline presentation handoff](https://github.com/aaaaaaaaaaaavm/VOLLEY-thesis/blob/main/docs/ED2_PRESENTATION_HANDOFF.md). ED3 adds clear visual sequencing and retains the matched-load ANSYS comparison; the nine-page manuscript is not revised by that separate edition.
+The results are computational. Numerical agreement is reported with its shared assumptions; physical release dispersion, reliability, environmental qualification and provider acceptance require measurements and integration evidence.
 
-The geometry, source, structural and logic results establish the declared computational criteria. Physical hardware, payload-interface acceptance, environmental and flight qualification remain subsequent development. The [editorial checklist](current/SUBMISSION_CHECKLIST.md) records the external human-read, venue and academic-administration conditions. No individual research-contribution allocation is asserted.
+## Reproducibility and data
 
-All eight native/STEP/BOM states and the 60-member raw solver supplement are included in this checkout. [Local data and restoration](current/README.md) provide source identities and scratch extraction; the captured conductor solution arrays are also bundled.
+This repository includes the manuscript figures, engineering inputs and source, all eight native CAD/STEP/BOM states, and the indexed 60-member raw solver supplement. Selected numerical examples run from this checkout without the main VOLLEY repository.
 
-[Reproduction and build](current/REPRODUCE.md) · [Scientific figure conventions](docs/FIGURE_STANDARD.md) · [Current verification](VALIDATION_CURRENT.json) · [Citation](CITATION.cff) · [Licensing](LICENSING.md) · [Dated development archive](archive/README.md) · [Release and errata policy](RELEASE_POLICY.md) · [Publication policy](PUBLICATION_POLICY.md)
+1. Follow the [build and reproduction guide](current/REPRODUCE.md).
+2. Use the [chapter/figure map](current/ACADEMIC_MAP.md) to trace claims to local evidence.
+3. Inspect the [full-text prior-art comparison](current/academic/evidence/literature/FEEDER_FULL_TEXT_REVIEW_2026_10_19.md) and [ED1 citation review](current/academic/evidence/literature/ACR1_EDITORIAL_REVIEW.md).
+4. Verify the captured identities with `python3 tools/check_acr1.py`.
 
-The academic cutoff remains **30 October 2026, evening IST**. The report/deck and manuscript retain their respective ED3 and ED1 identities until a separately identified revision or actual cutoff snapshot is issued.
+The [original dated issue](archive/2026-10-24-acr1-original/README.md) preserves the original manuscript and academic source. ED1 corrects bibliography identities while retaining the engineering argument and results. The local [companion report and presentation](current/academic/README.md) document that same capture.
+
+[Scientific figure conventions](docs/FIGURE_STANDARD.md) · [Verification receipt](VALIDATION_CURRENT.json) · [Citation](CITATION.cff) · [Licensing and third-party rights](LICENSING.md) · [Edition and errata policy](RELEASE_POLICY.md)
